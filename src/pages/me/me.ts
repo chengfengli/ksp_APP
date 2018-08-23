@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MessagelistPage } from '../messagelist/messagelist';
+import { AboutPage } from '../about/about';
+import { InfomationlistPage } from '../infomationlist/infomationlist';
 
 @Component({
   selector: 'page-me',
@@ -19,5 +21,10 @@ export class MePage {
   toMessagePage(){
     this.navCtrl.push(MessagelistPage);
   }
-
+  toAbout(){
+    this.navCtrl.push(AboutPage);
+  }
+  toInfoListPage(){
+    this.navCtrl.push(InfomationlistPage);
+  }
 }

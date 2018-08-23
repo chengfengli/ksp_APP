@@ -18,6 +18,9 @@ import { QuestionPage } from '../pages/question/question';
 import { FilePage } from '../pages/file/file';
 import { PipesModule } from '../pipes/pipes.module';
 import { MessagelistPage } from '../pages/messagelist/messagelist';
+import { AboutPage } from '../pages/about/about';
+import { InfomationlistPage } from '../pages/infomationlist/infomationlist';
+import { DetailsPage } from '../pages/details/details';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { MessagelistPage } from '../pages/messagelist/messagelist';
     InformationPage,
     QuestionPage,
     FilePage,
-    MessagelistPage
+    MessagelistPage,
+    AboutPage,
+    InfomationlistPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,10 @@ import { MessagelistPage } from '../pages/messagelist/messagelist';
     InformationPage,
     QuestionPage,
     FilePage,
-    MessagelistPage
+    MessagelistPage,
+    AboutPage,
+    InfomationlistPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,
