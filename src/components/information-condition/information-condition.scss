@@ -1,0 +1,42 @@
+information-condition {
+    .condetion{
+        border-bottom: 1px solid #ccc;
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0,0,0,.3);
+        .condetion-top{
+            padding: 0 10px;
+            display: flex;
+            background-color: #fff;
+            .active{
+                border-bottom: 1px solid #5CE5C7;
+                color: #5CE5C7;
+            }
+        }
+        .list-ios{
+            margin: 0;
+            height: 300px;
+            overflow-y: auto;
+            background-color: #FFF;
+            .active{
+                color: #5CE5C7;
+            }
+        }
+        .btn-box{
+            border-top: 1px solid;
+            padding: 0;
+            .col{
+                padding: 10px;
+            }
+            .reset{
+                color: #5CE5C7;
+                background-color: #FFF;
+            }
+            .confim{
+                background-color: #5CE5C7;
+                color: #fff;
+            }
+        }
+    }
+    
+}

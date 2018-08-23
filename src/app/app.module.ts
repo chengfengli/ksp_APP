@@ -18,6 +18,9 @@ import { QuestionPage } from '../pages/question/question';
 import { FilePage } from '../pages/file/file';
 import { PipesModule } from '../pipes/pipes.module';
 import { MessagelistPage } from '../pages/messagelist/messagelist';
+import { FileAddPage } from '../pages/file-add/file-add';
+import { FileMePage } from '../pages/file-me/file-me';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,15 @@ import { MessagelistPage } from '../pages/messagelist/messagelist';
     InformationPage,
     QuestionPage,
     FilePage,
-    MessagelistPage
+    MessagelistPage,
+    FileAddPage,
+    FileMePage
   ],
   imports: [
     BrowserModule,
     PipesModule,
     HttpModule,
+    ComponentsModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp,{
       backButtonText:'',
@@ -51,7 +57,9 @@ import { MessagelistPage } from '../pages/messagelist/messagelist';
     InformationPage,
     QuestionPage,
     FilePage,
-    MessagelistPage
+    MessagelistPage,
+    FileAddPage,
+    FileMePage
   ],
   providers: [
     StatusBar,

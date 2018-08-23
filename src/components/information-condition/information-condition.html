@@ -1,0 +1,95 @@
+<div class="condetion" [ngStyle]="{'height':height}">
+  <ion-grid class="condetion-top">
+    <ion-row class="font-dark" style="text-align:center;">
+      <ion-col (click)="choice('column')" [ngClass]="currentChoice==='column'? 'active':''"><div>栏目</div></ion-col>
+      <ion-col (click)="choice('tag')" [ngClass]="currentChoice==='tag'? 'active':''"><div>标签</div></ion-col>
+      <ion-col (click)="choice('date')" [ngClass]="currentChoice==='date'? 'active':''"><div>日期</div></ion-col>
+      <ion-col (click)="choice('more')" [ngClass]="currentChoice==='more'? 'active':''"><div>更多</div></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- 栏目条件 -->
+  <div class="plan" *ngIf="currentChoice=='column'">
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label>全部</ion-label>
+        <ion-checkbox item-end></ion-checkbox>
+      </ion-item>
+      <ion-item *ngFor="let item of columns">
+        <ion-label>{{item.name}}</ion-label>
+        <ion-checkbox [checked]="selectColumns.indexOf(item.val)!=-1" (ionChange)="select(selectColumns,item.val)" item-end></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-grid class="btn-box">
+      <ion-row class="font-dark" style="text-align:center;">
+        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- 标签 -->
+  <div class="plan" *ngIf="currentChoice=='tag'">
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label>全部</ion-label>
+        <ion-checkbox item-end></ion-checkbox>
+      </ion-item>
+      <ion-item *ngFor="let item of tags">
+          <ion-label>{{item.name}}</ion-label>
+          <ion-checkbox [checked]="selectTags.indexOf(item.val)!=-1" (ionChange)="select(selectTags,item.val)" item-end></ion-checkbox>
+        </ion-item>
+    </ion-list>
+    <ion-grid class="btn-box">
+      <ion-row class="font-dark" style="text-align:center;">
+        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- 日期 -->
+  <div class="plan" *ngIf="currentChoice=='date'">
+    <ion-list no-lines>
+      <ion-item (click)="slelctDate('')">
+        <ion-label [ngClass]="date===''? 'active':''">全部</ion-label>
+      </ion-item>
+      <ion-item (click)="slelctDate('d')">
+        <ion-label [ngClass]="date==='d'? 'active':''">今天</ion-label>
+      </ion-item>
+      <ion-item (click)="slelctDate('c')">
+        <ion-label [ngClass]="date==='c'? 'active':''">近三天</ion-label>
+      </ion-item>
+      <ion-item (click)="slelctDate('week')">
+        <ion-label [ngClass]="date==='week'? 'active':''">近七天</ion-label>
+      </ion-item>
+      <ion-item (click)="slelctDate('month')">
+        <ion-label [ngClass]="date==='month'? 'active':''">近一月</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-grid class="btn-box">
+      <ion-row class="font-dark" style="text-align:center;">
+        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- 更多 -->
+  <div class="plan" *ngIf="currentChoice=='more'">
+    <ion-list no-lines>
+      <ion-item (click)="selectOther('q')">
+        <ion-label [ngClass]="other==='q'? 'active':''">按发布时间由近到远</ion-label>
+      </ion-item>
+      <ion-item (click)="selectOther('d')">
+        <ion-label [ngClass]="other==='d'? 'active':''">按浏览量由大到小</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-grid class="btn-box">
+      <ion-row class="font-dark" style="text-align:center;">
+        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
