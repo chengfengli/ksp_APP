@@ -3,7 +3,7 @@ page-me {
         background-color: #F9F9F9;
     }
     .top{
-        height: 200px;
+        height: 30%;
         background-color: #464C5B;
         border: 1px solid;
         padding-top: 10px;
@@ -46,11 +46,16 @@ page-me {
     }
 
     .model{
-        padding-top: 30px;
+        // padding-top: 10px;
         background-color: #fff;
         border-bottom: 0.55px solid #c8c7cc;
         .count{
-            color: #1ABCAA;
+            color: #4C5459;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .name{
+            color: #A4A4A5;
         }
     }
     .list-ios{

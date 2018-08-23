@@ -14,6 +14,10 @@ page-login {
         .remeber-passwword.item-ios{
             padding-left: 20px;
         }
+        .show-password{
+            position: absolute;
+            right: 10px;
+        }
         .list .item:nth-child(3){
             margin: 0 0 30px 0;
         }
@@ -23,6 +27,7 @@ page-login {
         .item-ios{
             padding-left: 0;
             background-color: transparent;
+            position: relative;
         }
         // input{
         //     border: 1px solid rgba(255,255,255,0.5);

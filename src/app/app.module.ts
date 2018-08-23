@@ -22,6 +22,10 @@ import { AboutPage } from '../pages/about/about';
 import { InfomationlistPage } from '../pages/infomationlist/infomationlist';
 import { DetailsPage } from '../pages/details/details';
 
+import { FileAddPage } from '../pages/file-add/file-add';
+import { FileMePage } from '../pages/file-me/file-me';
+import { ComponentsModule } from '../components/components.module';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -34,12 +38,15 @@ import { DetailsPage } from '../pages/details/details';
     MessagelistPage,
     AboutPage,
     InfomationlistPage,
-    DetailsPage
+    DetailsPage,
+    FileAddPage,
+    FileMePage
   ],
   imports: [
     BrowserModule,
     PipesModule,
     HttpModule,
+    ComponentsModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp,{
       backButtonText:'',
@@ -60,7 +67,9 @@ import { DetailsPage } from '../pages/details/details';
     MessagelistPage,
     AboutPage,
     InfomationlistPage,
-    DetailsPage
+    DetailsPage,
+    FileAddPage,
+    FileMePage
   ],
   providers: [
     StatusBar,

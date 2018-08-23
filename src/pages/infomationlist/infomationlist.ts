@@ -56,4 +56,8 @@ todetailsPage(){
   this.navCtrl.push(DetailsPage)
 }
 
+getData(res){
+  console.log(res);
+}
+
 }

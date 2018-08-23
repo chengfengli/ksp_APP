@@ -14,6 +14,12 @@ import { HttpProvider } from '../../providers/http/http';
 })
 export class LoginPage {
   private user = new User();
+  // 隐藏显示密码
+  showPwd = false;
+  // 是否记住密码
+  remeberPwd = false;
+  // 密码输入框的类型
+  pwdInputType = 'password';
   constructor(public navCtrl: NavController, public navParams: NavParams,private httpServe: HttpProvider) {
   }
 
@@ -37,7 +43,27 @@ export class LoginPage {
   // 登录
   login(){
     if(this.check()){
+      this.remeberP();
       this.navCtrl.setRoot(TabsPage);
+    }
+  }
+
+  // 隐藏显示密码
+  showPasword(){
+    if(this.showPwd){
+      this.pwdInputType = 'text';
+    }else{
+      this.pwdInputType = 'password';
+    }
+  }
+
+  // 记住密码
+  remeberP(){
+    if(this.remeberPwd){
+      this.httpServe.storageSet('account',this.user.password);
+      this.httpServe.storageSet('pwd',this.user.password);
+    }else{
+      this.httpServe.storageRemove('account');
     }
   }
 
