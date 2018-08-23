@@ -1,0 +1,51 @@
+<!--
+  Generated template for the ReleaseinfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>发布资讯</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>栏目</ion-label>
+      <ion-select  [(ngModel)] = 'rating'  interface='action-sheet'>
+        <ion-option  value ='1' > 栏目1</ion-option>
+        <ion-option  value = '2'> 栏目2</ion-option>
+        <ion-option  value = '3' > 栏目3</ion-option>
+        <ion-option  value = '4'> 栏目4</ion-option>
+        <ion-option  value = '5' > 栏目5</ion-option>
+      </ion-select >
+    </ion-item >
+    <ion-item>
+        <ion-label>标签</ion-label>
+        <ion-select  [(ngModel)] = 'label'  interface='action-sheet'>
+          <ion-option  value ='1' > 标签1</ion-option>
+          <ion-option  value = '2'> 标签2</ion-option>
+          <ion-option  value = '3' > 标签3</ion-option>
+          <ion-option  value = '4'> 标签4</ion-option>
+          <ion-option  value = '5' > 标签5</ion-option>
+        </ion-select >
+    </ion-item >
+    <ion-item>
+        <!-- <ion-label color="primary">Inline Label</ion-label> -->
+        <ion-input placeholder="请输入来源"></ion-input>
+    </ion-item>
+    <ion-item>
+        <!-- <ion-label color="primary">Inline Label</ion-label> -->
+        <ion-input placeholder="请输入资讯标题"></ion-input>
+    </ion-item>
+    <ion-item>
+        <!-- <ion-label color="primary">Inline Label</ion-label> -->
+        <ion-input placeholder="请输入资讯内容"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

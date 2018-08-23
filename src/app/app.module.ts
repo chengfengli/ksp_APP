@@ -25,6 +25,7 @@ import { DetailsPage } from '../pages/details/details';
 import { FileAddPage } from '../pages/file-add/file-add';
 import { FileMePage } from '../pages/file-me/file-me';
 import { ComponentsModule } from '../components/components.module';
+import { ReleaseinfoPage } from '../pages/releaseinfo/releaseinfo';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ComponentsModule } from '../components/components.module';
     InfomationlistPage,
     DetailsPage,
     FileAddPage,
-    FileMePage
+    FileMePage,
+    ReleaseinfoPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { ComponentsModule } from '../components/components.module';
     InfomationlistPage,
     DetailsPage,
     FileAddPage,
-    FileMePage
+    FileMePage,
+    ReleaseinfoPage
   ],
   providers: [
     StatusBar,

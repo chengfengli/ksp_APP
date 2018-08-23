@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { BasePage } from '../base/base';
 import { DetailsPage } from '../details/details';
 import { HttpProvider } from '../../providers/http/http';
+import { ReleaseinfoPage } from '../releaseinfo/releaseinfo';
 
 /**
  * Generated class for the InfomationlistPage page.
@@ -17,6 +18,40 @@ import { HttpProvider } from '../../providers/http/http';
 })
 export class InfomationlistPage  extends BasePage{
   list=[
+    {
+      title:'星期一',
+      time:'2018-8-20',
+      num:100,
+      id:1
+    },
+    {
+      title:'星期二',
+      time:'2018-8-20',
+      num:100,
+      id:2
+    },
+    {
+      title:'星期三',
+      time:'2018-8-20',
+      id:3
+    },
+    {
+      title:'星期一',
+      time:'2018-8-20',
+      num:100,
+      id:1
+    },
+    {
+      title:'星期二',
+      time:'2018-8-20',
+      num:100,
+      id:2
+    },
+    {
+      title:'星期三',
+      time:'2018-8-20',
+      id:3
+    },
     {
       title:'星期一',
       time:'2018-8-20',
@@ -58,5 +93,7 @@ export class InfomationlistPage  extends BasePage{
   getData(res){
     console.log(res);
   }
-
+  releaseEvent(){
+    this.navCtrl.push(ReleaseinfoPage)
+  }
 }
