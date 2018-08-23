@@ -41,23 +41,22 @@ export class InfomationlistPage  extends BasePage{
     //   this.list.push(i);
     // }
   }
- //下拉刷新
- doRefresh(refresher){
-  this.refresher = refresher;
-  if(!this.httpServer.isEmpty(this.infiniteScroll)){
-    this.infiniteScroll.enable(true);
+  //下拉刷新
+  doRefresh(refresher){
+    this.refresher = refresher;
+    if(!this.httpServer.isEmpty(this.infiniteScroll)){
+      this.infiniteScroll.enable(true);
+    }
   }
-}
-delete(id){
-  let num =id-1
-  this.list.splice(num, 1)
-}
-todetailsPage(){
-  this.navCtrl.push(DetailsPage)
-}
-
-getData(res){
-  console.log(res);
-}
+  delete(id){
+    let num =id-1
+    this.list.splice(num, 1)
+  }
+  todetailsPage(){
+    this.navCtrl.push(DetailsPage)
+  }
+  getData(res){
+    console.log(res);
+  }
 
 }

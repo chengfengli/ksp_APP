@@ -1,4 +1,10 @@
 page-infomationlist {
+    .item-ios{
+        padding-left:0;
+    }
+    .label-ios {
+        margin: 11px 8px 11px 15px;
+    }
     .message-list{
         margin-top: 30px;
     }
@@ -11,11 +17,26 @@ page-infomationlist {
         position: relative;
         overflow: hidden;
         height:100px;
+        .msg-pic{
+            height: 80px;
+            overflow: hidden;
+            width: 80px;
+            position: relative;
+            img{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                display: block;
+                min-width: 100%;
+                min-height: 100%;
+                transform:translate(-50%,-50%);
+            }
+        }
         .title{
             white-space: pre-wrap;
             font-size: 16px;
             color:#353535;
-            line-height: 30px;
+            line-height: 24px;
             font-weight: 700;
             overflow: hidden;
             margin-bottom: 25px;
