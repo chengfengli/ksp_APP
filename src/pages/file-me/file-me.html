@@ -5,45 +5,21 @@
       <button (click)="search()" style="background-color: transparent;color: #488aff;">搜索</button>
     </ion-buttons>
   </ion-navbar>
+  
 </ion-header>
 
 
 <ion-content>
-  <information-condition (confirmCall)="getData($event)"></information-condition>
-  <div style="margin-top: 32px;" padding>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-  <p>asfda</p>
-
-  </div>
+  <file-condetion (confirmCall)="getData($event)"></file-condetion>
+  <ul class="data">
+    <li *ngFor="let item of list">
+      <div class="title">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
+      <div class="explain">
+        <span class="user">张三</span>
+        <span class="download">79下载</span>
+        <span class="time">8小时前</span>
+      </div>
+    </li>
+  </ul>
+  <button id="login-btn" ion-button block  type="button" class="font18" [navPush]="addFile">上传文档</button>
 </ion-content>

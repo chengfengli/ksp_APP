@@ -10,7 +10,7 @@ import { FilePage } from '../file/file';
 })
 export class TabsPage {
 
-  tab1Root = MePage;
+  tab1Root = InformationPage;
   tab2Root = QuestionPage;
   tab3Root = FilePage;
   tab4Root = MePage;

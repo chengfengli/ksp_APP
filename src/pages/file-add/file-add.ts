@@ -18,4 +18,11 @@ export class FileAddPage {
     console.log('ionViewDidLoad FileAddPage');
   }
 
+  /**
+   * 保存
+   */
+  saveFile(){
+
+  }
+
 }
