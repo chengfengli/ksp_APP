@@ -1,3 +1,4 @@
+<!-- 文档条件组件 -->
 <div class="condetion" [ngStyle]="{'height':height}">
   <!-- 资讯条件组件 -->
   <ion-grid class="condetion-top">
@@ -5,7 +6,7 @@
       <ion-col (click)="choice('column')" [ngClass]="currentChoice==='column'? 'active':''"><div>栏目</div></ion-col>
       <ion-col (click)="choice('tag')" [ngClass]="currentChoice==='tag'? 'active':''"><div>标签</div></ion-col>
       <ion-col (click)="choice('date')" [ngClass]="currentChoice==='date'? 'active':''"><div>日期</div></ion-col>
-      <ion-col (click)="choice('more')" [ngClass]="currentChoice==='more'? 'active':''"><div>更多</div></ion-col>
+      <ion-col (click)="choice('format')" [ngClass]="currentChoice==='format'? 'active':''"><div>格式</div></ion-col>
     </ion-row>
   </ion-grid>
 
@@ -77,13 +78,19 @@
   </div>
 
   <!-- 更多 -->
-  <div class="plan" *ngIf="currentChoice=='more'">
+  <div class="plan" *ngIf="currentChoice=='format'">
     <ion-list no-lines>
-      <ion-item (click)="selectOther('q')">
-        <ion-label [ngClass]="other==='q'? 'active':''">按发布时间由近到远</ion-label>
+      <ion-item (click)="selectOther('XLS')">
+        <ion-label [ngClass]="format==='XLS'? 'active':''">XLS</ion-label>
       </ion-item>
-      <ion-item (click)="selectOther('d')">
-        <ion-label [ngClass]="other==='d'? 'active':''">按浏览量由大到小</ion-label>
+      <ion-item (click)="selectOther('DOC')">
+        <ion-label [ngClass]="format==='DOC'? 'active':''">DOC</ion-label>
+      </ion-item>
+      <ion-item (click)="selectOther('PPT')">
+        <ion-label [ngClass]="format==='PPT'? 'active':''">PPT</ion-label>
+      </ion-item>
+      <ion-item (click)="selectOther('PDF')">
+        <ion-label [ngClass]="format==='PDF'? 'active':''">PDF</ion-label>
       </ion-item>
     </ion-list>
     <ion-grid class="btn-box">
