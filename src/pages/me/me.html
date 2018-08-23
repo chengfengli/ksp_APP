@@ -1,0 +1,34 @@
+<ion-content>
+  <div class="top">
+    <div class="msg-tips">
+        <span (click)="toMessagePage()">
+          <ion-icon ios="ios-chatboxes" class="font24 msg-tips-ico"></ion-icon>
+          <ion-badge item-start color="danger">1</ion-badge>
+        </span>
+    </div>
+    <div class="user-info">
+      <div class="photo"><img src="assets/imgs/user.png"></div>
+      <div class="info">
+        <span class="user-name font18">张三</span>
+        <div class="position">java开发工程师</div>
+      </div>
+    </div>
+  </div>
+
+  <ion-grid class="model">
+    <ion-row class="font-dark" style="text-align:center;">
+      <ion-col><div class="count font18">30</div><div class="name font12">咨讯</div></ion-col>
+      <ion-col><div class="count font18">30</div><div class="name font12">问答</div></ion-col>
+      <ion-col><div class="count font18">30</div><div class="name font12">文档</div></ion-col>
+      <ion-col><div class="count font18">30</div><div class="name font12">积分</div></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <button ion-item class="font14">我的收藏</button>
+    <button ion-item class="font14">反馈建议</button>
+    <button ion-item class="font14">关于我们</button>
+    <button ion-item class="font14">系统设置</button>
+  </ion-list>
+  
+</ion-content>

@@ -1,0 +1,82 @@
+page-login {
+    .head-photo{
+        border: 1px solid red;
+        width: 100px;
+        height: 100px;
+        margin: 30% auto 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    form{
+        .user-name,.password{
+            border: 1px solid #ccc;
+        }
+        .remeber-passwword.item-ios{
+            padding-left: 20px;
+        }
+        .list .item:nth-child(3){
+            margin: 0 0 30px 0;
+        }
+        .list-ios > .item-block:first-child,.list-ios .item-block .item-inner,.item-ios.item-block .item-inner{
+            border: 0;
+        }
+        .item-ios{
+            padding-left: 0;
+            background-color: transparent;
+        }
+        // input{
+        //     border: 1px solid rgba(255,255,255,0.5);
+        //     border-radius: 16px;
+        //     color: rgba(255,255,255,0.5);
+        // }
+        .text-input-ios{
+            margin: 0;
+            padding: 7px 10px 7px 40px;
+            width: 100%;
+        }
+
+        ::-webkit-input-placeholder{
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        :-moz-placeholder {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        ::-moz-placeholder {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        :-ms-input-placeholder {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        // input:focus{
+        //     border: 1px solid rgba(255,255,255,1);
+        //     color: rgba(255,255,255,1);
+        //     ::-webkit-input-placeholder {
+        //         color: rgba(255,255,255,1);
+        //     }
+        //     :-moz-placeholder {
+        //         color: rgba(255,255,255,1);
+        //     }
+        //     ::-moz-placeholder {
+        //         color: rgba(255,255,255,1);
+        //     }
+        //     :-ms-input-placeholder {
+        //         color: rgba(255,255,255,1);
+        //     }
+        // }
+        .user-name{
+            // background: url(../assets/imgs/user@2x.png) 15px center no-repeat;
+            background-size: 14px 16px;
+        }
+        .password{
+            // background: url(../assets/imgs/password@2x.png) 15px center no-repeat;
+            background-size: 14px 16px;
+        }
+        .button-ios{
+            height: 44px;
+        }
+    }
+}

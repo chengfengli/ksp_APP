@@ -1,0 +1,7 @@
+{
+  "name": "ksp-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <ion-searchbar placeholder="请输入要搜索的内容"></ion-searchbar>
+    <ion-buttons end>
+      <button (click)="search()" style="background-color: transparent;color: #488aff;">搜索</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<div class="quick" *ngIf="flag">
+  <div class="hot-search">
+    <div class="font16" style="font-weight: bold;">热搜</div>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">鼠标</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">鼠标</span>
+    <span class="hot-word">鼠标</span>
+    <span class="hot-word">鼠标</span>
+    <span class="hot-word">鼠标</span>
+  </div>
+  <div style="background-color: #ccc;height: 20px;"></div>
+  <div class="history-search">
+    <div class="font16" style="font-weight: bold;">历史搜索</div>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">鼠标</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">U盘</span>
+    <span class="hot-word">鼠标</span>
+    <span class="hot-word">鼠标</span>
+    <span class="hot-word">鼠标</span>
+    <span class="hot-word">鼠标</span>
+  </div>
+  <button ion-button block color="light" style="width: 90%;margin: 30px auto 0 auto;">清空历史</button>
+</div>
+<div *ngIf="!flag">
+  <div class="list-top">
+    <div class="top1">综合</div>
+    <div class="top1">销量</div>
+    <div class="top1">价格</div>
+    <div class="top1">筛选</div>
+  </div>
+  
+</div>
+<ion-content *ngIf="!flag">
+  <div class="item" *ngFor="let item of porducts">
+    <div class="img">
+      <img [src]="item.img">
+    </div>
+    <div class="remarke">
+      <div class="remarke-txt">
+          发的阿斯顿发生啊手动阀手动阀手动阀啊手动阀手动阀发的阿斯顿发生啊手动阀手动阀手动阀啊手动阀手动阀
+      </div>
+      <div class="price">
+        <div style="color: #f53d3d;font-size: 16px;">
+          <span style="font-size: 12px;">￥</span>7000.00
+        </div>
+        <div style="color: #ccc;">
+            7500条评价 96%好评
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

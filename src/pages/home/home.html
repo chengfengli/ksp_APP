@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-searchbar placeholder="请输入要搜索的内容" (tap)="goSearch()"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager>
+    <ion-slide style="background-color: green">
+      <img src="./assets/imgs/slide03.jpg">
+    </ion-slide>
+    <ion-slide style="background-color: blue">
+      <img src="./assets/imgs/slide02.png">
+    </ion-slide>
+    <ion-slide style="background-color: red">
+      <img src="./assets/imgs/slide03.jpg">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row class="font-dark" style="text-align:center;">
+      <ion-col><img src="./assets/imgs/slide03.jpg"><div>发布咨讯</div></ion-col>
+      <ion-col><img src="./assets/imgs/slide03.jpg"><div>我要提问</div></ion-col>
+      <ion-col><img src="./assets/imgs/slide03.jpg"><div>我的收藏</div></ion-col>
+      <ion-col><img src="./assets/imgs/slide03.jpg"><div>今日签到</div></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="panl integral">
+    <div>
+      <span class="title">积分排行</span>
+      <span class="view-all-btn">查看全部</span>
+    </div>
+    <ion-scroll class="integral-list" scrollX="true">
+      <ul [ngStyle]="{'width':porducts_width}">
+        <li *ngFor="let item of porducts" (click)="pdetail()">
+          <img [src]="item.img">
+          <p>{{item.name}}</p>
+        </li>
+      </ul>
+    </ion-scroll>
+  </div>
+
+  <div class="panl">
+    <div>
+      <span class="title">为你推荐</span>
+      <span>资讯</span>
+      <span>问答</span>
+    </div>
+    <ion-list>
+      <ion-item *ngFor="let item of porducts">
+        <ion-thumbnail item-end>
+          <img src="./assets/imgs/03.jpg">
+        </ion-thumbnail>
+        <h2>My Neighbor Totoro</h2>
+        <p>Hayao Miyazaki • 1988</p>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

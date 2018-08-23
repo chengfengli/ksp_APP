@@ -1,0 +1,55 @@
+page-search {
+    background-color: #f8f8f8;
+    padding-top: 52px;
+    .quick{
+        .history-search,.hot-search{
+            padding: 10px;
+        }
+        .hot-word{
+            display: inline-block;
+            background-color: #eee;
+            padding: 1px 9px;
+            border-radius: 13px;
+            margin: 15px 5px 0 5px;
+            color: #353535;
+        }
+    }
+    .list-top{
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        .top1{
+            flex: 1;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+    .item{
+        display: flex;
+        padding: 10px 0;
+        .img{
+             width: 110px;
+            font-size: 0;
+            padding: 0 10px;
+        }
+        .remarke{
+            flex: 1;
+            position: relative;
+            .remarke-txt{
+                overflow: hidden;
+                height: 41px;
+                font-size: 16px;
+            }
+            .price{
+                position: absolute;
+                bottom: 0;
+            }
+        }
+    }
+    .content-ios{
+        margin-top: 95px;
+        .scroll-content{
+            padding-bottom: 95px;
+        }
+    }
+}

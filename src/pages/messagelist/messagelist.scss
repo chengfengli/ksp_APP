@@ -1,0 +1,46 @@
+page-messagelist {
+    .content-ios{
+        background-color: #F5F5F6;
+        .message-list{
+            padding: 10px;
+            display: flex;
+            border-top: 1px solid #E7E7E8;
+            border-bottom: 1px solid #E7E7E8;
+            background-color: #fff;
+            margin-top: 10px;
+            .head-photo img{
+                width: 200px;
+            }
+            .txt{
+                padding-left: 10px;
+                .font16{
+                    font-weight: bold;
+                    position: relative;
+                }
+                .name{
+                    color: #0199FF;
+                }
+                .unread{
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    background-color: red;
+                    border-radius: 50%;
+                    position: absolute;
+                    right: 0;
+                    top: 5px;
+                }
+                .content{
+                    color: #989898;
+                    margin-top: 10px;
+                    height: 40px;
+                    overflow: hidden;
+                }
+                .time{
+                    color: #C8C8C8;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
