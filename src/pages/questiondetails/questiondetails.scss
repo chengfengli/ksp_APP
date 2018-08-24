@@ -1,4 +1,7 @@
 page-questiondetails {
+    .scroll-content{
+        background: #F2F2F2;
+    }
     .icon-list{
         position: fixed;
         top:15px;
@@ -7,5 +10,101 @@ page-questiondetails {
             display:inline-block;
             margin-left: 10px;
         }
+    }
+    header{
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        background: #ffffff;
+        .title{
+            line-height: 24px;
+            color:$fontgray;
+            margin-top: 0;
+            letter-spacing: 1px;
+            span{
+                color:$fontsecondary;
+            }
+        }
+        .tag-list{
+            margin-bottom: 10px;
+            li{
+                float: left;
+                padding: 3px 10px;
+                border-radius: 12px;
+                border: 1px solid #A4A4A5;
+                color: #A4A4A5;
+                margin-right: 10px;
+            }
+        }
+        .decri{
+            position: relative;
+            height:24px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            p{
+                width: 80%;
+                line-height: 24px;
+                color:$fontgray;
+            }
+            .toggle-btn{
+                position: absolute;
+                right:0;
+                top:4px;
+            }
+        }
+        .base-msg{
+            height: 30px;
+            .button-ios{
+                margin: 0;
+                height:30px;
+            }
+            .ques-msg{
+                float: right;
+                line-height: 30px;
+                color:$fontgray;
+                font-size: 12px;
+                span{
+                    display: inline-block;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+    .questioncon{
+        background:#fff;
+        .total{
+            line-height:30px;
+            color:$fontdark;
+            font-size: 14px;
+            border-bottom:1px solid #ccc;
+            padding-left:15px;
+        }
+        .item{
+            .card-ios{
+                margin: 0;
+                width:100%;
+                padding:10px 15px;
+                border-bottom: 1px solid #ccc;
+            }
+            .card-content-ios{
+                padding:0 0 16px;
+            }
+            .row{
+                width:45%;
+                float: right;
+                .col{
+                    width: 50%;
+                }
+            }
+            .good-answer{
+                position: absolute;
+                right: 0;
+                top: 10px;
+                background: #1ABC9C;
+                padding: 6px;
+                color: #fff;
+                border-radius: 7px;
+            }
+        }
+        
     }
 }

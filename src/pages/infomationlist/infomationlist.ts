@@ -84,8 +84,7 @@ export class InfomationlistPage  extends BasePage{
     }
   }
   delete(id){
-    let num =id-1
-    this.list.splice(num, 1)
+    this.list.splice(id, 1)
   }
   todetailsPage(){
     this.navCtrl.push(DetailsPage)

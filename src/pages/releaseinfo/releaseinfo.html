@@ -16,7 +16,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label>栏目</ion-label>
+      <!-- <ion-label>栏目</ion-label>
       <ion-select  [(ngModel)] = 'column'  interface='action-sheet'>
         <ion-option  value ='1' > 栏目1</ion-option>
         <ion-option  value = '2'> 栏目2</ion-option>
@@ -24,6 +24,12 @@
         <ion-option  value = '4'> 栏目4</ion-option>
         <ion-option  value = '5' > 栏目5</ion-option>
       </ion-select >
+    </ion-item > -->
+     <!-- <button ion-item (click)="showColumn=true" class="font14">
+        <span *ngIf="column.length==0" class="placeholder">请选择栏目</span>
+        <span *ngIf="column.length!=0">{{column}}</span>
+      </button> -->
+      <ion-input placeholder="请选择栏目" [(ngModel)]="colum" (click)="showColumn=true" readonly></ion-input>
     </ion-item >
     <ion-item>
       <ion-label>标签</ion-label>
@@ -55,3 +61,6 @@
     <a href='javascript:void(0)' (click)='releaseEvent()'>发布</a>
   </footer> 
 </ion-content>
+<div class="bg" *ngIf="showColumn">
+  <colum-list (confirm)="getColumn($event)" (cancel)="closeColumn()"></colum-list>
+</div>

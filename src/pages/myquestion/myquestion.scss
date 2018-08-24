@@ -1,9 +1,9 @@
 page-myquestion {
     .data{
         margin-top: 26px;
-        li{
-            border-bottom: 1px solid #ccc;
+        .label-ios{
             padding: 10px 15px;
+            margin: 0;
             .title{
                 font-size: 14px;
                 color:$fontdark;

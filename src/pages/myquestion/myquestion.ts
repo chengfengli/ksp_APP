@@ -22,10 +22,12 @@ export class MyquestionPage {
   }
 
   getData(res){
-    console.log(res);
+    console.log(res+' 23');
   }
   toQuestionDetails() {
-    this.navCtrl.push(QuestiondetailsPage)
+    this.navCtrl.push(QuestiondetailsPage)   
   }
-
+  deleteEvent(index){
+    this.list.splice(index, 1);
+  }
 }
