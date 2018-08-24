@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>我的积分</ion-title>
+    <ion-buttons end>
+      <button style="background-color: transparent;">搜索</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="top">
+    <div class="integral font24">1000</div>
+    <p>当前积分</p>
+  </div>
+
+  <div class="top2">
+    <div class="date-box"><ion-datetime cancelText="取消" doneText="确定"  displayFormat="YYYY-MM" pickerFormat="YYYY-MM" [(ngModel)]="currentDate"></ion-datetime></div>
+    <div class="mode">
+      <span [ngClass]="model==='all'? 'active':''" (click)="getModel('all')">全部</span>
+      <span [ngClass]="model==='in'? 'active':''" (click)="getModel('in')">收入</span>
+      <span [ngClass]="model==='out'? 'active':''" (click)="getModel('out')">支出</span>
+    </div>
+  </div>
+
+  <ion-list class="integral-list">
+    <ion-item *ngFor="let item of list">
+      <div class="integral-item">
+        <div class="txt">
+            <div class="font14"><span>上传资讯</span>啊撒旦发射点发撒地方啊撒旦发射点发撒地方啊撒旦发射点发撒地方</div>
+            <div class="add-time font12">2018-08-20</div>
+        </div>
+        <div class="val red-color">+5</div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

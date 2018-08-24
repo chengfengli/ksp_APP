@@ -1,6 +1,8 @@
 ///<reference path="../../yntree/yntree.d.ts"/>
 import { Component } from '@angular/core';
-
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { File } from '@ionic-native/file';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -22,7 +24,8 @@ export class FileAddPage {
   depStr = '';
   // 标签
   tagStr = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  fileURL = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams,private transfer: FileTransfer, private file: File,private fileChooser: FileChooser) {
     
   }
 
@@ -30,8 +33,36 @@ export class FileAddPage {
     console.log('ionViewDidLoad FileAddPage');
   }
 
-  count(){
-    console.log(1)
+  /**
+   * 选择本地文件
+   */
+  chooserFile(){
+    this.fileChooser.open().then(uri => {
+      this.fileURL = uri;
+    }).catch(e => {
+      alert(e)
+    })
+  }
+
+
+  /**
+   * 上传文件
+   */
+  upload(){
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    let options: FileUploadOptions  = {
+      fileKey: 'file',
+      fileName: 'name.jpg',  // 文件类型
+      headers: {},
+      params: {}
+    }
+    fileTransfer.upload('<file path>', '<api endpoint>', options)
+    .then((data) => {
+      // success
+    }, (err) => {
+      // error
+    })
+    
   }
 
   /**
