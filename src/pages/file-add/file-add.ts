@@ -1,4 +1,6 @@
+///<reference path="../../yntree/yntree.d.ts"/>
 import { Component } from '@angular/core';
+
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -10,8 +12,9 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'file-add.html',
 })
 export class FileAddPage {
-
+  colum = '';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
   ionViewDidLoad() {
@@ -22,7 +25,7 @@ export class FileAddPage {
    * 保存
    */
   saveFile(){
-
+    
   }
 
 }

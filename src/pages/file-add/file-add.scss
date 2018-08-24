@@ -1,3 +1,16 @@
 page-file-add {
-
+    .tips{
+        color: #ccc;
+    }
+    .add-file-btn{
+        border: 1px solid #ccc;
+        color: #ccc;
+        background-color: #fff;
+        width: 100px;
+        text-align: center;
+        padding: 40px 0;
+    }
+    ion-select{
+        max-width: 100%;
+    }
 }
