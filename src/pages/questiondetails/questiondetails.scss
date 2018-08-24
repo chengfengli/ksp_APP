@@ -69,4 +69,42 @@ page-questiondetails {
             }
         }
     }
+    .questioncon{
+        background:#fff;
+        .total{
+            line-height:30px;
+            color:$fontdark;
+            font-size: 14px;
+            border-bottom:1px solid #ccc;
+            padding-left:15px;
+        }
+        .item{
+            .card-ios{
+                margin: 0;
+                width:100%;
+                padding:10px 15px;
+                border-bottom: 1px solid #ccc;
+            }
+            .card-content-ios{
+                padding:0 0 16px;
+            }
+            .row{
+                width:45%;
+                float: right;
+                .col{
+                    width: 50%;
+                }
+            }
+            .good-answer{
+                position: absolute;
+                right: 0;
+                top: 10px;
+                background: #1ABC9C;
+                padding: 6px;
+                color: #fff;
+                border-radius: 7px;
+            }
+        }
+        
+    }
 }

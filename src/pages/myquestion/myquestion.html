@@ -11,8 +11,34 @@
 
 <ion-content>
   <file-condetion (confirmCall)="getData($event)"></file-condetion>
-  <ul class="data">
-      <li *ngFor="let item of list" (click)='toQuestionDetails()'>
+  <ion-list class="data">
+    <ion-item-sliding *ngFor="let item of list;let key =index" >
+      <ion-item (click)='toQuestionDetails()'>
+          <div class="title">
+              <span class='reward'>20分</span>
+              今天天气热吗
+            </div>
+            <p class='decri'>能详细描述一下解决方案吗</p>
+            <div class='base-msg clearfix'>
+              <p class='adopt'>
+                <ion-icon name="checkmark"></ion-icon>
+                <span>已采纳</span>
+              </p>
+              <ol class='ques-msg clearfix'>
+                <li>张三23</li>
+                <li>99回答</li>
+                <li>一小时前</li>
+              </ol>
+            </div>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)='deleteEvent(key)'>删除</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <!-- <ul class="data">
+      
+      <li *ngFor="let item of list" >
         <div class="title">
           <span class='reward'>20分</span>
           今天天气热吗
@@ -31,5 +57,5 @@
 
         </div>
       </li>
-    </ul>
+    </ul> -->
 </ion-content>

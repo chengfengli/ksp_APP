@@ -14,8 +14,12 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class QuestiondetailsPage {
   height = '';
-  action = '展开'
+  action = '展开';
+  list = []
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    for(let i=0;i<3;i++){
+      this.list.push(i);
+    }
   }
   collecEvent(){
     console.log(32)

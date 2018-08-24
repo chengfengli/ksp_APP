@@ -116,3 +116,11 @@ ion-datetime,ion-select{
 ul{
     padding: 0;
 }
+
+/*半透明背景*/
+.bg{
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    position: relative;
+    z-index: 100;
+}

@@ -9,7 +9,7 @@
 </ion-header>
 <ion-content>
   <header>
-    <h2 class=title><span>[100分]</span>如果你的家人或朋友不支持你的决定,你任会我行我素吗</h2>
+    <h3 class=title><span>[100分]</span>如果你的家人或朋友不支持你的决定,你任会我行我素吗</h3>
     <ul class='tag-list clearfix'>
       <li>标签1</li>
       <li>标签2</li>
@@ -30,9 +30,36 @@
     </div>
   </header>
   <div class="questioncon">
-    <p>共99条回答</p>
-    <div class='item'>
+    <p class='total'>共99条回答</p>
+    <div class='item' *ngFor="let item of list">
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/imgs/04.jpg">
+          </ion-avatar>
+          <h2>张三</h2>
+          <p>2018-8-24</p>
+          <p class='good-answer'>最佳答案</p>
+        </ion-item>
+        <ion-card-content>
+          <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+        </ion-card-content>
       
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>赞(6)</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>评论(4)</div>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
     </div>
   </div>
 </ion-content>

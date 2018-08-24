@@ -26,7 +26,8 @@ export class MyquestionPage {
   }
   toQuestionDetails() {
     this.navCtrl.push(QuestiondetailsPage)   
-
   }
-
+  deleteEvent(index){
+    this.list.splice(index, 1);
+  }
 }
