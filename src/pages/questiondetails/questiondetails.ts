@@ -13,10 +13,21 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'questiondetails.html',
 })
 export class QuestiondetailsPage {
-
+  height = '';
+  action = '展开'
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   collecEvent(){
     console.log(32)
+  }
+  toggleEvent(){
+    if(this.action == '展开'){
+      this.height = 'auto';
+      this.action = '收起'
+    }else{
+      this.height = '24px';
+      this.action = '展开'
+    }
+    
   }
 }
