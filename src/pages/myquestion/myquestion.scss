@@ -1,0 +1,55 @@
+page-myquestion {
+    .data{
+        margin-top: 26px;
+        li{
+            border-bottom: 1px solid #ccc;
+            padding: 10px 15px;
+            .title{
+                font-size: 14px;
+                color:$fontdark;
+                margin-bottom: 8px;
+                .reward{
+                    color:$fontsecondary;
+                }
+            }
+            .decri{
+                line-height: 24px;
+                color:$fontgray;
+                font-size:14px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .base-msg{
+                position: relative;
+                height:24px;
+                .adopt{
+                    position: absolute;
+                    left:0;
+                    bottom:0;
+                    color:$fontsecondary;
+                    font-size: 12px;
+                    line-height: 24px;
+                    ion-icon{
+                        font-size:2.4rem;
+                    }
+                }
+                .ques-msg{
+                    position: absolute;
+                    right:0;
+                    bottom:0;
+                    li{
+                        float: left;
+                        border-bottom: none;
+                        padding: 0;
+                        margin-left: 10px;
+                        line-height: 24px;
+                        color:$fontgray;
+                    }
+                }
+            }
+        }
+    }
+}

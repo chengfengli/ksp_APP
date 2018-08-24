@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-searchbar placeholder="输入要搜索的内容"></ion-searchbar>
+    <ion-buttons end>
+      <button (click)="search()" style="background-color: transparent;color: #488aff;">搜索</button>
+    </ion-buttons>
+  </ion-navbar>
+    
+  </ion-header>
+
+
+<ion-content>
+  <file-condetion (confirmCall)="getData($event)"></file-condetion>
+  <ul class="data">
+      <li *ngFor="let item of list" (click)='toQuestionDetails()'>
+        <div class="title">
+          <span class='reward'>20分</span>
+          今天天气热吗
+        </div>
+        <p class='decri'>能详细描述一下解决方案吗</p>
+        <div class='base-msg clearfix'>
+          <p class='adopt'>
+            <ion-icon name="checkmark"></ion-icon>
+            <span>已采纳</span>
+          </p>
+          <ol class='ques-msg clearfix'>
+            <li>张三</li>
+            <li>99回答</li>
+            <li>一小时前</li>
+          </ol>
+
+        </div>
+      </li>
+    </ul>
+</ion-content>

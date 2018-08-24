@@ -18,7 +18,7 @@
   <ion-grid class="model">
     <ion-row class="font-dark" style="text-align:center;">
       <ion-col (click)="toInfoListPage()"><div class="count font18">30</div><div class="name font12">咨讯</div></ion-col>
-      <ion-col><div class="count font18">30</div><div class="name font12">问答</div></ion-col>
+      <ion-col (click)="toMyQuestion()"><div class="count font18">30</div><div class="name font12">问答</div></ion-col>
       <ion-col [navPush]="myFile"><div class="count font18">30</div><div class="name font12">文档</div></ion-col>
       <ion-col><div class="count font18">30</div><div class="name font12">积分</div></ion-col>
     </ion-row>

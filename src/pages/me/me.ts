@@ -5,6 +5,8 @@ import { AboutPage } from '../about/about';
 import { InfomationlistPage } from '../infomationlist/infomationlist';
 import { FileMePage } from '../file-me/file-me';
 import { AdvicePage } from '../advice/advice';
+import { MyApp } from '../../app/app.component';
+import { MyquestionPage } from '../myquestion/myquestion';
 
 @Component({
   selector: 'page-me',
@@ -35,5 +37,9 @@ export class MePage {
   //跳转到反馈建议
   toAdvice() {
     this.navCtrl.push(AdvicePage);
+  }
+  //跳转到我的问答
+  toMyQuestion() {
+    this.navCtrl.push(MyquestionPage);
   }
 }
