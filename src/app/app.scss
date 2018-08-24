@@ -107,3 +107,12 @@ ion-datetime,ion-select{
 .succ .toast-wrapper{
     background-color: #5FB878;
 }
+
+/*修改默认样式*/
+// 去除ion-list左侧padding
+.item-ios{
+    padding-left: 0;
+}
+ul{
+    padding: 0;
+}

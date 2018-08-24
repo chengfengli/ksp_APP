@@ -5,6 +5,48 @@
 </ion-header>
 
 <ion-content>
-  
+  <div class="file-box" padding>
+    <p class="tips">上传的文档最大支持50M</p>
+    <div class="add-file-btn">
+      <span>添加文档</span>
+    </div>
+  </div>
+  <div style="border-top: .5px solid #ccc;">
+      <ion-input type="text" maxLength="50" placeholder="请输入文档标题"></ion-input>
+      <div style="text-align:right;">0/50</div>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-select [(ngModel)]="colum" class="block font14" placeholder="请选择栏目">
+        <ion-option value="nes">NES</ion-option>
+        <ion-option value="n64">Nintendo64</ion-option>
+        <ion-option value="ps">PlayStation</ion-option>
+        <ion-option value="genesis">Sega Genesis</ion-option>
+        <ion-option value="saturn">Sega Saturn</ion-option>
+        <ion-option value="snes">SNES</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select class="block font14" placeholder="请选择标签">
+        <ion-option value="nes">NES</ion-option>
+        <ion-option value="n64">Nintendo64</ion-option>
+        <ion-option value="ps">PlayStation</ion-option>
+        <ion-option value="genesis">Sega Genesis</ion-option>
+        <ion-option value="saturn">Sega Saturn</ion-option>
+        <ion-option value="snes">SNES</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select class="block font14" placeholder="请选择可见部门">
+        <ion-option value="nes">NES</ion-option>
+        <ion-option value="n64">Nintendo64</ion-option>
+        <ion-option value="ps">PlayStation</ion-option>
+        <ion-option value="genesis">Sega Genesis</ion-option>
+        <ion-option value="saturn">Sega Saturn</ion-option>
+        <ion-option value="snes">SNES</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
   <button id="login-btn" ion-button block  type="button" class="font18" (click)="saveFile()">上传文档</button>
+  <department-tree></department-tree>
 </ion-content>
