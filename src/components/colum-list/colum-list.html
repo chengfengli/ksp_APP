@@ -1,0 +1,19 @@
+<div class="column-list">
+  <div class="top">
+    <ion-navbar>
+      <ion-buttons start>
+        <button (click)="cancelFun()" style="background-color: transparent;color: #488aff;">取消</button>
+      </ion-buttons>
+      <ion-title>选择栏目</ion-title>
+      <ion-buttons end>
+        <button (click)="confirmFun()" style="background-color: transparent;color: #488aff;">确定</button>
+      </ion-buttons>
+    </ion-navbar>
+  </div>
+  <ion-list class="list" radio-group [(ngModel)]="selectColumns" no-lines>
+    <ion-item *ngFor="let item of columns">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-radio [value]="item.val" item-end></ion-radio>
+    </ion-item>
+  </ion-list>
+</div>

@@ -1,0 +1,14 @@
+colum-list {
+    .column-list{
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        .list{
+            padding: 0 10px;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 0;
+        }
+    }
+}
