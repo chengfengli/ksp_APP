@@ -1,0 +1,92 @@
+
+page-advice {
+    .advisePage{
+        .question-type{
+            .title{
+                line-height:30px;
+                color:$fontgray;
+            }
+            .type-item{
+                padding:0 10px;
+                height: 24px;
+                line-height: 24px;
+                border:1px solid $fontsecondary;
+                color:$fontsecondary;
+                border-radius: 4px;
+                margin-right: 10px;
+            }
+            .type-item:last-child{
+                margin-right: 0;
+            }
+            .active{
+                background: $fontsecondary;
+                color:#fff !important;
+            }
+        }
+        .advice-con{
+            .title{
+                line-height:30px;
+                color:$fontgray;
+            }
+            textarea{
+                background:#fff;
+                width:100%;
+                min-height:200px;
+                font-size:14px;
+                border-radius:4px;
+                padding:10px;
+                border:1px solid $fontgray;
+            }
+        }
+        .upload-pic{
+            .title{
+                line-height:30px;
+                color:$fontgray;
+            }
+            .pic-list{
+                li{
+                    width: 100px;
+                    height:100px;
+                    overflow: hidden;
+                    a{
+                        display:inline-block;
+                        width: 100%;
+                        height:100%;
+                        border:1px solid $fontgray;
+                        text-align: center;
+                        color:$fontgray;
+                        position: relative;                   
+                        ion-icon{
+                            font-size: 3.4rem;
+                            position: absolute;
+                            top: 24%;
+                            left: 38%;
+                        }
+                        p{
+                            position: absolute;
+                            top: 55%;
+                            left: 28%;
+                        }
+                    }
+                }
+            }
+        }
+        footer{
+            width:100%;
+            margin:20px 0;
+            text-align: center;
+            a{
+                display: inline-block;
+                width:80%;
+                height:30px;
+                line-height: 30px;
+                background:#1ABC9C;
+                color:#fff;
+                text-align: center;
+                font-size: 14px;
+                text-decoration: none;
+                border-radius: 4px;
+            }
+        }
+    }
+}

@@ -17,7 +17,7 @@
   <ion-list>
     <ion-item>
       <ion-label>栏目</ion-label>
-      <ion-select  [(ngModel)] = 'rating'  interface='action-sheet'>
+      <ion-select  [(ngModel)] = 'column'  interface='action-sheet'>
         <ion-option  value ='1' > 栏目1</ion-option>
         <ion-option  value = '2'> 栏目2</ion-option>
         <ion-option  value = '3' > 栏目3</ion-option>
@@ -26,26 +26,32 @@
       </ion-select >
     </ion-item >
     <ion-item>
-        <ion-label>标签</ion-label>
-        <ion-select  [(ngModel)] = 'label'  interface='action-sheet'>
-          <ion-option  value ='1' > 标签1</ion-option>
-          <ion-option  value = '2'> 标签2</ion-option>
-          <ion-option  value = '3' > 标签3</ion-option>
-          <ion-option  value = '4'> 标签4</ion-option>
-          <ion-option  value = '5' > 标签5</ion-option>
-        </ion-select >
-    </ion-item >
-    <ion-item>
-        <!-- <ion-label color="primary">Inline Label</ion-label> -->
-        <ion-input placeholder="请输入来源"></ion-input>
+      <ion-label>标签</ion-label>
+      <ion-select [(ngModel)]="tags" multiple="true">
+        <ion-option>标签1</ion-option>
+        <ion-option>标签2</ion-option>
+        <ion-option>标签3</ion-option>
+        <ion-option>标签4</ion-option>
+        <ion-option>标签5</ion-option>
+        <ion-option>标签6</ion-option>
+      </ion-select>
     </ion-item>
     <ion-item>
-        <!-- <ion-label color="primary">Inline Label</ion-label> -->
-        <ion-input placeholder="请输入资讯标题"></ion-input>
+      <ion-input placeholder="请输入来源" [(ngModel)]="resource"></ion-input>
     </ion-item>
     <ion-item>
-        <!-- <ion-label color="primary">Inline Label</ion-label> -->
-        <ion-input placeholder="请输入资讯内容"></ion-input>
+      <ion-input placeholder="请输入资讯标题" [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <textarea placeholder="请输入资讯内容" class="con" [(ngModel)]="con"></textarea>
+      <!-- 上传图片 -->
+      <div class='upload-pic'>
+        <ion-icon name="images"></ion-icon>
+        <p class='pic-num'><span>0</span>/2000</p>
+      </div>
     </ion-item>
   </ion-list>
+  <footer>
+    <a href='javascript:void(0)' (click)='releaseEvent()'>发布</a>
+  </footer> 
 </ion-content>
