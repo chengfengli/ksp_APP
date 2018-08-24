@@ -17,30 +17,24 @@
   </div>
 
   <ion-list>
-    <ion-item>
-      <ion-select [(ngModel)]="colum" class="block font14" placeholder="请选择栏目">
-        <ion-option value="nes">NES</ion-option>
-        <ion-option value="n64">Nintendo64</ion-option>
-        <ion-option value="ps">PlayStation</ion-option>
-        <ion-option value="genesis">Sega Genesis</ion-option>
-        <ion-option value="saturn">Sega Saturn</ion-option>
-        <ion-option value="snes">SNES</ion-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-select class="block font14" placeholder="请选择标签">
-        <ion-option value="nes">NES</ion-option>
-        <ion-option value="n64">Nintendo64</ion-option>
-        <ion-option value="ps">PlayStation</ion-option>
-        <ion-option value="genesis">Sega Genesis</ion-option>
-        <ion-option value="saturn">Sega Saturn</ion-option>
-        <ion-option value="snes">SNES</ion-option>
-      </ion-select>
-    </ion-item>
-    <button ion-item (click)="showDep=true" class="font14">{{depStr}}</button>
+    <button ion-item (click)="showColumn=true" class="font14">
+      <span *ngIf="colum.length==0" class="placeholder">请选择栏目</span>
+      <span *ngIf="colum.length!=0">{{colum}}</span>
+    </button>
+    <button ion-item (click)="showDep=true" class="font14">
+      <span *ngIf="tagStr.length==0" class="placeholder">请选择标签</span>
+      <span *ngIf="tagStr.length!=0">{{tagStr}}</span>
+    </button>
+    <button ion-item (click)="showDep=true" class="font14">
+      <span *ngIf="depStr.length==0" class="placeholder">选择可见部门</span>
+      <span *ngIf="depStr.length!=0">{{depStr}}</span>
+    </button>
   </ion-list>
   <button id="login-btn" ion-button block  type="button" class="font18" (click)="saveFile()">上传文档</button>
 </ion-content>
 <div class="bg" *ngIf="showDep">
     <department-tree (confirm)="getDeps($event)" (cancel)="closeDep()"></department-tree>
+</div>
+<div class="bg" *ngIf="showColumn">
+  <colum-list (confirm)="getColumn($event)" (cancel)="closeColumn()"></colum-list>
 </div>
