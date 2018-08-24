@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { FileChooser } from '@ionic-native/file-chooser';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -29,6 +32,7 @@ import { ReleaseinfoPage } from '../pages/releaseinfo/releaseinfo';
 import { AdvicePage } from '../pages/advice/advice';
 import { MyquestionPage } from '../pages/myquestion/myquestion';
 import { QuestiondetailsPage } from '../pages/questiondetails/questiondetails';
+import { IntegralPage } from '../pages/integral/integral';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,8 @@ import { QuestiondetailsPage } from '../pages/questiondetails/questiondetails';
     ReleaseinfoPage,
     AdvicePage,
     MyquestionPage,
-    QuestiondetailsPage
+    QuestiondetailsPage,
+    IntegralPage
   ],
   imports: [
     BrowserModule,
@@ -81,11 +86,12 @@ import { QuestiondetailsPage } from '../pages/questiondetails/questiondetails';
     ReleaseinfoPage,
     AdvicePage,
     MyquestionPage,
-    QuestiondetailsPage
+    QuestiondetailsPage,
+    IntegralPage
   ],
   providers: [
     StatusBar,
-    SplashScreen,HttpProvider,Network,
+    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
