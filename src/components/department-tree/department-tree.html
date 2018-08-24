@@ -1,4 +1,15 @@
 <!-- 部门树形选择 -->
 <div class="dep-tree">
+  <div class="top">
+    <ion-navbar>
+      <ion-buttons start>
+        <button (click)="cancelFun()" style="background-color: transparent;color: #488aff;">取消</button>
+      </ion-buttons>
+      <ion-title>选择部门</ion-title>
+      <ion-buttons end>
+        <button (click)="confirmFun()" style="background-color: transparent;color: #488aff;">确定</button>
+      </ion-buttons>
+    </ion-navbar>
+  </div>
   <div id="tree"></div>
 </div>

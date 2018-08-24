@@ -1,5 +1,10 @@
 department-tree {
     .dep-tree{
         background-color: #fff;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        height: 45%;
+        overflow-y: auto;
     }
 }
