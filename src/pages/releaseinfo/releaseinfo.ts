@@ -14,11 +14,12 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 })
 export class ReleaseinfoPage {
   colum= '';
-  tags= [];
+  tags= '';
   resource ='';
   title = '';
   con = '';
-  showColumn = false
+  showColumn = false;
+  showTag = false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController) {
   }
 
@@ -87,5 +88,17 @@ export class ReleaseinfoPage {
   closeColumn(){
     this.showColumn = false;
   }
+  getTag(res){
+    console.log(res)
+    this.showTag = false;
+    if(res.length==0){
+      this.tags = '';
+    }else{
+      this.tags ='标签'+ res;
+    }
+  }
 
+  closeTag(){
+    this.showTag = false;
+  }
 }

@@ -12,7 +12,7 @@ import { ReleaseinfoPage } from '../pages/releaseinfo/releaseinfo';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = ReleaseinfoPage;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       statusBar.styleDefault();

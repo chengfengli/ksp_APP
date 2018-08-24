@@ -1,0 +1,38 @@
+<div class="tags-list">
+  <div class="top">
+    <ion-navbar>
+      <ion-buttons start>
+        <button (click)="cancelFun()" style="background-color: transparent;color: #488aff;">取消</button>
+      </ion-buttons>
+      <ion-title>选择标签</ion-title>
+      <ion-buttons end>
+        <button (click)="confirmFun()" style="background-color: transparent;color: #488aff;">确定</button>
+      </ion-buttons>
+    </ion-navbar>
+  </div>
+  <!-- <ion-list class="list" radio-group [(ngModel)]="selectTags" no-lines>
+    <ion-item *ngFor="let item of tags">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-radio [value]="item.val" item-end></ion-radio>
+    </ion-item>
+  </ion-list> -->
+  <ion-row>
+      <ion-col col-4 *ngFor="let item of tags"  [ngStyle]="{'color':item.color}" (click)='selectTagEvent(item)'> 
+        <span>{{item.name}}</span>
+        <!-- {{item.color}} -->
+      </ion-col>
+      <!-- <ion-col  col-4>
+          <span>标签2</span>
+      </ion-col>
+      <ion-col  col-4>
+          <span>标签3</span>
+      </ion-col>
+      <ion-col  col-4>
+          <span>标签4</span>
+      </ion-col>
+      <ion-col  col-4>
+          <span>标签5</span>
+      </ion-col> -->
+    </ion-row>
+</div>
+  
