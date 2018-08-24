@@ -17,8 +17,8 @@
   <information-condition (confirmCall)="getData($event)"></information-condition>
   <div class="message-list">
   <ion-list>
-    <ion-item-sliding  *ngFor="let item of list" (click)="todetailsPage()">
-      <ion-item class='item-msg'>
+    <ion-item-sliding  *ngFor="let item of list">
+      <ion-item class='item-msg' (click)="todetailsPage()">
         <div item-end class="msg-pic">
           <img src="assets/imgs/05.jpg">
         </div>

@@ -14,12 +14,34 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
+*{
+    margin:0;
+    padding:0;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.clearfix:after{
+    content: '';
+    height:0;
+    display:block;
+    visibility: hidden;
+    clear:both;
+}
+.clearfix{
+    zoom: 1;
+}
 //导航栏不加粗
 .toolbar-title-ios,.toolbar-title-md{
     font-weight: normal;
 }
-
+$fontgray: #A4A4A5;
+$fontprimary:#188FE6;
+$fontsecondary:#5CE5C7;
+$fontdark:#4C5459;
 //字体颜色
 .font-primary{
     color:#188FE6;

@@ -4,6 +4,7 @@ import { MessagelistPage } from '../messagelist/messagelist';
 import { AboutPage } from '../about/about';
 import { InfomationlistPage } from '../infomationlist/infomationlist';
 import { FileMePage } from '../file-me/file-me';
+import { AdvicePage } from '../advice/advice';
 
 @Component({
   selector: 'page-me',
@@ -23,10 +24,16 @@ export class MePage {
   toMessagePage(){
     this.navCtrl.push(MessagelistPage);
   }
+  //跳转到关于我们
   toAbout(){
     this.navCtrl.push(AboutPage);
   }
+  //跳转到我的资讯
   toInfoListPage(){
     this.navCtrl.push(InfomationlistPage);
+  }
+  //跳转到反馈建议
+  toAdvice() {
+    this.navCtrl.push(AdvicePage);
   }
 }
