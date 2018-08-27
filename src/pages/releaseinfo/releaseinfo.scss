@@ -1,38 +1,73 @@
 page-releaseinfo {
-    .list-ios > .item-block:first-child{
-        border-top:none;
-    }
-    .list-ios > .item-block:last-child{
-        border-bottom:none;
-    }
-    .item-inner{
-        padding-left: 16px;
-    }
-    ion-item{
-        padding-left: 16px;
-        .title{
-            width:100%;
-            height:80px;
+    
+    .list-ios{
+        margin:0;
+        .list-ios > .item-block:first-child{
+            border-top:none;
+        }
+        .list-ios > .item-block:last-child{
+            border-bottom:none;
+        }
+        .item-inner{
+            padding-left: 16px;
+        }
+        ion-item{
+            // padding-left: 16px;
+            .title{
+                width:100%;
+                height:80px;
+                border: none;
+                font-size: 14px;
+            }
+        }
+        .con{
+            width: 100%;
+            height: 200px;
             border: none;
-            font-size: 14px;
+        }
+        .item-ios,textarea::-webkit-input-placeholder{
+            color:#999999;
+        }
+        .pic-num{
+            position: absolute;
+            bottom: 0;
+            right: 8px;
+            margin-top: 10px;
+            color:#999;
         }
     }
-    .con{
-        width: 100%;
-        height: 200px;
-        border: none;
+   
+    .choose-pic{
+        padding: 25px 15px;
+        background: #fff;
+        margin-top: 12px;
+        margin-bottom: 80px;
+        position: relative;
+        li{
+            height:84px;
+            width:84px;
+            background: #f3f6f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            ion-icon{
+                font-size: 24px;
+                color:#b2b7b8;
+            }
+            p{
+                color:#b2b7b8;
+                font-size: 12px;
+            }
+        }
+        .pic-limit{
+            position: absolute;
+            right: 8px;
+            bottom: 6px;
+            font-size: 12px;
+            color:#afafaf;
+        }
     }
-    .item-ios,textarea::-webkit-input-placeholder{
-        color:#999999;
-    }
-    .pic-num{
-        position: absolute;
-        bottom: 0;
-        right: 8px;
-        margin-top: 10px;
-        color:#999;
-    }
-    
     footer{
         position: fixed;
         bottom: 0;
