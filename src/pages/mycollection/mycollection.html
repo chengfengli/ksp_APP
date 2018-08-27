@@ -20,13 +20,20 @@
   <div class='collection-con' *ngIf="model==='information'">
     <ion-list class="data">
       <ion-item-sliding *ngFor="let item of list;let key =index" >
-        <ion-item class='clearfix'>
-          <div class="item-left">
-            <span class='title-con'>今天天气热吗今天天气热吗今天天气热吗今天天气热吗</span>
+        <ion-item>
+          <div class='item'>
+            <div class="item-left">
+              <span class='title-con'>今天天气热吗今天天气热吗今天天气热吗今天天气天气热吗今天天气热吗</span>
+              <div class='base-msg'>
+                <span>1小时前</span>
+                <span>999阅读</span>
+              </div>
+            </div>
+            <div class='item-right'>
+              <img src='/assets/imgs/slide03.jpg'/>
+            </div>  
           </div>
-          <div class='item-right'>
-            <img src='/assets/imgs/slide03.jpg'/>
-          </div>  
+          
         </ion-item>
         <ion-item-options side="right">
           <button ion-button color="danger" (click)='deleteEvent(key)'>取消收藏</button>
@@ -35,9 +42,128 @@
     </ion-list>
   </div>
   <div class='collection-con' *ngIf="model==='question'">
-    问答
+    <ion-list class="questiondata">
+      <ion-item-sliding *ngFor="let item of questionList;let key =index" >
+        <ion-item>
+            <div class="title clearfix">
+                <span class='reward'>20分</span>
+                <span class='title-con'>今天天气热吗今天天气热吗今天天气热吗今天天气热吗</span>
+              </div>
+              <p class='decri'>能详细描述一下解决方案吗</p>
+              <div class='base-msg clearfix'>
+                <p class='adopt'>
+                  已采纳
+                </p>
+                <ol class='ques-msg clearfix'>
+                  <li>张三23</li>
+                  <li>99回答</li>
+                  <li>一小时前</li>
+                </ol>
+              </div>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)='cancelEvent(key)'>取消收藏</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
   </div>
   <div class='collection-con' *ngIf="model==='file'">
-    文档
+      <ion-list class="filedata">
+        <ion-item-sliding>
+          <ion-item (click)="todetailsPage()">
+            <div class="file-titel">
+              <img class="icon-pic" src="../../assets/imgs/word.png">
+              <div class="txt font16 font-dark">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
+            </div>
+            <div class="explain font14 font-gray">
+              <span class="user">张三</span>
+              <span class="download">79下载</span>
+              <span class="time">8小时前</span>
+            </div>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="primary" (click)="delete(key)">
+              <ion-icon name="trash"></ion-icon>
+              取消收藏
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding>
+          <ion-item (click)="todetailsPage()">
+            <div class="file-titel">
+              <img class="icon-pic" src="../../assets/imgs/Excel.png">
+              <div class="txt font16 font-dark">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
+            </div>
+            <div class="explain font14 font-gray">
+              <span class="user">张三</span>
+              <span class="download">79下载</span>
+              <span class="time">8小时前</span>
+            </div>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="primary" (click)="delete(key)">
+              <ion-icon name="trash"></ion-icon>
+              取消收藏
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding>
+          <ion-item (click)="todetailsPage()">
+            <div class="file-titel">
+              <img class="icon-pic" src="../../assets/imgs/PDF.png">
+              <div class="txt font16 font-dark">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
+            </div>
+            <div class="explain font14 font-gray">
+              <span class="user">张三</span>
+              <span class="download">79下载</span>
+              <span class="time">8小时前</span>
+            </div>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="primary" (click)="delete(key)">
+              <ion-icon name="trash"></ion-icon>
+              取消收藏
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding>
+          <ion-item (click)="todetailsPage()">
+            <div class="file-titel">
+              <img class="icon-pic" src="../../assets/imgs/PPT.png">
+              <div class="txt font16 font-dark">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
+            </div>
+            <div class="explain font14 font-gray">
+              <span class="user">张三</span>
+              <span class="download">79下载</span>
+              <span class="time">8小时前</span>
+            </div>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="primary" (click)="delete(key)">
+              <ion-icon name="trash"></ion-icon>
+              取消收藏
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding  *ngFor="let item of list;let key = index">
+          <ion-item (click)="todetailsPage()">
+            <div class="file-titel">
+              <img class="icon-pic" src="../../assets/imgs/word.png">
+              <div class="txt font16 font-dark">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
+            </div>
+            <div class="explain font14 font-gray">
+              <span class="user">张三</span>
+              <span class="download">79下载</span>
+              <span class="time">8小时前</span>
+            </div>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="primary" (click)="delete(key)">
+              <ion-icon name="trash"></ion-icon>
+              取消收藏
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list> 
   </div>
 </ion-content>

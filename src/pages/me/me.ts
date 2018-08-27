@@ -19,6 +19,7 @@ export class MePage {
   myFile = FileMePage;
   setPage = SetPage;
   integralPage = IntegralPage;
+  myCollection = MycollectionPage
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

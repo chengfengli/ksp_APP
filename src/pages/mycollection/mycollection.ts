@@ -18,9 +18,13 @@ export class MycollectionPage {
   showFile = false;
   model = 'information'
   list = []
+  questionList = []
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     for(let i=0;i<10;i++){
       this.list.push(i);
+    }
+    for(let i=0;i<10;i++){
+      this.questionList.push(i);
     }
   }
   getModel(item){
@@ -29,5 +33,7 @@ export class MycollectionPage {
   deleteEvent(index){
     this.list.splice(index, 1);
   }
-
+  cancelEvent(index){
+    this.questionList.splice(index, 1);
+  }
 }
