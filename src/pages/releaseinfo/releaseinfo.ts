@@ -3,10 +3,7 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 
 /**
- * Generated class for the ReleaseinfoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * 发布资讯
  */
 
 @Component({

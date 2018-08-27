@@ -4,10 +4,7 @@ import { QuestiondetailsPage } from '../questiondetails/questiondetails';
 import { MyaskPage } from '../myask/myask';
 
 /**
- * Generated class for the MyquestionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * 我的问答
  */
 
 @Component({
@@ -15,6 +12,7 @@ import { MyaskPage } from '../myask/myask';
   templateUrl: 'myquestion.html',
 })
 export class MyquestionPage {
+  myaskPage = MyaskPage;
   list = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     for(let i=0;i<10;i++){
@@ -30,9 +28,5 @@ export class MyquestionPage {
   }
   deleteEvent(index){
     this.list.splice(index, 1);
-  }
-  //跳转到我要提问页面
-  toMyAsk(){
-    this.navCtrl.push(MyaskPage)   
   }
 }

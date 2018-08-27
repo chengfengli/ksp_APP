@@ -1,43 +1,43 @@
 <ion-header>
     <ion-navbar>
-      <ion-title>我的资讯</ion-title>      
+      <ion-title>我的资讯</ion-title>
+      <ion-buttons end>
+        <button ion-button [navPush]="releaseinfoPage" clear>发布</button>
+      </ion-buttons>
     </ion-navbar>
-    <ion-searchbar placeholder="请输入搜索的内容" end class="searchInput"></ion-searchbar> 
 </ion-header>
 <ion-content>
-    <!-- 下拉刷新 -->
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      pullingText="放开刷新数据"
-      refreshingSpinner="circles"
-      refreshingText="更新中...">
-      </ion-refresher-content>
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="arrow-dropdown"
+    pullingText="放开刷新数据"
+    refreshingSpinner="circles"
+    refreshingText="更新中...">
+    </ion-refresher-content>
   </ion-refresher>
+  <ion-searchbar placeholder="请输入搜索的内容" class="searchInput"></ion-searchbar> 
   <information-condition (confirmCall)="getData($event)"></information-condition>
   <div class="message-list">
-  <ion-list>
-    <ion-item-sliding  *ngFor="let item of list;let key = index">
-      <ion-item class='item-msg' (click)="todetailsPage()">
-        <div item-end class="msg-pic">
-          <img src="assets/imgs/05.jpg">
-        </div>
-        <h2 class="title">{{item.title}}  </h2>
-        <div class="base-msg">
-          <span>{{item.title}}</span>
-          <span>{{item.num}}阅读</span>
-        </div>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="primary" (click)="delete(key)">
-          <ion-icon name="trash"></ion-icon>
-          删除
-        </button>
-      </ion-item-options>
+    <ion-list>
+      <ion-item-sliding  *ngFor="let item of list;let key = index">
+        <ion-item class='item-msg' (click)="todetailsPage()">
+          <div item-end class="msg-pic">
+            <img src="assets/imgs/05.jpg">
+          </div>
+          <h2 class="title">{{item.title}}  </h2>
+          <div class="base-msg">
+            <span>{{item.title}}</span>
+            <span>{{item.num}}阅读</span>
+          </div>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="delete(key)">
+            <ion-icon name="trash"></ion-icon>
+            删除
+          </button>
+        </ion-item-options>
       </ion-item-sliding>
-  </ion-list>
+    </ion-list>
   </div>
-  <footer>
-      <a href="javascript:void(0)" class='release' (click)="releaseEvent()">发布资讯</a>
-  </footer> 
 </ion-content>

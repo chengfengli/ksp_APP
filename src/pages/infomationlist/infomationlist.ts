@@ -6,10 +6,7 @@ import { HttpProvider } from '../../providers/http/http';
 import { ReleaseinfoPage } from '../releaseinfo/releaseinfo';
 
 /**
- * Generated class for the InfomationlistPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * 我的咨询
  */
 
 @Component({
@@ -17,6 +14,7 @@ import { ReleaseinfoPage } from '../releaseinfo/releaseinfo';
   templateUrl: 'infomationlist.html',
 })
 export class InfomationlistPage  extends BasePage{
+  releaseinfoPage = ReleaseinfoPage;
   list=[
     {
       title:'星期一',
@@ -91,8 +89,5 @@ export class InfomationlistPage  extends BasePage{
   }
   getData(res){
     console.log(res);
-  }
-  releaseEvent(){
-    this.navCtrl.push(ReleaseinfoPage)
   }
 }
