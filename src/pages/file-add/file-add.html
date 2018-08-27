@@ -18,10 +18,10 @@
 
   <ion-list>
     <button ion-item (click)="showColumn=true" class="font14">
-      <span *ngIf="colum.length==0" class="placeholder">请选择栏目</span>
-      <span *ngIf="colum.length!=0">{{colum}}</span>
+      <span *ngIf="columStr.length==0" class="placeholder">请选择栏目</span>
+      <span *ngIf="columStr.length!=0">{{columStr}}</span>
     </button>
-    <button ion-item (click)="showDep=true" class="font14">
+    <button ion-item (click)="showTag=true" class="font14">
       <span *ngIf="tagStr.length==0" class="placeholder">请选择标签</span>
       <span *ngIf="tagStr.length!=0">{{tagStr}}</span>
     </button>
@@ -35,6 +35,11 @@
 <div class="bg" *ngIf="showDep">
     <department-tree (confirm)="getDeps($event)" (cancel)="closeDep()"></department-tree>
 </div>
+<!-- 栏目 -->
 <div class="bg" *ngIf="showColumn">
-  <colum-list (confirm)="getColumn($event)" (cancel)="closeColumn()"></colum-list>
+  <colum-list (confirm)="getColumn($event)" (cancel)="showColumn=fasle"></colum-list>
+</div>
+<!-- 标签 -->
+<div class="bg" *ngIf="showTag">
+  <tag-list (confirm)="getTag($event)" (cancel)="showTag=false"></tag-list>
 </div>

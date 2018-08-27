@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { InstructionsPage } from '../instructions/instructions';
 
 /**
  * 积分
@@ -10,7 +11,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'integral.html',
 })
 export class IntegralPage {
-
+  InstructionsPage = InstructionsPage;
   currentDate = '2018-08';
   model = 'all';
   list = [];

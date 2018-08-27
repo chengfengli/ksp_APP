@@ -1,0 +1,28 @@
+page-instructions {
+    .content-ios{
+        background-color: #FFF;
+    }
+    .i-title{
+        background-color: #039BFF;
+        display: inline-block;
+        padding: 5px 10px;
+        color: #ffffff;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        width: 100px;
+        margin: 15px 0;
+    }
+    .rule{
+        display: block;
+        margin: 0 10px;
+        td{
+            border: 1px solid #EEEFF1;
+            text-align: center;
+            color: #BCBDBF;
+            padding: 15px 10px;
+        }
+        .label{
+            background-color: #F6FBFF;
+        }
+    }
+}

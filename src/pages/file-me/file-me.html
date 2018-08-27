@@ -1,15 +1,15 @@
 <ion-header>
   <ion-navbar>
-    <ion-searchbar placeholder="输入要搜索的内容"></ion-searchbar>
+    <ion-title>我的文档</ion-title>
     <ion-buttons end>
-      <button (click)="search()" style="background-color: transparent;color: #488aff;">搜索</button>
+      <button ion-button [navPush]="addFile" clear>添加</button>
     </ion-buttons>
   </ion-navbar>
-  
 </ion-header>
 
 
 <ion-content>
+  <ion-searchbar placeholder="请输入搜索的内容" class="searchInput"></ion-searchbar> 
   <file-condetion (confirmCall)="getData($event)"></file-condetion>
   <ul class="data">
     <li *ngFor="let item of list">
@@ -21,5 +21,4 @@
       </div>
     </li>
   </ul>
-  <button id="login-btn" ion-button block  type="button" class="font18" [navPush]="addFile">上传文档</button>
 </ion-content>
