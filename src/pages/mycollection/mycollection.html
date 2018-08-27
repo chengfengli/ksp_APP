@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>我的收藏</ion-title>
+  </ion-navbar>
+  <ion-row class='nav'>
+    <ion-col [ngClass]="model==='information'? 'active':''" (click)="getModel('information')">
+        资讯
+    </ion-col>
+    <ion-col [ngClass]="model==='question'? 'active':''" (click)="getModel('question')">
+      问答
+    </ion-col>
+    <ion-col [ngClass]="model==='file'? 'active':''" (click)="getModel('file')">
+        文档
+    </ion-col>
+  </ion-row>
+ 
+</ion-header>
+<ion-content>
+    <file-condetion (confirmCall)="getData($event)"></file-condetion>
+  <div class='collection-con' *ngIf="model==='information'">
+    <ion-list class="data">
+      <ion-item-sliding *ngFor="let item of list;let key =index" >
+        <ion-item class='clearfix'>
+          <div class="item-left">
+            <span class='title-con'>今天天气热吗今天天气热吗今天天气热吗今天天气热吗</span>
+          </div>
+          <div class='item-right'>
+            <img src='/assets/imgs/slide03.jpg'/>
+          </div>  
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)='deleteEvent(key)'>取消收藏</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <div class='collection-con' *ngIf="model==='question'">
+    问答
+  </div>
+  <div class='collection-con' *ngIf="model==='file'">
+    文档
+  </div>
+</ion-content>

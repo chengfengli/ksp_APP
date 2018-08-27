@@ -7,6 +7,7 @@ import { FileMePage } from '../file-me/file-me';
 import { AdvicePage } from '../advice/advice';
 import { MyApp } from '../../app/app.component';
 import { MyquestionPage } from '../myquestion/myquestion';
+import { MycollectionPage } from '../mycollection/mycollection';
 import { SetPage } from '../set/set';
 import { IntegralPage } from '../integral/integral';
 
@@ -45,5 +46,9 @@ export class MePage {
   //跳转到我的问答
   toMyQuestion() {
     this.navCtrl.push(MyquestionPage);
+  }
+  //跳转到我的收藏
+  toMyCollection() {
+    this.navCtrl.push(MycollectionPage);
   }
 }
