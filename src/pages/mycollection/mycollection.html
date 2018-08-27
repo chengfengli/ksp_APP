@@ -16,11 +16,11 @@
  
 </ion-header>
 <ion-content>
-    <file-condetion (confirmCall)="getData($event)"></file-condetion>
   <div class='collection-con' *ngIf="model==='information'">
+    <information-condition (confirmCall)="getData($event)"></information-condition>
     <ion-list class="data">
       <ion-item-sliding *ngFor="let item of list;let key =index" >
-        <ion-item>
+        <ion-item  (click)="todetailsPage()">
           <div class='item'>
             <div class="item-left">
               <span class='title-con'>今天天气热吗今天天气热吗今天天气热吗今天天气天气热吗今天天气热吗</span>
@@ -42,9 +42,10 @@
     </ion-list>
   </div>
   <div class='collection-con' *ngIf="model==='question'">
+    <information-condition (confirmCall)="getData($event)"></information-condition>
     <ion-list class="questiondata">
       <ion-item-sliding *ngFor="let item of questionList;let key =index" >
-        <ion-item>
+        <ion-item (click) = 'toQuestionDetails()'>
             <div class="title clearfix">
                 <span class='reward'>20分</span>
                 <span class='title-con'>今天天气热吗今天天气热吗今天天气热吗今天天气热吗</span>
@@ -68,6 +69,7 @@
     </ion-list>
   </div>
   <div class='collection-con' *ngIf="model==='file'">
+      <file-condetion (confirmCall)="getData($event)"></file-condetion>
       <ion-list class="filedata">
         <ion-item-sliding>
           <ion-item (click)="todetailsPage()">

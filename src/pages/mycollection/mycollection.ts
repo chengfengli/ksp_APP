@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { QuestiondetailsPage } from '../questiondetails/questiondetails';
+import { DetailsPage } from '../details/details';
 
 /**
  * Generated class for the MycollectionPage page.
@@ -35,5 +37,13 @@ export class MycollectionPage {
   }
   cancelEvent(index){
     this.questionList.splice(index, 1);
+  }
+  //跳转到资讯详情
+  todetailsPage(){
+    this.navCtrl.push(DetailsPage)
+  }
+  //跳转到我的问答详情
+  toQuestionDetails(){
+    this.navCtrl.push(QuestiondetailsPage)
   }
 }

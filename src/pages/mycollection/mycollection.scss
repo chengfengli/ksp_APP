@@ -13,8 +13,9 @@ page-mycollection {
         }
     }
     .collection-con{
-        margin-top: 27px;
+        
         .data{
+            padding-top: 27px;
             .label-ios{
                 padding:15px;
                 margin: 0;
@@ -65,6 +66,7 @@ page-mycollection {
             }
         }
         .questiondata{
+            padding-top: 27px;
             ion-item-sliding{
                 margin-bottom: 14px;
             }
@@ -140,6 +142,7 @@ page-mycollection {
             }
         }
         .filedata{
+            padding-top: 27px;
             .file-titel{
                 display:flex;
                 .icon-pic{
