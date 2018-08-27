@@ -1,10 +1,8 @@
 <ion-content>
   <div class="top">
     <div class="msg-tips">
-        <span (click)="toMessagePage()">
-          <ion-icon ios="ios-chatboxes" class="font24 msg-tips-ico"></ion-icon>
-          <ion-badge item-start color="danger">1</ion-badge>
-        </span>
+      <i [navPush]="messagelistPage" class="fa fa-commenting-o font24 msg-tips-ico"></i>
+      <div class="dou"></div>
     </div>
     <div class="user-info">
       <div class="photo"><img src="../../assets/imgs/head_photo.png"></div>

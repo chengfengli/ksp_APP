@@ -10,21 +10,18 @@ page-me {
         .msg-tips{
             text-align: right;
             padding: 5px;
-            span{
-                position: relative;
-                margin-right: 20px;
-                .msg-tips-ico{
-                    color: #fff;
-                }
-                ion-badge{
-                    position: absolute;
-                    font-size: 10px;
-                    border-radius: 50%;
-                    font-weight: normal;
-                    padding: 2px 4px;
-                    right: -8px;
-                    top: -13px;
-                }
+            position: relative;
+            margin-right: 10px;
+            .msg-tips-ico{
+                color: #fff;
+            }
+            .dou{
+                position:absolute;
+                padding: 3px;
+                background-color: $danger;
+                right: 3px;
+                border-radius: 50%;
+                top: 8px;
             }
         }
         .user-info{
@@ -53,7 +50,7 @@ page-me {
 
     .model{
         background-color: #fff;
-        border-bottom: 0.55px solid #c8c7cc;
+        border-bottom: 0.55px solid #E5E6E7;
         .count{
             color: #4C5459;
             margin-bottom: 5px;

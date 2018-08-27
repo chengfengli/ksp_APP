@@ -10,9 +10,17 @@ information-condition {
             display: flex;
             background-color: #fff;
             .active{
-                border-bottom: 1px solid #5CE5C7;
-                color: #5CE5C7;
+                border-bottom: 3px solid $fontprimary;
+                color: $fontprimary;
             }
+            .col{
+                padding: 10px 5px;
+            }
+            .fa{
+                position: relative; 
+                top: -3px;
+                margin-left: 3px;
+             }
         }
         .list-ios{
             margin: 0;
@@ -20,21 +28,22 @@ information-condition {
             overflow-y: auto;
             background-color: #FFF;
             .active{
-                color: #5CE5C7;
+                color: $fontprimary;
             }
         }
         .btn-box{
-            border-top: 1px solid;
+            border-top: 1px solid $fontgray;
+            border-bottom: 1px solid $fontgray;
             padding: 0;
             .col{
                 padding: 10px;
             }
             .reset{
-                color: #5CE5C7;
+                color: $fontdark;
                 background-color: #FFF;
             }
             .confim{
-                background-color: #5CE5C7;
+                background-color: $fontprimary;
                 color: #fff;
             }
         }
