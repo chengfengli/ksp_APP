@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <div class='advisePage'>
     <div class='question-type'>
       <p class='title'>选择问题类型</p>
@@ -26,24 +26,18 @@
       </ion-grid>
     </div>
     <div class='advice-con'>
-      <p class='title'>建议</p>
+      <p class='title'>您的建议</p>
       <textarea placeholder="请详细描述问题及建议"></textarea>
     </div>
-    <div class='upload-pic'>
-      <p class='title'>建议</p>
-      <ul class='pic-list'>
-        <li>
-          <a href="javascript:void(0)">
-              <ion-icon name="images"></ion-icon>
-              <p>上传图片</p>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ul class='choose-pic'>
+      <li>
+        <ion-icon name="ios-camera-outline"></ion-icon>
+        <p>照片/视频</p>
+      </li>
+      <p class='pic-limit'>上传图片(最多6张)</p>
+    </ul>
     <footer>
-      <a href='javascript:void(0)'>
-        提交
-      </a>
+      <button class='my-ask' (click)='toMyAsk()'>提交</button>
     </footer>
   </div>
 </ion-content>

@@ -19,6 +19,8 @@ export class MyaskPage {
   showColumn = false;
   showTag = false
   anonymous = false
+  title='';
+  con = ''
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   getColumn(res){

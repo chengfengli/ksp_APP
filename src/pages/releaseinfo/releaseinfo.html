@@ -24,17 +24,25 @@
       <span *ngIf="tags.length!=0">{{tags}}</span>
     </button>
     <ion-item>
-        <ion-input placeholder="请输入来源" [(ngModel)]="resource"></ion-input>
-      </ion-item>
-      <ion-item>
-        <textarea placeholder="请输入资讯标题" [(ngModel)]="title" maxLength="100" class='title'></textarea>
-        <div style="text-align:right;" class="font-gray">{{title.length}}/100</div>
-      </ion-item>
-      <ion-item>
-        <textarea placeholder="请输入资讯内容" class="con" [(ngModel)]="con"></textarea>
-        <p class='pic-num'><span>{{con.length}}</span>/2000</p>
-        </ion-item>
+      <ion-input placeholder="请输入来源" [(ngModel)]="resource"></ion-input>
+    </ion-item>
+    <ion-item>
+      <textarea placeholder="请输入资讯标题" [(ngModel)]="title" maxLength="100" class='title'></textarea>
+      <div style="text-align:right;" class="font-gray">{{title.length}}/100</div>
+    </ion-item>
+    <ion-item>
+      <!-- <div  contenteditable="true" placeholder="请输入资讯内容" class="con">{{con}}</div> -->
+      <textarea placeholder="请输入资讯内容" class="con" [(ngModel)]="con"></textarea>
+      <p class='pic-num'><span>{{con.length}}</span>/2000</p>
+    </ion-item>
   </ion-list>
+  <ul class='choose-pic'>
+    <li>
+      <ion-icon name="ios-camera-outline"></ion-icon>
+      <p>照片/视频</p>
+    </li>
+    <p class='pic-limit'>上传图片(最多6张)</p>
+  </ul>
   <footer>
     <button class='my-ask' (click)='toMyAsk()'>提交</button>
   </footer>

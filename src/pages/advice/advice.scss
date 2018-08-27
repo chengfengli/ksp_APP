@@ -2,90 +2,97 @@
 page-advice {
     .advisePage{
         .question-type{
+            background: #fff;
+            padding:15px 15px 0;
             .title{
                 line-height:30px;
-                color:$fontgray;
+                color:#343434;
+                border-bottom: 1px solid #dddddd;
+                font-size: 14px;
             }
-            .type-item{
-                padding:0 10px;
-                height: 24px;
-                line-height: 24px;
-                border:1px solid $fontsecondary;
-                color:$fontsecondary;
-                border-radius: 4px;
-                margin-right: 10px;
-            }
-            .type-item:last-child{
-                margin-right: 0;
-            }
-            .active{
-                background: $fontsecondary;
-                color:#fff !important;
+            .grid{
+                padding:20px;
+                .type-item{
+                    width:100%;
+                    height: 30px;
+                    border:1px solid #dcdcdc;
+                    color:#2b2b2b;
+                    border-radius: 4px;
+                    margin-right: 10px;
+                }
+                .type-item:last-child{
+                    margin-right: 0;
+                }
+                .active{
+                    background: #039bff;
+                    border:1px solid #039bff;
+                    color:#fff !important;
+                }
             }
         }
         .advice-con{
             .title{
-                line-height:30px;
-                color:$fontgray;
+                padding-left:16px;
+                line-height:42px;
+                color:#343434;
+                font-size: 14px;
             }
             textarea{
                 background:#fff;
                 width:100%;
                 min-height:200px;
                 font-size:14px;
-                border-radius:4px;
-                padding:10px;
-                border:1px solid $fontgray;
+                padding:15px;
+                border:none;
             }
         }
-        .upload-pic{
-            .title{
-                line-height:30px;
-                color:$fontgray;
-            }
-            .pic-list{
-                li{
-                    width: 100px;
-                    height:100px;
-                    overflow: hidden;
-                    a{
-                        display:inline-block;
-                        width: 100%;
-                        height:100%;
-                        border:1px solid $fontgray;
-                        text-align: center;
-                        color:$fontgray;
-                        position: relative;                   
-                        ion-icon{
-                            font-size: 3.4rem;
-                            position: absolute;
-                            top: 24%;
-                            left: 38%;
-                        }
-                        p{
-                            position: absolute;
-                            top: 55%;
-                            left: 28%;
-                        }
-                    }
+        .choose-pic{
+            padding: 25px 15px;
+            background: #fff;
+            margin-top: 12px;
+            margin-bottom: 80px;
+            position: relative;
+            li{
+                height:84px;
+                width:84px;
+                background: #f3f6f8;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                ion-icon{
+                    font-size: 24px;
+                    color:#b2b7b8;
                 }
+                p{
+                    color:#b2b7b8;
+                    font-size: 12px;
+                }
+            }
+            .pic-limit{
+                position: absolute;
+                right: 8px;
+                bottom: 6px;
+                font-size: 12px;
+                color:#afafaf;
             }
         }
         footer{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background: #fff;
             width:100%;
-            margin:20px 0;
+            padding:12px 0;
+            margin: 0 auto;
             text-align: center;
-            a{
-                display: inline-block;
+            .my-ask{
                 width:80%;
-                height:30px;
-                line-height: 30px;
-                background:#1ABC9C;
-                color:#fff;
+                height: 38px;
+                line-height: 38px;
                 text-align: center;
-                font-size: 14px;
-                text-decoration: none;
-                border-radius: 4px;
+                color:#fff;
+                background:#039bff;
             }
         }
     }

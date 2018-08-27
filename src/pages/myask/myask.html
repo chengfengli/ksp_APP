@@ -14,28 +14,36 @@
 
 
 <ion-content>
-    <ion-list>
-      <ion-item>
+    <ion-list class='ask-list'>
+      <button ion-item (click)="showColumn=true" class="font14">
+        <span *ngIf="colum.length==0" class="placeholder">请选择栏目</span>
+        <span *ngIf="colum.length!=0">{{colum}}</span>
+      </button>
+      <button ion-item (click)="showTag=true" class="font14">
+        <span *ngIf="tags.length==0" class="placeholder">请选择标签</span>
+        <span *ngIf="tags.length!=0">{{tags}}</span>
+      </button>
+      <!-- <ion-item>
         <ion-input placeholder="请选择栏目" [(ngModel)]="colum" (click)="showColumn=true" readonly></ion-input>
       </ion-item >
       <ion-item>
         <ion-input placeholder="请选择标签" [(ngModel)]="tags" (click)="showTag=true" readonly></ion-input>
-      </ion-item>
-      <ion-item>
+      </ion-item>-->
+      <ion-item> 
         <!-- <ion-input placeholder="请输入悬赏分(可选)" [(ngModel)]="reward"></ion-input>  -->
-        <ion-label>请输入悬赏分(可选)</ion-label>
-        <ion-select  [(ngModel)] = 'reward'  interface ='action-sheet'>
+        <!-- <ion-label></ion-label> -->
+        <ion-select  [(ngModel)] = 'reward'  interface ='action-sheet' placeholder='请输入悬赏分(可选)'>
           <ion-option value = '1' > 10分</ion-option>
           <ion-option value = '2' > 20分</ion-option>
         </ion-select>     
       </ion-item>
       <ion-item>
-        <textarea  placeholder="请输入问题标题" class='itemInput'></textarea>
-        <span class='limit'>0/100</span>
-      </ion-item>
-      <ion-item>
-          <textarea  placeholder="请输入问题内容" class='itemInput'></textarea>
-          <span class='limit'>0/2000</span>
+          <textarea placeholder="请输入问题标题" [(ngModel)]="title" maxLength="100" class='title'></textarea>
+          <div style="text-align:right;" class="font-gray">{{title.length}}/100</div>
+        </ion-item>
+        <ion-item>
+          <textarea placeholder="请输入问题内容" class="con" [(ngModel)]="con"></textarea>
+          <p class='pic-num'><span>{{con.length}}</span>/2000</p>
         </ion-item>
     </ion-list>
     <ul class='choose-pic'>
