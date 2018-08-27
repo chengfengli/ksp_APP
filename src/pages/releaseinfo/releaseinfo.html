@@ -15,52 +15,29 @@
 
 <ion-content>
   <ion-list>
+    <button ion-item (click)="showColumn=true" class="font14">
+      <span *ngIf="colum.length==0" class="placeholder">请选择栏目</span>
+      <span *ngIf="colum.length!=0">{{colum}}</span>
+    </button>
+    <button ion-item (click)="showTag=true" class="font14">
+      <span *ngIf="tags.length==0" class="placeholder">请选择标签</span>
+      <span *ngIf="tags.length!=0">{{tags}}</span>
+    </button>
     <ion-item>
-      <!-- <ion-label>栏目</ion-label>
-      <ion-select  [(ngModel)] = 'column'  interface='action-sheet'>
-        <ion-option  value ='1' > 栏目1</ion-option>
-        <ion-option  value = '2'> 栏目2</ion-option>
-        <ion-option  value = '3' > 栏目3</ion-option>
-        <ion-option  value = '4'> 栏目4</ion-option>
-        <ion-option  value = '5' > 栏目5</ion-option>
-      </ion-select >
-    </ion-item > -->
-     <!-- <button ion-item (click)="showColumn=true" class="font14">
-        <span *ngIf="column.length==0" class="placeholder">请选择栏目</span>
-        <span *ngIf="column.length!=0">{{column}}</span>
-      </button> -->
-      <ion-input placeholder="请选择栏目" [(ngModel)]="colum" (click)="showColumn=true" readonly></ion-input>
-    </ion-item >
-    <ion-item>
-      <!-- <ion-label>标签</ion-label>
-      <ion-select [(ngModel)]="tags" multiple="true">
-        <ion-option>标签1</ion-option>
-        <ion-option>标签2</ion-option>
-        <ion-option>标签3</ion-option>
-        <ion-option>标签4</ion-option>
-        <ion-option>标签5</ion-option>
-        <ion-option>标签6</ion-option>
-      </ion-select> -->
-      <ion-input placeholder="请选择标签" [(ngModel)]="tags" (click)="showTag=true" readonly></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="请输入来源" [(ngModel)]="resource"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="请输入资讯标题" [(ngModel)]="title"></ion-input>
-    </ion-item>
-    <ion-item>
-      <textarea placeholder="请输入资讯内容" class="con" [(ngModel)]="con"></textarea>
-      <!-- 上传图片 -->
-      <div class='upload-pic'>
-        <ion-icon name="images"></ion-icon>
-        <p class='pic-num'><span>0</span>/2000</p>
-      </div>
-    </ion-item>
+        <ion-input placeholder="请输入来源" [(ngModel)]="resource"></ion-input>
+      </ion-item>
+      <ion-item>
+        <textarea placeholder="请输入资讯标题" [(ngModel)]="title" maxLength="100" class='title'></textarea>
+        <div style="text-align:right;" class="font-gray">{{title.length}}/100</div>
+      </ion-item>
+      <ion-item>
+        <textarea placeholder="请输入资讯内容" class="con" [(ngModel)]="con"></textarea>
+        <p class='pic-num'><span>{{con.length}}</span>/2000</p>
+        </ion-item>
   </ion-list>
   <footer>
-    <a href='javascript:void(0)' (click)='releaseEvent()'>发布</a>
-  </footer> 
+    <button class='my-ask' (click)='toMyAsk()'>提交</button>
+  </footer>
 </ion-content>
 <div class="bg" *ngIf="showColumn">
   <colum-list (confirm)="getColumn($event)" (cancel)="closeColumn()"></colum-list>

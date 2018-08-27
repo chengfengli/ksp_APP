@@ -23,7 +23,7 @@
   </ion-grid>
 
   <ion-list>
-    <button ion-item class="font14">
+    <button ion-item class="font14" [navPush]="myCollection">
       <img src="../../assets/imgs/collection_ico.png" item-start class="list-ico">我的收藏
     </button>
     <button ion-item class="font14" (click)='toAdvice()'>
