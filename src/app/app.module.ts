@@ -35,6 +35,7 @@ import { QuestiondetailsPage } from '../pages/questiondetails/questiondetails';
 import { IntegralPage } from '../pages/integral/integral';
 import { MyaskPage } from '../pages/myask/myask';
 import { MeanswerPage } from '../pages/meanswer/meanswer';
+import { InstructionsPage } from '../pages/instructions/instructions';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { MeanswerPage } from '../pages/meanswer/meanswer';
     QuestiondetailsPage,
     IntegralPage,
     MyaskPage,
-    MeanswerPage
+    MeanswerPage,
+    InstructionsPage
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,8 @@ import { MeanswerPage } from '../pages/meanswer/meanswer';
     QuestiondetailsPage,
     IntegralPage,
     MyaskPage,
-    MeanswerPage
+    MeanswerPage,
+    InstructionsPage
   ],
   providers: [
     StatusBar,

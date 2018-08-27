@@ -14,15 +14,15 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'file-add.html',
 })
 export class FileAddPage {
-
   showDep = false;
   showColumn = false;
+  showTag = false;
   title = '';
-  // 栏目
-  colum = '';
+  // 显示的栏目
+  columStr = '';
   // 显示的部门
   depStr = '';
-  // 标签
+  // 显示的标签
   tagStr = '';
   fileURL = '';
   constructor(public navCtrl: NavController, public navParams: NavParams,private transfer: FileTransfer, private file: File,private fileChooser: FileChooser) {
@@ -94,10 +94,23 @@ export class FileAddPage {
    */
   getColumn(res){
     this.showColumn = false;
+    this.columStr = res.name;
   }
 
-  closeColumn(){
-    this.showColumn = false;
+  /**
+   * 获取标签
+   * @param res 
+   */
+  getTag(res){
+    this.showTag = false;
+    if(res.length==0){
+      this.tagStr = '';
+    }else{
+      this.tagStr = '';
+      for(let i=0;i<res.length;i++){
+        this.tagStr+=res[i].name+'，';
+      }
+    }
   }
 
   /**
