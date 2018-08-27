@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { QuestiondetailsPage } from '../questiondetails/questiondetails';
+import { MyaskPage } from '../myask/myask';
 
 /**
  * Generated class for the MyquestionPage page.
@@ -29,5 +30,9 @@ export class MyquestionPage {
   }
   deleteEvent(index){
     this.list.splice(index, 1);
+  }
+  //跳转到我要提问页面
+  toMyAsk(){
+    this.navCtrl.push(MyaskPage)   
   }
 }

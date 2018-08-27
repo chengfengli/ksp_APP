@@ -16,8 +16,10 @@ export class TagListComponent {
   // 所有的标签
   tags = [];
   // 当前选择的标签
-  selectTags = '3';
-  color = '#000'
+  selectTags = '';
+  color = '#000';
+  showAddTag = false
+  newTag:string = ''
   @Output()confirm = new EventEmitter();
   @Output()cancel = new EventEmitter();
   constructor() {
@@ -31,16 +33,40 @@ export class TagListComponent {
   cancelFun(){
     this.cancel.emit();
   }
+  //添加标签
+  addTag(){
+    this.showAddTag = true
+  }
 
   /**
    * 确定
    */
   confirmFun(){
+    for(let i =0;i<this.tags.length;i++){
+      if(this.tags[i].color === '#ff6600'){
+        this.selectTags += this.tags[i].name+','
+        
+      }
+    }
     console.log(this.selectTags);
     this.confirm.emit(this.selectTags);
   }
   // 点击标签
   selectTagEvent(item) {
-    item.color = 'ff6600'
+    console.log(item)
+    if(item.color==='#000'){
+      item.color = '#ff6600'
+    }else{
+      item.color = '#000'
+    }
+  }
+  //取消添加标签
+  cancelAdd(){
+    this.showAddTag = false
+  }
+  confirmAdd(){
+    this.tags.push({name:this.newTag,val:this.tags.length+1,color:'#000'})
+    this.showAddTag = false
+    this.newTag = ''
   }
 }

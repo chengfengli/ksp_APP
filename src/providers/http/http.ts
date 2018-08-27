@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class HttpProvider {
-  private apiURL = 'http://192.168.1.194:8080/cms/app/';
+  private apiURL = 'http://192.168.1.85:7004/app/';
 
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
@@ -88,9 +88,9 @@ export class HttpProvider {
       this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
       .subscribe(res=>{
         loading.dismiss();
-        if(res.code=='0000'){
+        if(res.code=='200'){
           success(res);
-        }else if(res.code=='9997'){
+        }else if(res.code=='500'){
           this.alert('登录已过期，请重新登录！',()=>{
             //option.navCtrl.setRoot(LoginPage);
           });

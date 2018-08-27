@@ -1,0 +1,28 @@
+page-meanswer {
+    .answer-txt{
+        height: 300px;
+        background: #fff;
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #efefef;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    footer{
+        // position: fixed;
+        // bottom: 0;
+        // left: 0;
+        width:100%;
+        padding:12px 0;
+        margin: 0 auto;
+        text-align: center;
+        .my-ask{
+            width:80%;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            color:#fff;
+            background:#039bff;
+        }
+    }
+}
