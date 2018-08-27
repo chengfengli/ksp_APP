@@ -1,16 +1,27 @@
 page-file-add {
+    .file-box{
+        padding: 30px 20px 10px 20px;
+        background-color: #fff;
+    }
     .tips{
         color: #ccc;
+        text-align: right;
     }
     .add-file-btn{
-        border: 1px solid #ccc;
         color: #ccc;
-        background-color: #fff;
+        background-color: #F4F5F9;
         width: 100px;
         text-align: center;
         padding: 40px 0;
     }
     .placeholder{
         color: #ccc;
+    }
+    .label-ios{
+        padding-left: 10px;
+    }
+    #add-btn{
+        width: 90%;
+        margin-left: 5%;
     }
 }

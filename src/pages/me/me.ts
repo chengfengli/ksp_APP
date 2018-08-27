@@ -7,6 +7,8 @@ import { FileMePage } from '../file-me/file-me';
 import { AdvicePage } from '../advice/advice';
 import { MyApp } from '../../app/app.component';
 import { MyquestionPage } from '../myquestion/myquestion';
+import { SetPage } from '../set/set';
+import { IntegralPage } from '../integral/integral';
 
 @Component({
   selector: 'page-me',
@@ -14,6 +16,8 @@ import { MyquestionPage } from '../myquestion/myquestion';
 })
 export class MePage {
   myFile = FileMePage;
+  setPage = SetPage;
+  integralPage = IntegralPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

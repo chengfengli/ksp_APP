@@ -5,15 +5,15 @@
 </ion-header>
 
 <ion-content>
-  <div class="file-box" padding>
-    <p class="tips">上传的文档最大支持50M</p>
+  <div class="file-box">
     <div class="add-file-btn" (click)="chooserFile()">
       <span>添加文档</span>
     </div>
+    <p class="tips">50M以内</p>
   </div>
-  <div style="border-top: .5px solid #ccc;">
+  <div style="border-top: .5px solid #ccc;margin-top: 20px;background-color: #fff;padding: 0 10px;">
       <ion-input type="text" [(ngModel)]="title" maxLength="50" placeholder="请输入文档标题"></ion-input>
-      <div style="text-align:right;">{{title.length}}/50</div>
+      <div style="text-align:right;" class="font-gray">{{title.length}}/50</div>
   </div>
 
   <ion-list>
@@ -30,7 +30,7 @@
       <span *ngIf="depStr.length!=0">{{depStr}}</span>
     </button>
   </ion-list>
-  <button id="login-btn" ion-button block  type="button" class="font18" (click)="saveFile()">上传文档</button>
+  <button id="add-btn" ion-button color="primary"  type="button" class="font18" (click)="saveFile()">上传文档</button>
 </ion-content>
 <div class="bg" *ngIf="showDep">
     <department-tree (confirm)="getDeps($event)" (cancel)="closeDep()"></department-tree>

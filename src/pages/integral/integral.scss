@@ -1,6 +1,7 @@
 page-integral {
     .top{
-        background-color: #02A7FF;
+        background: url(../../assets/imgs/login-bg.png);
+        background-size: 100% 100%;
         border-top: 1px solid #02A7FF;
         color: #fff;
         text-align: center;
@@ -13,6 +14,7 @@ page-integral {
             border-radius: 50%;
             margin: 20px auto 10px auto;
             font-weight: bold;
+            background: url(../../assets/imgs/water.png) -18px 70px no-repeat;
         }
     }
     .top2{
