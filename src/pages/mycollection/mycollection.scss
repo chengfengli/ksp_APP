@@ -1,0 +1,21 @@
+page-mycollection {
+    .nav{
+        height:40px;
+        line-height:40px;
+        background: #00a7ff;
+        .col{
+            text-align: center;
+            color:#fff;
+            padding:0;
+        }
+        .active{
+            border-bottom: 3px solid #fff;
+        }
+    }
+    .collection-con{
+        margin-top: 27px;
+        .data{
+            
+        }
+    }
+}
