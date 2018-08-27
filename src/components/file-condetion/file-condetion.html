@@ -3,10 +3,10 @@
   <!-- 资讯条件组件 -->
   <ion-grid class="condetion-top">
     <ion-row class="font-dark" style="text-align:center;">
-      <ion-col (click)="choice('column')" [ngClass]="currentChoice==='column'? 'active':''"><div>栏目</div></ion-col>
-      <ion-col (click)="choice('tag')" [ngClass]="currentChoice==='tag'? 'active':''"><div>标签</div></ion-col>
-      <ion-col (click)="choice('date')" [ngClass]="currentChoice==='date'? 'active':''"><div>日期</div></ion-col>
-      <ion-col (click)="choice('format')" [ngClass]="currentChoice==='format'? 'active':''"><div>格式</div></ion-col>
+      <ion-col (click)="choice('column')" [ngClass]="currentChoice==='column'? 'active':''"><div>栏目<i class="fa fa-sort-desc"></i></div></ion-col>
+      <ion-col (click)="choice('tag')" [ngClass]="currentChoice==='tag'? 'active':''"><div>标签<i class="fa fa-sort-desc"></i></div></ion-col>
+      <ion-col (click)="choice('date')" [ngClass]="currentChoice==='date'? 'active':''"><div>日期<i class="fa fa-sort-desc"></i></div></ion-col>
+      <ion-col (click)="choice('format')" [ngClass]="currentChoice==='format'? 'active':''"><div>格式<i class="fa fa-sort-desc"></i></div></ion-col>
     </ion-row>
   </ion-grid>
 
@@ -65,7 +65,7 @@
       <ion-item (click)="slelctDate('week')">
         <ion-label [ngClass]="date==='week'? 'active':''">近七天</ion-label>
       </ion-item>
-      <ion-item (click)="slelctDate('month')">
+      <ion-item (click)="slelctDate('month')" style="border-bottom: 0;">
         <ion-label [ngClass]="date==='month'? 'active':''">近一月</ion-label>
       </ion-item>
     </ion-list>
@@ -77,7 +77,7 @@
     </ion-grid>
   </div>
 
-  <!-- 更多 -->
+  <!-- 格式 -->
   <div class="plan" *ngIf="currentChoice=='format'">
     <ion-list no-lines>
       <ion-item (click)="selectOther('XLS')">
@@ -89,7 +89,7 @@
       <ion-item (click)="selectOther('PPT')">
         <ion-label [ngClass]="format==='PPT'? 'active':''">PPT</ion-label>
       </ion-item>
-      <ion-item (click)="selectOther('PDF')">
+      <ion-item (click)="selectOther('PDF')" style="border-bottom: 0;">
         <ion-label [ngClass]="format==='PDF'? 'active':''">PDF</ion-label>
       </ion-item>
     </ion-list>

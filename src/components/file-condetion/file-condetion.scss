@@ -4,14 +4,22 @@ file-condetion {
         position: absolute;
         width: 100%;
         z-index: 100;
-        background-color: transparent;
+        background-color: rgba($color: #000000, $alpha: 0.3);
         .condetion-top{
             padding: 0 10px;
             display: flex;
             background-color: #fff;
+            .col{
+                padding: 10px 5px;
+            }
             .active{
-                border-bottom: 2px solid $fontprimary;
+                border-bottom: 3px solid $fontprimary;
                 color: $fontprimary;
+            }
+            .fa{
+               position: relative; 
+               top: -3px;
+               margin-left: 3px;
             }
         }
         .list-ios{
@@ -19,8 +27,15 @@ file-condetion {
             height: 300px;
             overflow-y: auto;
             background-color: #FFF;
+            padding: 0 10px;
             .active{
-                color: #5CE5C7;
+                color: $fontprimary;
+            }
+            .item-block{
+                min-height: auto;
+                ion-label{
+                    font-size: 14px;
+                }
             }
         }
         .btn-box{
@@ -31,7 +46,7 @@ file-condetion {
                 padding: 10px;
             }
             .reset{
-                color: $fontprimary;
+                color: $fontdark;
                 background-color: #FFF;
             }
             .confim{
