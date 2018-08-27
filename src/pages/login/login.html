@@ -1,19 +1,23 @@
 <ion-content>
-  <div class="head-photo"></div>
+  <div class="head-photo">
+      <img src="../../assets/imgs/logo.png" class="logo">
+  </div>
   <form>
     <ion-list>
         <ion-item>
+            <img src="../../assets/imgs/user-ico.png" item-start class="user-ico">
             <ion-input class="user-name" name="name" [(ngModel)]="user.name"  type="text" placeholder="请输入登录账号"></ion-input>
         </ion-item>
         <ion-item>
+                <img src="../../assets/imgs/pwd-ico.png" item-start class="pwd-ico">
             <ion-input class="password" name="password" [(ngModel)]="user.password" [type]="pwdInputType"  placeholder="请输入登录密码"></ion-input>
             <ion-toggle class="show-password" (ionChange)="showPasword()" name="showPwd" [(ngModel)]="showPwd"></ion-toggle>
         </ion-item>
-        <ion-item class="remeber-passwword">
+        <ion-item class="remeber-passwword font14">
             <ion-label>记住密码</ion-label>
             <ion-checkbox (ionChange)="remeberP()" name="remeberPwd" [(ngModel)]="remeberPwd" color="primary"></ion-checkbox>
         </ion-item>
-        <button id="login-btn" ion-button block round  type="button" class="font18" (click)="login()">登&nbsp;录</button>
     </ion-list>
   </form>
+  <button id="login-btn" ion-button  type="button" class="font18" (click)="login()">登&nbsp;录</button>
 </ion-content>

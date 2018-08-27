@@ -38,22 +38,23 @@ a{
 .toolbar-title-ios,.toolbar-title-md{
     font-weight: normal;
 }
-$fontgray: #A4A4A5;
-$fontprimary:#188FE6;
+$fontgray: #ABAFB0;
+$fontprimary:#029DFC;
 $fontsecondary:#5CE5C7;
-$fontdark:#4C5459;
+$fontdark:#373737;
+$danger: #FF3A31;
 //字体颜色
 .font-primary{
-    color:#188FE6;
+    color:#029DFC;
 }
 .font-secondary{
     color:#5CE5C7;
 }
 .font-dark{
-    color:#4C5459;
+    color:#373737;
 }
 .font-gray{
-    color:#A4A4A5;
+    color:#ABAFB0;
 }
 
 //字体大小

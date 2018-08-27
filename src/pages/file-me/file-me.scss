@@ -8,27 +8,47 @@ page-file-me {
     }
     .data{
         margin-top: 40px;
-        list-style: none;
-        padding: 0;
-        li{
-            border-top: .5px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 10px;
-            padding: 5px;
-            .title{
-                height: 40px;
-                overflow: hidden;
-                margin-bottom: 5px;
-                word-break: break-all;
+        .file-titel{
+            display:flex;
+            .icon-pic{
+                width: 20px;
+                height: 24px;
+                margin-left: 20px;
             }
-            .explain{
-                text-align: right;
-                .download{
-                    display: inline-block;
-                    margin: 0 15px;
-                }
-
+            .txt{
+                line-height: 30px;
+                padding-left: 10px;
+                font-weight: bold;
+            }
+        }
+        .explain{
+            margin: 5px 0 0 50px;
+            .download{
+                display: inline-block;
+                margin: 0 15px;
             }
         }
     }
+    // .data{
+    //     margin-top: 40px;
+    //     list-style: none;
+    //     padding: 0;
+    //     li{
+    //         border-top: .5px solid #ccc;
+    //         border-bottom: 1px solid #ccc;
+    //         margin-bottom: 10px;
+    //         padding: 5px;
+    //         .title{
+    //             height: 40px;
+    //             overflow: hidden;
+    //             margin-bottom: 5px;
+    //             word-break: break-all;
+    //         }
+    //         .explain{
+    //             text-align: right;
+                
+
+    //         }
+    //     }
+    // }
 }

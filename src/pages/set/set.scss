@@ -1,0 +1,14 @@
+page-set {
+    .label-ios{
+        margin-left: 10px;
+    }
+    .version,.cache{
+        float: right;
+        color: $fontgray;
+    }
+    #logout-btn{
+        width: 90%;
+        margin: 0 5%;
+        background-color: $danger;
+    }
+}

@@ -37,6 +37,7 @@ import { MyaskPage } from '../pages/myask/myask';
 import { MeanswerPage } from '../pages/meanswer/meanswer';
 import { InstructionsPage } from '../pages/instructions/instructions';
 import { MycollectionPage } from '../pages/mycollection/mycollection';
+import { SetPage } from '../pages/set/set';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,8 @@ import { MycollectionPage } from '../pages/mycollection/mycollection';
     MyquestionPage,
     QuestiondetailsPage,
     IntegralPage,
+    InstructionsPage,
+    SetPage,
     MyaskPage,
     MeanswerPage,
     InstructionsPage,
@@ -96,6 +99,8 @@ import { MycollectionPage } from '../pages/mycollection/mycollection';
     MyquestionPage,
     QuestiondetailsPage,
     IntegralPage,
+    InstructionsPage,
+    SetPage,
     MyaskPage,
     MeanswerPage,
     InstructionsPage,
