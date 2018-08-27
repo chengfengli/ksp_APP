@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { HttpProvider } from '../../providers/http/http';
 
 /**
  * Generated class for the ReleaseinfoPage page.
@@ -20,7 +21,10 @@ export class ReleaseinfoPage {
   con = '';
   showColumn = false;
   showTag = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public httpServe: HttpProvider) {
+    this.httpServe.post({url:'my/test.json'},(res)=>{
+      console.log(res)
+    },)
   }
 
   releaseEvent(){
@@ -91,10 +95,19 @@ export class ReleaseinfoPage {
   getTag(res){
     console.log(res)
     this.showTag = false;
+    // if(res.length==0){
+    //   this.tags = '';
+    // }else{
+    //   console.log(res)
+    //   this.tags ='标签'+ res;
+    // }
     if(res.length==0){
       this.tags = '';
     }else{
-      this.tags ='标签'+ res;
+      this.tags = res;
+      // for(let i=0;i<res.length;i++){
+      //   this.tags+=res[i].name+'，';
+      // }
     }
   }
 

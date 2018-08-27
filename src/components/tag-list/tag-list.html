@@ -17,10 +17,13 @@
     </ion-item>
   </ion-list> -->
   <ion-row>
-      <ion-col col-4 *ngFor="let item of tags"  [ngStyle]="{'color':item.color}" (click)='selectTagEvent(item)'> 
-        <span>{{item.name}}</span>
-        <!-- {{item.color}} -->
+    
+      <ion-col col-4 *ngFor="let item of tags" (click)='selectTagEvent(item)'> 
+        <span [ngStyle]="{'color':item.color}" >{{item.name}}</span>
       </ion-col>
+      <ion-col col-4 (click)='addTag()' class='add-tag'> 
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+        </ion-col>
       <!-- <ion-col  col-4>
           <span>标签2</span>
       </ion-col>
@@ -34,5 +37,20 @@
           <span>标签5</span>
       </ion-col> -->
     </ion-row>
+    <div class="add-tag-box" *ngIf="showAddTag">
+      <input type="text" placeholder="请输入您想添加的标签" [(ngModel)]="newTag" >
+      <div class='btn-list'>
+        <button ion-button (click)="cancelAdd()">取消</button>
+        <button ion-button color="secondary" (click)="confirmAdd()">确定</button>
+      </div>
+        
+      <!-- <ion-buttons start>
+        
+          <button (click)="cancelAdd()" style="background-color: transparent;color: #488aff;">取消</button>
+        </ion-buttons>
+        <ion-buttons start>
+            <button (click)="confirmAdd()" style="background-color: transparent;color: #488aff;">q确定</button>
+          </ion-buttons> -->
+    </div>
 </div>
   

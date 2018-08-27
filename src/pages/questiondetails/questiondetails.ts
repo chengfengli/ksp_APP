@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { MeanswerPage } from '../meanswer/meanswer';
 
 /**
  * Generated class for the QuestiondetailsPage page.
@@ -33,5 +34,8 @@ export class QuestiondetailsPage {
       this.action = '展开'
     }
     
+  }
+  toMyAnswer() {
+    this.navCtrl.push(MeanswerPage)
   }
 }

@@ -33,6 +33,8 @@ import { AdvicePage } from '../pages/advice/advice';
 import { MyquestionPage } from '../pages/myquestion/myquestion';
 import { QuestiondetailsPage } from '../pages/questiondetails/questiondetails';
 import { IntegralPage } from '../pages/integral/integral';
+import { MyaskPage } from '../pages/myask/myask';
+import { MeanswerPage } from '../pages/meanswer/meanswer';
 import { InstructionsPage } from '../pages/instructions/instructions';
 import { SetPage } from '../pages/set/set';
 
@@ -57,7 +59,10 @@ import { SetPage } from '../pages/set/set';
     QuestiondetailsPage,
     IntegralPage,
     InstructionsPage,
-    SetPage
+    SetPage,
+    MyaskPage,
+    MeanswerPage,
+    InstructionsPage
   ],
   imports: [
     BrowserModule,
@@ -93,7 +98,10 @@ import { SetPage } from '../pages/set/set';
     QuestiondetailsPage,
     IntegralPage,
     InstructionsPage,
-    SetPage
+    SetPage,
+    MyaskPage,
+    MeanswerPage,
+    InstructionsPage
   ],
   providers: [
     StatusBar,

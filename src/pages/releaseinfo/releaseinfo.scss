@@ -5,18 +5,20 @@ page-releaseinfo {
     .list-ios > .item-block:last-child{
         border-bottom:none;
     }
+    ion-item{
+        text-indent: 16px;
+    }
     .con{
         width: 100%;
         height: 120px;
         border: none;
-        border-bottom: 0.55px solid #c8c7cc;
     }
     .item-ios,textarea::-webkit-input-placeholder{
         color:#999999;
     }
     .upload-pic{
         position: absolute;
-        bottom: 41px;
+        bottom: 0;
         right: 8px;
         ion-icon{
             font-size: 4.4rem;
