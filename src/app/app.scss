@@ -139,3 +139,7 @@ ul{
 .list-ios .item-block .item-inner,.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
     border-bottom: 0.55px solid #E5E6E7;
 }
+// 换行
+ion-label{
+    white-space: normal
+}
