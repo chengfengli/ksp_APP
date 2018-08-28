@@ -10,12 +10,23 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'file.html',
 })
 export class FilePage {
-
+  list = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    for(let i=0;i<10;i++){
+      this.list.push(i);
+    }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FilePage');
+  }
+
+  /**
+   * 查询数据
+   * @param res 条件
+   */
+  getData(res){
+    console.log(res);
   }
 
 }

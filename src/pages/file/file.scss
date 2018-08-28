@@ -1,3 +1,35 @@
 page-file {
-
+    .searchbar-ios{
+        background-color: #ffffff;
+        border-bottom: 0;
+        .searchbar-input{
+            background-color: rgba($color: #000000, $alpha: 0.1);
+        }
+    }
+    .data{
+        margin-top: 40px;
+        .file-titel{
+            display:flex;
+            .icon-pic{
+                width: 20px;
+                height: 24px;
+                margin-left: 20px;
+            }
+            .txt{
+                line-height: 30px;
+                padding-left: 10px;
+                font-weight: bold;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .explain{
+            margin: 5px 0 0 50px;
+            .download{
+                display: inline-block;
+                margin: 0 15px;
+            }
+        }
+    }
 }

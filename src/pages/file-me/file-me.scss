@@ -19,6 +19,9 @@ page-file-me {
                 line-height: 30px;
                 padding-left: 10px;
                 font-weight: bold;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
         }
         .explain{

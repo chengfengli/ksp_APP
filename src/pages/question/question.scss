@@ -18,6 +18,7 @@ page-question {
         .label-ios{
             padding: 10px 15px;
             margin: 0;
+            white-space: normal;
             .title{
                 font-size: 14px;
                 color:#333;
@@ -40,6 +41,7 @@ page-question {
             }
             .decri{
                 line-height: 24px;
+                height: 57px;
                 color:$fontgray;
                 overflow: hidden;
                 text-overflow: ellipsis;

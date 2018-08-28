@@ -74,6 +74,7 @@ import { SetPage } from '../pages/set/set';
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp,{
       backButtonText:'',
+      backButtonIcon:'angle-left',
       iconMode:'ios',
       mode:'ios',
       tabsHideOnSubPages: 'true' // 隐藏tabs

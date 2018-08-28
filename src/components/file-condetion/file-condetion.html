@@ -3,10 +3,10 @@
   <!-- 资讯条件组件 -->
   <ion-grid class="condetion-top">
     <ion-row class="font-dark" style="text-align:center;">
-      <ion-col (click)="choice('column')" [ngClass]="currentChoice==='column'? 'active':''"><div>栏目<i class="fa fa-sort-desc"></i></div></ion-col>
-      <ion-col (click)="choice('tag')" [ngClass]="currentChoice==='tag'? 'active':''"><div>标签<i class="fa fa-sort-desc"></i></div></ion-col>
-      <ion-col (click)="choice('date')" [ngClass]="currentChoice==='date'? 'active':''"><div>日期<i class="fa fa-sort-desc"></i></div></ion-col>
-      <ion-col (click)="choice('format')" [ngClass]="currentChoice==='format'? 'active':''"><div>格式<i class="fa fa-sort-desc"></i></div></ion-col>
+      <ion-col (click)="choice('column')" [ngClass]="currentChoice==='column'? 'active':''"><div>栏目<ion-icon name="sort-desc"></ion-icon></div></ion-col>
+      <ion-col (click)="choice('tag')" [ngClass]="currentChoice==='tag'? 'active':''"><div>标签<ion-icon name="sort-desc"></ion-icon></div></ion-col>
+      <ion-col (click)="choice('date')" [ngClass]="currentChoice==='date'? 'active':''"><div>日期<ion-icon name="sort-desc"></ion-icon></div></ion-col>
+      <ion-col (click)="choice('format')" [ngClass]="currentChoice==='format'? 'active':''"><div>格式<ion-icon name="sort-desc"></ion-icon></div></ion-col>
     </ion-row>
   </ion-grid>
 

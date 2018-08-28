@@ -38,6 +38,10 @@ a{
 .toolbar-title-ios,.toolbar-title-md{
     font-weight: normal;
 }
+// 导航栏无边框
+.header-ios .toolbar-ios:last-child .toolbar-background-ios{
+    border-width: 0;
+}
 $fontgray: #ABAFB0;
 $fontprimary:#029DFC;
 $fontsecondary:#5ce5c7;
