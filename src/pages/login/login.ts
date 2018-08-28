@@ -44,8 +44,17 @@ export class LoginPage {
   login(){
     if(this.check()){
       this.remeberP();
+      // this.httpServe.post({url:'app/login',params:this.user},(res)=>{
+      //   console.log(res);
+      // });
       this.navCtrl.setRoot(TabsPage);
     }
+  }
+
+  getUser(){
+    this.httpServe.post({url:'app/getUser'},(res)=>{
+
+    });
   }
 
   // 隐藏显示密码
