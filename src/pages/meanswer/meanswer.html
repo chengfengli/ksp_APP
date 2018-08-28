@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>我来回答</ion-title>
   </ion-navbar>
 
@@ -15,7 +15,5 @@
 
 <ion-content padding>
   <textarea placeholder="请输入你的回答" class='answer-txt'></textarea>
-  <footer>
-    <button class='my-ask' (click)='toMyAsk()'>提交</button>
-  </footer>
+  <button ion-button class='submit-btn' (click)='toMyAsk()'>提交</button>
 </ion-content>

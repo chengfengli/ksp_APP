@@ -20,7 +20,7 @@
       <textarea placeholder="请输入资讯标题" [(ngModel)]="title" maxLength="100" class='title'></textarea>
       <div style="text-align:right;" class="font-gray">{{title.length}}/100</div>
     </ion-item>
-    <ion-item class='last-item'> 
+    <ion-item> 
       <div  contenteditable="true" class="con">{{con}}
         <span *ngIf='con.length == 0'>请输入资讯内容</span>
       </div>
@@ -41,9 +41,7 @@
     </li>
     <p class='pic-limit'>上传图片(最多6张)</p>
   </ul> -->
-  <footer>
-    <button class='my-ask' (click)='toMyAsk()'>提交</button>
-  </footer>
+  <button ion-button class='submit-btn' (click)='toMyAsk()'>提交</button>
 </ion-content>
 <div class="bg" *ngIf="showColumn">
   <colum-list (confirm)="getColumn($event)" (cancel)="closeColumn()"></colum-list>

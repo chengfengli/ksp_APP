@@ -20,7 +20,7 @@ page-myquestion {
             margin: 0;
             .title{
                 font-size: 14px;
-                color:#333;
+                color:$fontdark;
                 // margin-bottom: 8px;
                 span{
                     display: inline-block;
@@ -51,7 +51,7 @@ page-myquestion {
             }
             .base-msg{
                 position: relative;
-                height:24px;
+                height:2rem;
                 margin:10px 0 0;
                 .adopt{
                     position: absolute;
@@ -60,11 +60,11 @@ page-myquestion {
                     color:$fontsecondary;
                     font-size: 12px;
                     width:70px;
-                    height: 24px;
+                    height: 2rem;
                     text-align: center;
-                    line-height: 24px;
+                    line-height: 2rem;
                     color:#fff;
-                    background: #039bff;
+                    background: $fontprimary;
                     vertical-align: bottom;
                     margin: 0;
                 }
@@ -72,13 +72,13 @@ page-myquestion {
                     position: absolute;
                     left:0;
                     bottom:0;
-                    height: 24px;
+                    height: 2rem;
                     li{
                         float: left;
                         border-bottom: none;
                         padding: 0;
-                        margin-left: 10px;
-                        line-height: 24px;
+                        margin-right: 10px;
+                        line-height: 2rem;
                         color:$fontgray;
                     }
                 }

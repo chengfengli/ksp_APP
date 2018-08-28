@@ -3,7 +3,7 @@
     <ion-title>问答详情</ion-title>
   </ion-navbar>
   <div class="icon-list">
-      <ion-icon name="heart-o" class="details-icon collection-btn" (click)="collecEvent()"></ion-icon>
+      <ion-icon name="heart-o" class="details-icon collection-btn" (click)="showTag=true"></ion-icon>
       <ion-icon name="share-square-o" class="details-icon"></ion-icon>
   </div>
 </ion-header>
@@ -31,7 +31,7 @@
   </header>
   <div class="questioncon">
     <p class='total'>共99条回答</p>
-    <div class='item' *ngFor="let item of list">
+    <div class='item' *ngFor="let item of list;let key =index">
       <ion-card>
         <ion-item>
           <ion-avatar item-start>
@@ -52,14 +52,22 @@
               <div>赞(6)</div>
             </button>
           </ion-col>
-          <ion-col>
+          <ion-col (click)='presentPrompt(key)'>
             <button ion-button icon-start clear small>
               <ion-icon name="text"></ion-icon>
-              <div>评论(4)</div>
+              <div>评论({{allcomments.length}})</div>
             </button>
           </ion-col>
         </ion-row>
+        <div style='clear: both'></div>
+        <ul *ngFor='let item of allcomments' class='comments-list'>
+          <li>{{item.name}}:{{item.comments}}</li>
+        </ul>
       </ion-card>
+      
     </div>
   </div>
 </ion-content>
+<div class="bg" *ngIf="showTag">
+  <tag-list (confirm)="getTag($event)" (cancel)="closeTag()"></tag-list>
+</div>

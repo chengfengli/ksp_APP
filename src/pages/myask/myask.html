@@ -53,15 +53,7 @@
       </li>
       <p class='pic-limit'>上传图片(最多6张)</p>
     </ul>
-    <ion-list class='anonymous'>
-      <ion-item>
-        <ion-label>匿名提问</ion-label>
-        <ion-checkbox [(ngModel)]="anonymous"></ion-checkbox>
-      </ion-item>
-    </ion-list>
-    <footer>
-      <button class='my-ask' (click)='toMyAsk()'>提交问题</button>
-    </footer>
+    <button class='submit-btn' (click)='toMyAsk()' ion-button>提交问题</button>
   </ion-content>
   <div class="bg" *ngIf="showColumn">
     <colum-list (confirm)="getColumn($event)" (cancel)="closeColumn()"></colum-list>

@@ -40,20 +40,18 @@ page-question {
                 }
             }
             .decri{
-                line-height: 24px;
-                height: 57px;
+                line-height: 28px;
                 color:$fontgray;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
-                border-bottom:1px solid #dcdcdc;
                 padding:5px 0 10px 0;
             }
             .base-msg{
                 position: relative;
-                height:24px;
+                height:2rem;
                 margin:10px 0 0;
                 .adopt{
                     position: absolute;
@@ -62,9 +60,9 @@ page-question {
                     color:$fontsecondary;
                     font-size: 12px;
                     width:70px;
-                    height: 24px;
+                    height: 2rem;
                     text-align: center;
-                    line-height: 24px;
+                    line-height: 2rem;
                     color:#fff;
                     background: #039bff;
                     vertical-align: bottom;
@@ -74,13 +72,13 @@ page-question {
                     position: absolute;
                     left:0;
                     bottom:0;
-                    height: 24px;
+                    height: 2rem;
                     li{
                         float: left;
                         border-bottom: none;
                         padding: 0;
                         margin-left: 10px;
-                        line-height: 24px;
+                        line-height: 2rem;
                         color:$fontgray;
                     }
                 }

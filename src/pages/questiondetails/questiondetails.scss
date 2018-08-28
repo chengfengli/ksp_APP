@@ -21,7 +21,7 @@ page-questiondetails {
         background: #ffffff;
         .title{
             line-height: 24px;
-            color:$fontgray;
+            color:$fontdark;
             margin-top: 0;
             letter-spacing: 1px;
             span{
@@ -34,8 +34,8 @@ page-questiondetails {
                 float: left;
                 padding: 3px 10px;
                 border-radius: 12px;
-                border: 1px solid #A4A4A5;
-                color: #A4A4A5;
+                border: 1px solid $fontgray;
+                color: $fontgray;
                 margin-right: 10px;
             }
         }
@@ -107,6 +107,14 @@ page-questiondetails {
                 padding: 6px;
                 color: #fff;
                 border-radius: 7px;
+            }
+            .comments-list{
+                li{
+                    color: #373737;
+                    font-size: 14px;
+                    line-height: 30px;
+                    border-bottom: 1px dashed #ccc;
+                }
             }
         }
         

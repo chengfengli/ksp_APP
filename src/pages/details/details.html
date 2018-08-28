@@ -3,14 +3,14 @@
     <ion-title>资讯详情</ion-title>
   </ion-navbar>
   <div class="icon-list">
-    <ion-icon name="heart-o" class="details-icon collection-btn" (click)="collecEvent()"></ion-icon>
+    <ion-icon name="heart-o" class="details-icon collection-btn" (click)="showTag=true"></ion-icon>
     <ion-icon name="share-square-o" class="details-icon"></ion-icon>
   </div>
 </ion-header>
 
 
 <ion-content padding>
-  <h2 class='title font16 font-gray'>12个房价上涨的趋势成都高新区区天府软件园B区</h2>
+  <h2 class='title font16'>12个房价上涨的趋势成都高新区区天府软件园B区</h2>
   <ul class='lable-list'>
     <li>标签一</li>
     <li>标签二</li>
@@ -28,3 +28,6 @@
     <img src="assets/imgs/slide01.png" alt="列表图"/>
   </div>
 </ion-content>
+<div class="bg" *ngIf="showTag">
+  <tag-list (confirm)="getTag($event)" (cancel)="closeTag()"></tag-list>
+</div>

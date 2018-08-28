@@ -79,6 +79,7 @@ export class ReleaseinfoPage {
       console.log(res)
     }
   }
+  //接收colum值
   getColumn(res){
     console.log(res)
     this.showColumn = false;
@@ -88,10 +89,11 @@ export class ReleaseinfoPage {
       this.colum ='栏目'+ res;
     }
   }
-
+  // 关闭栏目弹框
   closeColumn(){
     this.showColumn = false;
   }
+  // 接收tags值
   getTag(res){
     console.log(res)
     this.showTag = false;
@@ -110,7 +112,7 @@ export class ReleaseinfoPage {
       // }
     }
   }
-
+  // 关闭tag弹框
   closeTag(){
     this.showTag = false;
   }

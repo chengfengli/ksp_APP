@@ -15,57 +15,23 @@ import { NavController, NavParams, ModalController, AlertController } from 'ioni
 export class DetailsPage {
   testCheckboxOpen = false;
   testCheckboxResult: any;
+  showTag = false;
+  tags = ''
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController,public alertCtrl: AlertController) {
 
   }
-
-  collecEvent(){
-      let alert = this.alertCtrl.create();
-      alert.setTitle('请选择标签');
-  
-      alert.addInput({
-          type: 'checkbox',
-          label: 'Alderaan',
-          value: 'value1',
-          checked: true
-      });
-  
-      alert.addInput({
-          type: 'checkbox',
-          label: 'Bespin',
-          value: 'value2'
-      });
-  
-      alert.addInput({
-          type: 'checkbox',
-          label: 'Coruscant',
-          value: 'value3'
-      });
-  
-      alert.addInput({
-          type: 'checkbox',
-          label: 'Endor',
-          value: 'value4'
-      });
-  
-      alert.addInput({
-          type: 'checkbox',
-          label: 'Hoth',
-          value: 'value5'
-      });
-  
-  
-      alert.addButton('重置');
-      alert.addButton({
-        text: '确定',
-        handler: (data: any) => {
-            console.log('Checkbox data:', data);
-            this.testCheckboxOpen = false;
-            this.testCheckboxResult = data;
-        }
-      });
-  
-      alert.present();
-  
+  //接收tags值
+  getTag(res){
+    console.log(res)
+    this.showTag = false;
+    if(res.length==0){
+      this.tags = '';
+    }else{
+      this.tags = res;
+    }
+  }
+ //关闭tags弹框
+  closeTag(){
+    this.showTag = false;
   }
 }
