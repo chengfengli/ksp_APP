@@ -13,12 +13,12 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class HttpProvider {
-  private apiURL = 'http://192.168.1.85:7004/app/';
+  private apiURL = 'http://192.168.0.126:8080/';
 
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
   // 请求头接口
-  private headers = new Headers({'Content-Type': 'application/json'});
+  private headers = new Headers({'Content-Type':'application/json','Authorization':'948C4FDC53DD938918F9F4C33BE5D4C6','Cookie':'JSESSIONID=1k2naixut68f81q5rpr0c3n4vc'});
  
   // 对参数进行编码
   private encode (params) {
@@ -72,8 +72,8 @@ export class HttpProvider {
   }
  
   // post方法
-  post (option,success,error?) {
-    let old_option = {url:'',params:null,loader:false,error_hint:true};
+  post (option,success) {
+    let old_option = {url:'',params:null,loader:false};
     old_option = this.jsonMerge(old_option,option);
     let loading = this.showLoading();
     if (old_option.loader) {
@@ -95,22 +95,19 @@ export class HttpProvider {
             //option.navCtrl.setRoot(LoginPage);
           });
         }else{
-          if(old_option.error_hint){
-            this.errorToast(res.msg);
-          }
+          this.errorToast(res.msg);
         }
       },err=>{
         loading.dismiss();
-        if(old_option.error_hint){
-          this.handleError(err);
-        }
-        if(error){
-          error(err);
-        }
+        this.handleError(err);
       })
     });
   }
  
+  /**
+   * 
+   * @param error 请求异常提示
+   */
   private handleError (error: Response | any) {
     let msg = '';
     if(error.status == 400){
@@ -127,7 +124,11 @@ export class HttpProvider {
     }
   }
  
-  // 提示框
+  /**
+   * 提示框
+   * @param message 提示信息
+   * @param callback 回调函数
+   */
   alert (message:string, callback?) {
     let title = '提示';
     let alert = this.alertCtrl;
@@ -147,7 +148,11 @@ export class HttpProvider {
     }
   }
 
-  //确认框
+  /**
+   * 确认框
+   * @param message 提示信息
+   * @param callback 回调函数
+   */
   confim(message:string, callback){
     let alert = this.alertCtrl;
     alert.create({
@@ -164,10 +169,20 @@ export class HttpProvider {
     }).present();
   }
 
+  /**
+   * 成功提示框
+   * @param message 提示信息
+   * @param callback 回调函数
+   */
   successToast(message, callback?){
     this.toast(message,'succ', callback);
   }
 
+  /**
+   * 错误提示框
+   * @param message 提示信息
+   * @param callback 回调函数
+   */
   errorToast(message, callback?){
     this.toast(message,'error', callback);
   }
@@ -203,7 +218,10 @@ export class HttpProvider {
     return Observable.fromPromise(this.storage.remove(key));
   }
  
- 
+  /**
+  * 加载框
+  * @param message 显示信息
+  */
   showLoading(message?:string):Loading {
     if(this.isEmpty(message)){
       message = '正在加载中...'
@@ -241,9 +259,9 @@ export class HttpProvider {
   }
 
   /**
-   * 
-   * @param date 时间格式
-   * @param format 
+   * 时间格式格式化
+   * @param date 日期时间
+   * @param format 格式
    */
   dateFormat(date,format:string){
     let dateStr = '';
