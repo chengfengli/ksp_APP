@@ -1,13 +1,8 @@
-
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>发布资讯</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content>
   <ion-list>
     <button ion-item (click)="showColumn=true" class="font14">
@@ -32,8 +27,8 @@
     </ion-item>
   </ion-list>
   <ul class='choose-pic'>
-    <li (click)="addImg('normal')">
-      <ion-icon name="ios-camera-outline"></ion-icon>
+    <li (click)="setPhoto()">
+      <ion-icon name="camera-retro"></ion-icon>
       <p>照片/视频</p>
     </li>
     <p class='pic-limit'>上传图片(最多6张)</p>
@@ -46,5 +41,5 @@
   <colum-list (confirm)="getColumn($event)" (cancel)="closeColumn()"></colum-list>
 </div>
 <div class="bg" *ngIf="showTag">
-    <tag-list (confirm)="getTag($event)" (cancel)="closeTag()"></tag-list>
-  </div>
+  <tag-list (confirm)="getTag($event)" (cancel)="closeTag()"></tag-list>
+</div>
