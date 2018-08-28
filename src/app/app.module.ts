@@ -38,6 +38,7 @@ import { MeanswerPage } from '../pages/meanswer/meanswer';
 import { InstructionsPage } from '../pages/instructions/instructions';
 import { MycollectionPage } from '../pages/mycollection/mycollection';
 import { SetPage } from '../pages/set/set';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,7 @@ import { SetPage } from '../pages/set/set';
   ],
   providers: [
     StatusBar,
-    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,
+    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

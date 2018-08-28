@@ -1,13 +1,8 @@
-
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>发布资讯</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content>
   <ion-list>
     <button ion-item (click)="showColumn=true" class="font14">
@@ -25,19 +20,27 @@
       <textarea placeholder="请输入资讯标题" [(ngModel)]="title" maxLength="100" class='title'></textarea>
       <div style="text-align:right;" class="font-gray">{{title.length}}/100</div>
     </ion-item>
-    <ion-item>
-      <!-- <div  contenteditable="true" placeholder="请输入资讯内容" class="con">{{con}}</div> -->
-      <textarea placeholder="请输入资讯内容" class="con" [(ngModel)]="con"></textarea>
-      <p class='pic-num'><span>{{con.length}}</span>/2000</p>
+    <ion-item class='last-item'> 
+      <div  contenteditable="true" class="con">{{con}}
+        <span *ngIf='con.length == 0'>请输入资讯内容</span>
+      </div>
+      <ul class='choose-pic'>
+        <li (click)="setPhoto()">
+          <ion-icon name="camera-retro"></ion-icon>
+          <p>照片/视频</p>
+        </li>
+      </ul>
+      <!-- <textarea placeholder="请输入资讯内容" class="con" [(ngModel)]="con"></textarea> -->
+      <p class='pic-num'><span>{{con.length}}</span>/20000</p>
     </ion-item>
   </ion-list>
-  <ul class='choose-pic'>
-    <li>
-      <ion-icon name="ios-camera-outline"></ion-icon>
+  <!-- <ul class='choose-pic'>
+    <li (click)="setPhoto()">
+      <ion-icon name="camera-retro"></ion-icon>
       <p>照片/视频</p>
     </li>
     <p class='pic-limit'>上传图片(最多6张)</p>
-  </ul>
+  </ul> -->
   <footer>
     <button class='my-ask' (click)='toMyAsk()'>提交</button>
   </footer>
@@ -46,5 +49,5 @@
   <colum-list (confirm)="getColumn($event)" (cancel)="closeColumn()"></colum-list>
 </div>
 <div class="bg" *ngIf="showTag">
-    <tag-list (confirm)="getTag($event)" (cancel)="closeTag()"></tag-list>
-  </div>
+  <tag-list (confirm)="getTag($event)" (cancel)="closeTag()"></tag-list>
+</div>

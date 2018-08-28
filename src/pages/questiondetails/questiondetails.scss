@@ -9,6 +9,10 @@ page-questiondetails {
         .details-icon{
             display:inline-block;
             margin-left: 10px;
+            color:#fff;
+        }
+        .collection-btn{
+            color:#fff;
         }
     }
     header{
@@ -21,7 +25,7 @@ page-questiondetails {
             margin-top: 0;
             letter-spacing: 1px;
             span{
-                color:$fontsecondary;
+                color:#039bff;
             }
         }
         .tag-list{
@@ -99,7 +103,7 @@ page-questiondetails {
                 position: absolute;
                 right: 0;
                 top: 10px;
-                background: #1ABC9C;
+                background: #039bff;
                 padding: 6px;
                 color: #fff;
                 border-radius: 7px;
