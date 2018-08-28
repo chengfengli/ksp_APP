@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, ActionSheet, ActionSheetController, Platform } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 
 /**
@@ -18,7 +18,13 @@ export class ReleaseinfoPage {
   con = '';
   showColumn = false;
   showTag = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public httpServe: HttpProvider) {
+  actionHud:ActionSheet;
+  imgTyep: string;
+  //是否裁剪图片
+  picEdit: boolean;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public httpServe: HttpProvider,public actionCtrl:ActionSheetController,
+    public platform:Platform) {
     this.httpServe.post({url:'my/test.json'},(res)=>{
       console.log(res)
     },)
@@ -111,4 +117,42 @@ export class ReleaseinfoPage {
   closeTag(){
     this.showTag = false;
   }
+  
+
+
+  //选择图片上传方式
+  setPhoto(imgTyep) {
+    if (imgTyep == "logo") {
+      this.picEdit = true;
+  } else {
+      this.picEdit = false;
+  }
+    this.actionHud = this.actionCtrl.create({
+      cssClass: 'action-sheets-basic-page',
+      buttons: [
+          {
+            cssClass:'action-sheets-button-pic',
+            text: '从相册选择...',
+            icon:!this.platform.is('ios') ? 'ios-image' : 'md-image',
+            handler: () =>{
+              // this.choosePhoto(0, this.picEdit);
+            }
+        },
+        {
+          cssClass:'action-sheets-button-pic',
+          text: '拍照',
+          icon:!this.platform.is('ios') ? 'ios-camera' : 'md-camera',
+          handler: () =>{
+            // console.log('拍照')
+            //this.choosePhoto(this.camera.PictureSourceType.CAMERA, this.picEdit);
+          }
+        }
+      ]
+  });
+  this.actionHud.present();
+  }
+  addImg(img) {
+    this.setPhoto(img);
+}
+
 }

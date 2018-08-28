@@ -7,10 +7,13 @@ page-question {
         }
     }
     .data{
-        margin-top: 40px;
-        margin-bottom: 72px;
+        margin-top:36px;
+        // margin-bottom: 72px;
         ion-item-sliding{
             margin-bottom: 14px;
+        }
+        ion-label{
+            white-space: normal;
         }
         .label-ios{
             padding: 10px 15px;
