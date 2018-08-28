@@ -1,29 +1,27 @@
 <ion-header>
   <ion-navbar>
-    <ion-searchbar placeholder="输入要搜索的内容"></ion-searchbar>
-    <!-- <ion-buttons end>
-      <button (click)="search()" style="background-color: transparent;color: #488aff;">搜索</button>
-    </ion-buttons> -->
+      <ion-title>我的问答</ion-title>
+      <ion-buttons end>
+        <button ion-button [navPush]="myaskPage" clear>提问</button>
+      </ion-buttons>
   </ion-navbar>
-    
-  </ion-header>
+</ion-header>
 
 
 <ion-content>
-  <file-condetion (confirmCall)="getData($event)"></file-condetion>
+  <ion-searchbar placeholder="请输入搜索的内容" class="searchInput"></ion-searchbar> 
+  <information-condition (confirmCall)="getData($event)"></information-condition>
   <ion-list class="data">
     <ion-item-sliding *ngFor="let item of list;let key =index" >
       <ion-item (click)='toQuestionDetails()'>
           <div class="title clearfix">
               <span class='reward'>20分</span>
-              <span class='title-con'>今天天气热吗今天天气热吗今天天气热吗今天天气热吗</span>
+              <span class='title-con font16'>今天天气热吗今天天气热吗今天天气热吗今天天气热吗</span>
             </div>
-            <p class='decri'>能详细描述一下解决方案吗</p>
+            <p class='decri font14'>能详细描述一下解决方案吗能详细描述一下解决方案吗能详细描述一下解决方案吗能详细描述一下解决方案吗能详细描述一下解决方案吗</p>
             <div class='base-msg clearfix'>
-              <p class='adopt'>
-                已采纳
-              </p>
-              <ol class='ques-msg clearfix'>
+              <p class='adopt'>已采纳</p>
+              <ol class='ques-msg clearfix font12'>
                 <li>张三23</li>
                 <li>99回答</li>
                 <li>一小时前</li>
@@ -35,7 +33,4 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <footer>
-    <button class='my-ask' (click)='toMyAsk()'>我要提问</button>
-  </footer>
 </ion-content>

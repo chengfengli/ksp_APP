@@ -5,6 +5,7 @@ information-condition {
         width: 100%;
         z-index: 100;
         background-color: rgba(0,0,0,.3);
+
         .condetion-top{
             padding: 0 10px;
             display: flex;
@@ -27,8 +28,12 @@ information-condition {
             height: 300px;
             overflow-y: auto;
             background-color: #FFF;
+            padding: 0 10px;
             .active{
                 color: $fontprimary;
+            }
+            ion-label{
+                font-size: 14px;
             }
         }
         .btn-box{

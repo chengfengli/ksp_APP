@@ -1,9 +1,35 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>information</ion-title>
+    <ion-title>咨讯</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <button ion-button (click)="to()">跳转</button>
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="arrow-dropdown"
+    pullingText="放开刷新数据"
+    refreshingSpinner="circles"
+    refreshingText="更新中...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-searchbar placeholder="请输入搜索的内容" class="searchInput"></ion-searchbar> 
+  <information-condition (confirmCall)="getData($event)"></information-condition>
+
+  
+  <ion-list>
+    <ion-item *ngFor="let item of list;let key = index" (click)="todetailsPage()">
+      <div style="display:flex;">
+        <div style="flex: 1;">
+          <div class="title font16">{{item.title}}标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+          <div class="base-msg font12 font-gray">
+            <span>{{item.title}}</span>
+            <span>{{item.num}}阅读</span>
+          </div>
+        </div>
+        <img class="img-ico" src="assets/imgs/05.jpg">
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
