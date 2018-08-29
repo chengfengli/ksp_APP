@@ -33,7 +33,7 @@ export class QuestiondetailsPage {
       this.height = 'auto';
       this.action = '收起'
     }else{
-      this.height = '24px';
+      this.height = '2.2rem';
       this.action = '展开'
     }
   }
