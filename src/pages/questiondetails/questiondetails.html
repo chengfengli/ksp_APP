@@ -4,11 +4,7 @@
   </ion-navbar>
   <!-- <div class="icon-list">
       <ion-icon name="heart-o" class="details-icon collection-btn" (click)="showTag=true"></ion-icon>
-<<<<<<< HEAD
-      <ion-icon name="share-square-o" class="details-icon"  (click)="shareeEvent()"></ion-icon>
-=======
       <ion-icon name="share-square-o" class="details-icon"></ion-icon>
->>>>>>> 79010e91c97724d1df38012207b2cef8269d8aa6
   </div> -->
 </ion-header>
 <ion-content>
@@ -50,9 +46,6 @@
             <span class="font12" style="margin-right:1rem;"><ion-icon name="thumbs-o-up"></ion-icon>&nbsp;(6)</span>
             <span class="font12" (click)="commentFun()"><ion-icon name="comment-o"></ion-icon>&nbsp;({{allcomments.length}})</span>
         </div>
-        <ul *ngFor='let item of allcomments' class='comments-list'>
-          <li>{{item.name}}:{{item.comments}}</li>
-        </ul>
       </ion-card>
       
     </div>
