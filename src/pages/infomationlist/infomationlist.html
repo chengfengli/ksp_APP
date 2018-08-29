@@ -22,14 +22,24 @@
     <ion-list>
       <ion-item-sliding  *ngFor="let item of list;let key = index">
         <ion-item class='item-msg' (click)="todetailsPage()">
-          <div item-end class="msg-pic">
+          <!-- <div item-end class="msg-pic">
             <img src="assets/imgs/05.jpg">
           </div>
           <h2 class="title">{{item.title}}  </h2>
           <div class="base-msg">
             <span>{{item.title}}</span>
             <span>{{item.num}}阅读</span>
-          </div>
+          </div> -->
+          <div style="display:flex;">
+              <div style="flex: 1;">
+                <div class="title font16">{{item.title}}标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                <div class="base-msg font12 font-gray">
+                  <span>{{item.title}}</span>
+                  <span>{{item.num}}阅读</span>
+                </div>
+              </div>
+              <img class="img-ico" src="assets/imgs/05.jpg">
+            </div>
         </ion-item>
         <ion-item-options side="right">
           <button ion-button color="danger" (click)="delete(key)">

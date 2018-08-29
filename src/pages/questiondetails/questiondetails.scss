@@ -41,18 +41,18 @@ page-questiondetails {
         }
         .decri{
             position: relative;
-            height:24px;
+            height:2.2rem;
             margin-bottom: 10px;
             overflow: hidden;
             p{
                 width: 80%;
-                line-height: 24px;
+                line-height: 2.2rem;
                 color:$fontdark;
             }
             .toggle-btn{
                 position: absolute;
                 right:0;
-                top:4px;
+                top:0px;
                 color: $fontgray;
             }
         }
@@ -60,12 +60,12 @@ page-questiondetails {
             height: 2.25rem;
             .button-ios{
                 margin: 0;
-                height:2.25rem;
+                padding: 0.5rem 1rem;
                 border-radius: 0;
             }
             .ques-msg{
                 float: right;
-                line-height: 2.25rem;
+                padding: 0.6rem 1rem;
                 color:$fontgray;
                 font-size: 12px;
                 span{

@@ -157,7 +157,7 @@ export class ReleaseinfoPage {
           {
             cssClass:'action-sheets-button-pic',
             text: '从相册选择...',
-            icon:!this.platform.is('ios') ? 'ios-image' : 'md-image',
+            icon:!this.platform.is('ios') ? 'file-photo-o' : 'file-photo-o',
             handler: () =>{
               this.choosePhoto(0);
             }
@@ -165,7 +165,7 @@ export class ReleaseinfoPage {
         {
           cssClass:'action-sheets-button-pic',
           text: '拍照',
-          icon:!this.platform.is('ios') ? 'ios-camera' : 'md-camera',
+          icon:!this.platform.is('ios') ? 'camera-retro' : 'camera-retro',
           handler: () =>{
             this.choosePhoto(this.camera.PictureSourceType.CAMERA);
           }
