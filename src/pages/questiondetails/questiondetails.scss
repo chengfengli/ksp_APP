@@ -121,6 +121,15 @@ page-questiondetails {
                 position: absolute;
                 right: 0;
                 top: 10px;
+                background: $fontprimary;
+                background-size: 100% 100%;
+                padding: 0.2rem 1rem;
+                color: #fff;
+            }
+            .good-answer{
+                position: absolute;
+                right: 0;
+                top: 10px;
                 background: url(../../assets/imgs/good-answer.png) no-repeat;
                 background-size: 100% 100%;
                 padding: 0.4rem 1rem 0.4rem 2.5rem;
