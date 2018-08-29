@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { MeanswerPage } from '../meanswer/meanswer';
+import { CommentPage } from '../comment/comment';
 
 /**
- * Generated class for the QuestiondetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * 问答详情
  */
 
 @Component({
@@ -35,7 +33,6 @@ export class QuestiondetailsPage {
       this.height = '24px';
       this.action = '展开'
     }
-    
   }
   //跳转到我要回答页面
   toMyAnswer() {
@@ -51,9 +48,16 @@ export class QuestiondetailsPage {
       this.tags = res;
     }
   }
-//关闭选择标签
+  //关闭选择标签
   closeTag(){
     this.showTag = false;
+  }
+
+  /**
+   * 评论
+   */
+  commentFun(){
+    this.navCtrl.push(CommentPage)
   }
   presentPrompt(key) {
     let alert = this.alertCtrl.create({

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FileAddPage } from '../file-add/file-add';
+import { FileDetailPage } from '../file-detail/file-detail';
 
 @Component({
   selector: 'page-file-me',
@@ -28,4 +29,10 @@ export class FileMePage {
     console.log(res);
   }
 
+  /**
+   * 文件详情
+   */
+  fileDetail(){
+    this.navCtrl.push(FileDetailPage);
+  }
 }

@@ -1,19 +1,11 @@
-<!--
-  Generated template for the MeanswerPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar color="primary">
     <ion-title>我来回答</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-  <textarea placeholder="请输入你的回答" class='answer-txt'></textarea>
-  <button ion-button class='submit-btn' (click)='toMyAsk()'>提交</button>
+<ion-content>
+  <textarea [(ngModel)]="txt" maxlength="500" placeholder="请输入你的回答" class='answer-txt'></textarea>
+  <div class="count">{{txt.length}}/500</div>
+  <button ion-button type="button" class='submit-btn font18' (click)='toMyAsk()'>提交</button>
 </ion-content>

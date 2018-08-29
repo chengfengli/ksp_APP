@@ -39,6 +39,8 @@ import { InstructionsPage } from '../pages/instructions/instructions';
 import { MycollectionPage } from '../pages/mycollection/mycollection';
 import { SetPage } from '../pages/set/set';
 import { Camera } from '@ionic-native/camera';
+import { FileDetailPage } from '../pages/file-detail/file-detail';
+import { CommentPage } from '../pages/comment/comment';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { Camera } from '@ionic-native/camera';
     MyaskPage,
     MeanswerPage,
     InstructionsPage,
-    MycollectionPage
+    MycollectionPage,
+    FileDetailPage,
+    CommentPage
   ],
   imports: [
     BrowserModule,
@@ -106,7 +110,9 @@ import { Camera } from '@ionic-native/camera';
     MyaskPage,
     MeanswerPage,
     InstructionsPage,
-    MycollectionPage
+    MycollectionPage,
+    FileDetailPage,
+    CommentPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { FileDetailPage } from '../file-detail/file-detail';
 
 /**
  * 文档页面
@@ -27,6 +28,14 @@ export class FilePage {
    */
   getData(res){
     console.log(res);
+  }
+
+
+  /**
+   * 文件详情
+   */
+  fileDetail(){
+    this.navCtrl.push(FileDetailPage);
   }
 
 }

@@ -35,7 +35,7 @@ export class DepartmentTreeComponent {
       }
     ]
   };
-  selectDeps = ['1-1','1-2'];
+  selectDeps = [];
 
   constructor() {
     setTimeout(()=>{
