@@ -1,0 +1,147 @@
+page-comment {
+    header{
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        background: #ffffff;
+        border-bottom: 0.1rem solid #dcdcdc;
+        .title{
+            color:$fontdark;
+            font-weight: bold;
+            line-height: 3rem;
+            margin-bottom: 1rem;
+            span{
+                color:$fontprimary;
+            }
+        }
+        .tag-list{
+            overflow: auto;
+            margin-bottom: 1rem;
+            li{
+                float: left;
+                color: $fontdark;
+                background-color: #F5F5F5;
+                padding: 0.5rem 1rem;
+                margin-right: 10px;
+            }
+        }
+        .decri{
+            position: relative;
+            height:24px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            p{
+                width: 80%;
+                line-height: 24px;
+                color:$fontdark;
+            }
+            .toggle-btn{
+                position: absolute;
+                right:0;
+                top:4px;
+                color: $fontgray;
+            }
+        }
+        .base-msg{
+            height: 30px;
+            .button-ios{
+                margin: 0;
+                height:30px;
+            }
+            .ques-msg{
+                line-height: 30px;
+                color:$fontgray;
+                font-size: 12px;
+                span{
+                    display: inline-block;
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+    .item{
+        .card-ios{
+            margin: 0;
+            width:100%;
+            padding:10px 15px;
+            border-bottom: 1px solid #ccc;
+            box-shadow: 0 1px 2px transparent;
+            -webkit-box-shadow: 0 1px 2px transparent;
+            h2{
+                font-size: 1.4rem;
+            }
+        }
+        .card-content-ios{
+            padding:0 0 16px;
+        }
+        .row{
+            width:45%;
+            float: right;
+            .col{
+                width: 50%;
+            }
+        }
+    }
+    // 评论
+    .comments-list{
+        background-color: #fff;
+        padding: 0 1rem;
+        border-bottom: .5px solid #dcdcdc;
+        margin-bottom: 5.5rem;
+        li{
+            padding: 1rem 0;
+            border-bottom: .5px solid #dcdcdc;
+            .user{
+                display:flex;
+                .user-pic{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+                .user-name{
+                    line-height: 3rem;
+                    padding-left: 10px;
+                    word-break:break-all
+                }
+            }
+            p{
+                word-break: break-all;
+                margin: 1rem 0;
+            }
+            .time{
+                color: rgba($color: $fontgray, $alpha: 0.5);
+            }
+        }
+        .title{
+            font-weight: 600;
+        }
+    }
+    .comments-list li:last-child{
+        border: 0;
+    }
+
+    // 提交评论
+    .submit-box{
+        border-top: 1px solid #dcdcdc;
+        background-color: #fff;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+        bottom: 0;
+        display: flex;
+        padding: 1rem 2rem;
+        .text-input-ios{
+            margin: 0;
+            border: 1px solid #dcdcdc;
+            padding: 0.5rem 0.5rem;
+            font-size: 12px;
+        }
+        #submit-btn{
+            color: #fff;
+            background-color: $fontprimary;
+            height: auto;
+            line-height: 2.8rem;
+            width: 5rem;
+            text-align: center;
+        }
+    }
+}

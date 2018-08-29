@@ -2,26 +2,33 @@
   <ion-navbar color="primary">
     <ion-title>问答详情</ion-title>
   </ion-navbar>
-  <div class="icon-list">
+  <!-- <div class="icon-list">
       <ion-icon name="heart-o" class="details-icon collection-btn" (click)="showTag=true"></ion-icon>
+<<<<<<< HEAD
       <ion-icon name="share-square-o" class="details-icon"  (click)="shareeEvent()"></ion-icon>
   </div>
+=======
+      <ion-icon name="share-square-o" class="details-icon"></ion-icon>
+  </div> -->
+>>>>>>> db27a24d46a9dd76077c0a7f3feaf1f8e9d82e9d
 </ion-header>
 <ion-content>
   <header>
-    <h3 class=title><span>[100分]</span>如果你的家人或朋友不支持你的决定,你任会我行我素吗</h3>
-    <ul class='tag-list clearfix'>
+    <div class="title font18"><span>【100分】</span>如果你的家人或朋友不支持你的决定,你任会我行我素吗</div>
+    <ul class='tag-list clearfix font12'>
       <li>标签1</li>
       <li>标签2</li>
     </ul>
     <div class="decri" [ngStyle]="{'height':height}">
-      <p>
-        我该怎么办呢，请各位网友给出详细解决办法,请各位网友给出详细解决办法请各位网友给出详细解决办法
-      </p>
+      <p>我该怎么办呢，请各位网友给出详细解决办法,请各位网友给出详细解决办法请各位网友给出详细解决办法</p>
       <a href='javascript:void(0)' class='toggle-btn' (click)='toggleEvent()'><span>{{action}}</span> <ion-icon name='angle-down'></ion-icon></a>
     </div>
     <div class='base-msg'>
+<<<<<<< HEAD
       <button ion-button color="font-primary" (click)='toMyAnswer()'>我来回答</button>
+=======
+      <button ion-button color="primary" class="font12" (click)='toMyAnswer()'>我来回答</button>
+>>>>>>> db27a24d46a9dd76077c0a7f3feaf1f8e9d82e9d
       <div class='ques-msg'>
         <span>大数据</span>
         <span>张三</span>
@@ -37,14 +44,21 @@
           <ion-avatar item-start>
             <img src="assets/imgs/04.jpg">
           </ion-avatar>
+<<<<<<< HEAD
           <h2 class='username'>张三</h2>
           <p class='time'>2018-8-24</p>
           <p class='adopt' *ngIf='adopt === false'>采纳</p>
           <p class='good-answer' *ngIf='adopt === true'>最佳答案</p>
+=======
+          <h2>张三</h2>
+          <p class="time">2018-8-24</p>
+          <p class='good-answer'>最佳答案</p>
+>>>>>>> db27a24d46a9dd76077c0a7f3feaf1f8e9d82e9d
         </ion-item>
         <ion-card-content>
           <p class="font-dark">Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
         </ion-card-content>
+<<<<<<< HEAD
       
         <ion-row>
           <ion-col (click)='praise()'>
@@ -97,6 +111,15 @@
               <button ion-button end>提交</button>
           </div>
         </div>
+=======
+        <div style="text-align:right;color:#ABAFB0;">
+            <span class="font12" style="margin-right:1rem;"><ion-icon name="thumbs-o-up"></ion-icon>&nbsp;(6)</span>
+            <span class="font12" (click)="commentFun()"><ion-icon name="comment-o"></ion-icon>&nbsp;({{allcomments.length}})</span>
+        </div>
+        <ul *ngFor='let item of allcomments' class='comments-list'>
+          <li>{{item.name}}:{{item.comments}}</li>
+        </ul>
+>>>>>>> db27a24d46a9dd76077c0a7f3feaf1f8e9d82e9d
       </ion-card>
       
     </div>

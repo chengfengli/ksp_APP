@@ -20,28 +20,23 @@ page-questiondetails {
         margin-bottom: 10px;
         background: #ffffff;
         .title{
-            line-height: 24px;
             color:$fontdark;
-            margin-top: 0;
-            letter-spacing: 1px;
             font-weight: bold;
+            line-height: 3rem;
+            margin-bottom: 1rem;
             span{
-                color:#039bff;
+                color:$fontprimary;
             }
         }
         .tag-list{
-            margin-bottom: 10px;
+            overflow: auto;
+            margin-bottom: 1rem;
             li{
                 float: left;
                 color: $fontdark;
-                font-size: 12px;
-                padding: 0px 0.333rem;
-                border:1px solid #ccc;
-                width:5rem;
-                height: 1.875rem;
-                line-height: 1.875rem;
-                margin-right: 0.8333rem;
-                text-align: center;
+                background-color: #F5F5F5;
+                padding: 0.5rem 1rem;
+                margin-right: 10px;
             }
         }
         .decri{
@@ -53,13 +48,12 @@ page-questiondetails {
                 width: 80%;
                 line-height: 24px;
                 color:$fontdark;
-                text-indent: 2rem;
             }
             .toggle-btn{
                 position: absolute;
                 right:0;
                 top:4px;
-                color:#a5a5a5;
+                color: $fontgray;
             }
         }
         .base-msg{
@@ -83,10 +77,12 @@ page-questiondetails {
     }
     .questioncon{
         background:#fff;
+        padding: 0 1rem;
         .total{
-            line-height:3.167rem;
+            line-height:30px;
             color:$fontprimary;
-            font-size: 14px;
+            font-size: 12px;
+            font-weight: bold;
             border-bottom:1px solid #ccc;
             padding-left:15px;
         }
@@ -96,6 +92,11 @@ page-questiondetails {
                 width:100%;
                 padding:10px 15px;
                 border-bottom: 1px solid #ccc;
+                box-shadow: 0 1px 2px transparent;
+                -webkit-box-shadow: 0 1px 2px transparent;
+                h2{
+                    font-size: 1.4rem;
+                }
             }
             .card-content-ios{
                 padding:0 0 16px;
@@ -118,26 +119,12 @@ page-questiondetails {
             }
             .adopt{
                 position: absolute;
-                right: 9px;
-                top: 14px;
-                background: #039bff;
-                height:2rem;
-                width:4.583rem;
-                line-height: 2rem;
-                text-align: center;
+                right: 0;
+                top: 10px;
+                background: url(../../assets/imgs/good-answer.png) no-repeat;
+                background-size: 100% 100%;
+                padding: 0.4rem 1rem 0.4rem 2.5rem;
                 color: #fff;
-            }
-            .good-answer{
-                background:url('../assets/imgs/good-answer.png') no-repeat;
-                position: absolute;
-                right: 9px;
-                top: 14px;
-                width:6.667rem;
-                height:1.958rem;
-                background-size: 100%;
-                text-align: center;
-                color:#fff;
-                line-height: 1.958rem;
             }
             .comments-list{
                 padding-left:15px;

@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { MeanswerPage } from '../meanswer/meanswer';
-import { typeSourceSpan } from '@angular/compiler';
-import { SocialSharing } from '@ionic-native/social-sharing';
+import { CommentPage } from '../comment/comment';
 
 /**
- * Generated class for the QuestiondetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+ * 问答详情
  */
 
 @Component({
@@ -26,7 +22,7 @@ export class QuestiondetailsPage {
   showComments=false;
   adopt = true;
   color = '#ABAFB0';
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private socialSharing:SocialSharing) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController) {
     for(let i=0;i<3;i++){
       this.list.push(i,this.allcomments);
     }
@@ -40,7 +36,6 @@ export class QuestiondetailsPage {
       this.height = '24px';
       this.action = '展开'
     }
-    
   }
   //跳转到我要回答页面
   toMyAnswer() {
@@ -56,20 +51,45 @@ export class QuestiondetailsPage {
       this.tags = res;
     }
   }
-//关闭选择标签
+  //关闭选择标签
   closeTag(){
     this.showTag = false;
   }
-  presentPrompt() {
-    this.showComments = true
-    
+
+  /**
+   * 评论
+   */
+  commentFun(){
+    this.navCtrl.push(CommentPage)
   }
-  //点赞
-  praise(){
-    this.color = '#5ce5c7';
-  }
-  //分享
-  shareeEvent(){
-    this.socialSharing.share('分享、分享问答!', '我的问答', "../assets/imgs/logo.png", '');
+  presentPrompt(key) {
+    let alert = this.alertCtrl.create({
+      title: '评论',
+      inputs: [
+        {
+          name: 'comments',
+          placeholder: '请输入评论信息'
+        }
+      ],
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: '确定',
+          handler: data => {
+            console.log(data.comments)
+            this.comments = data.comments
+            this.allcomments.push({name:"张三",comments:data.comments})
+
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }

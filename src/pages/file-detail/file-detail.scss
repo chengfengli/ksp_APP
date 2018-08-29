@@ -1,0 +1,39 @@
+page-file-detail {
+    .content-ios{
+        background-color: #fff;
+        .file-titel{
+            display:flex;
+            .icon-pic{
+                width: 20px;
+                height: 24px;
+            }
+            .txt{
+                line-height: 2rem;
+                padding-left: 10px;
+                font-weight: bold;
+                word-break:break-all
+            }
+        }
+        .tag-list{
+            overflow: auto;
+            margin: 1rem 0;
+            li{
+                float: left;
+                color: $fontdark;
+                background-color: #F5F5F5;
+                padding: 0.5rem 1rem;
+                margin-right: 10px;
+            }
+        }
+        .info{
+            overflow: auto;
+            margin: 1rem 0;
+            li{
+                float: left;
+                color: $fontgray;
+                margin-right: 1.5rem;
+            }
+        }
+    }
+    
+}

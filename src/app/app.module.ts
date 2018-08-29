@@ -39,7 +39,8 @@ import { InstructionsPage } from '../pages/instructions/instructions';
 import { MycollectionPage } from '../pages/mycollection/mycollection';
 import { SetPage } from '../pages/set/set';
 import { Camera } from '@ionic-native/camera';
-import { SocialSharing } from '@ionic-native/social-sharing';
+import { FileDetailPage } from '../pages/file-detail/file-detail';
+import { CommentPage } from '../pages/comment/comment';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,9 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     MyaskPage,
     MeanswerPage,
     InstructionsPage,
-    MycollectionPage
+    MycollectionPage,
+    FileDetailPage,
+    CommentPage
   ],
   imports: [
     BrowserModule,
@@ -107,11 +110,13 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     MyaskPage,
     MeanswerPage,
     InstructionsPage,
-    MycollectionPage
+    MycollectionPage,
+    FileDetailPage,
+    CommentPage
   ],
   providers: [
     StatusBar,
-    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,SocialSharing,
+    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

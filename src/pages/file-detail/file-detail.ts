@@ -2,18 +2,20 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
- * 我来回答
+ * 文档详情
  */
 
 @Component({
-  selector: 'page-meanswer',
-  templateUrl: 'meanswer.html',
+  selector: 'page-file-detail',
+  templateUrl: 'file-detail.html',
 })
-export class MeanswerPage {
-  txt = "dfafsff";
+export class FileDetailPage {
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
- 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad FileDetailPage');
+  }
 
 }
