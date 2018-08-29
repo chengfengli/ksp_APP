@@ -4,7 +4,11 @@
   </ion-navbar>
   <!-- <div class="icon-list">
       <ion-icon name="heart-o" class="details-icon collection-btn" (click)="showTag=true"></ion-icon>
+<<<<<<< HEAD
       <ion-icon name="share-square-o" class="details-icon"  (click)="shareeEvent()"></ion-icon>
+=======
+      <ion-icon name="share-square-o" class="details-icon"></ion-icon>
+>>>>>>> 79010e91c97724d1df38012207b2cef8269d8aa6
   </div> -->
 </ion-header>
 <ion-content>
@@ -19,7 +23,7 @@
       <a href='javascript:void(0)' class='toggle-btn' (click)='toggleEvent()'><span>{{action}}</span> <ion-icon name='angle-down'></ion-icon></a>
     </div>
     <div class='base-msg'>
-      <button ion-button color="font-primary" (click)='toMyAnswer()'>我来回答</button>
+      <button ion-button color="primary" class="font12" (click)='toMyAnswer()'>我来回答</button>
       <div class='ques-msg'>
         <span>大数据</span>
         <span>张三</span>
@@ -35,66 +39,20 @@
           <ion-avatar item-start>
             <img src="assets/imgs/04.jpg">
           </ion-avatar>
-          <h2 class='username'>张三</h2>
-          <p class='time'>2018-8-24</p>
-          <p class='adopt' *ngIf='adopt === true'>采纳</p>
-          <p class='good-answer' *ngIf='adopt === false'>最佳答案</p>
+          <h2>张三</h2>
+          <p class="time">2018-8-24</p>
+          <p class='good-answer'>最佳答案</p>
         </ion-item>
         <ion-card-content>
           <p class="font-dark">Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
         </ion-card-content>
-      
-        <ion-row>
-          <ion-col (click)='praise()'>
-            <button ion-button icon-start clear small  [ngStyle]="{'color':color}">
-              <ion-icon name="thumbs-o-up"></ion-icon>
-              <div>赞(6)</div>
-            </button>
-          </ion-col>
-          <ion-col (click)='presentPrompt()'>
-            <button ion-button icon-start clear small class='font-gray'>
-              <ion-icon name="commenting"></ion-icon>
-              <div>评论({{allcomments.length}})</div>
-            </button>
-          </ion-col>
-        </ion-row>
-        <div style='clear: both'></div>
-        
-        <div class='comments-list'  *ngIf='showComments=== true'>
-          <p class='title'>评论</p>
-          <div class='comments-item'>
-            <ion-card>
-              <ion-item>
-                <ion-avatar item-start>
-                  <img src="assets/imgs/04.jpg">
-                </ion-avatar>
-                <h2 class='username'>李四</h2>
-                <p class='time'>2018-8-24</p>
-              </ion-item>
-            </ion-card>
-            <ion-card-content>
-              <p class="font-dark">同意该观点.</p>
-            </ion-card-content>
-          </div>
-          <div class='comments-item'>
-              <ion-card>
-                <ion-item>
-                  <ion-avatar item-start>
-                    <img src="assets/imgs/04.jpg">
-                  </ion-avatar>
-                  <h2 class='username'>李四</h2>
-                  <p class='time'>2018-8-24</p>
-                </ion-item>
-              </ion-card>
-              <ion-card-content>
-                <p class="font-dark">同意该观点.</p>
-              </ion-card-content>
-            </div>
-          <div class='comment-msg clearfix'>
-              <ion-input placeholder="抢座沙发"></ion-input>
-              <button ion-button end>提交</button>
-          </div>
+        <div style="text-align:right;color:#ABAFB0;">
+            <span class="font12" style="margin-right:1rem;"><ion-icon name="thumbs-o-up"></ion-icon>&nbsp;(6)</span>
+            <span class="font12" (click)="commentFun()"><ion-icon name="comment-o"></ion-icon>&nbsp;({{allcomments.length}})</span>
         </div>
+        <ul *ngFor='let item of allcomments' class='comments-list'>
+          <li>{{item.name}}:{{item.comments}}</li>
+        </ul>
       </ion-card>
       
     </div>
