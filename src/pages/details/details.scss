@@ -21,29 +21,31 @@ page-details {
         right:15px;
         .details-icon{
             display:inline-block;
-            margin-left: 10px;
+            margin-left: 0.8333rem;
             color:#fff;
         }
     }
     .title{
-        line-height: 24px;
-        margin-bottom: 10px;
+        line-height: 2rem;
+        margin-bottom:0.8333rem;
         color:$fontdark;
+        font-weight: bold;
     }
     .lable-list{
-        margin-bottom: 10px;
-        height: 22px;
+        margin-bottom:  0.8333rem;
+        height: 1.875rem;
         padding-left: 0;
         li{
             float: left;
-            color: $fontgray;
+            color: $fontdark;
             font-size: 12px;
-            padding: 0px 8px;
-            border: 1px solid $fontgray;
-            border-radius: 13px;
-            height: 22px;
-            line-height: 22px;
-            margin-right: 10px;
+            padding: 0px 0.333rem;
+            border:1px solid #ccc;
+            width:5rem;
+            height: 1.875rem;
+            line-height: 1.875rem;
+            margin-right: 0.8333rem;
+            text-align: center;
         }
     }
     .resource{
@@ -59,6 +61,8 @@ page-details {
         line-height: 24px;
         color:$fontdark;
         margin-bottom: 20px;
+        font-size: 14px;
+        text-indent: 2rem;
     }
     .img-list{
         height:200px;

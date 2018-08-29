@@ -39,6 +39,7 @@ import { InstructionsPage } from '../pages/instructions/instructions';
 import { MycollectionPage } from '../pages/mycollection/mycollection';
 import { SetPage } from '../pages/set/set';
 import { Camera } from '@ionic-native/camera';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,7 @@ import { Camera } from '@ionic-native/camera';
   ],
   providers: [
     StatusBar,
-    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,
+    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

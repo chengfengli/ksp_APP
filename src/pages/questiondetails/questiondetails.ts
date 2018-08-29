@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { MeanswerPage } from '../meanswer/meanswer';
+import { typeSourceSpan } from '@angular/compiler';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 /**
  * Generated class for the QuestiondetailsPage page.
@@ -20,8 +22,11 @@ export class QuestiondetailsPage {
   showTag = false;
   tags = '';
   comments = ''
-  allcomments = []
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController) {
+  allcomments = [];
+  showComments=false;
+  adopt = true;
+  color = '#ABAFB0';
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private socialSharing:SocialSharing) {
     for(let i=0;i<3;i++){
       this.list.push(i,this.allcomments);
     }
@@ -55,34 +60,16 @@ export class QuestiondetailsPage {
   closeTag(){
     this.showTag = false;
   }
-  presentPrompt(key) {
-    let alert = this.alertCtrl.create({
-      title: '评论',
-      inputs: [
-        {
-          name: 'comments',
-          placeholder: '请输入评论信息'
-        }
-      ],
-      buttons: [
-        {
-          text: '取消',
-          role: 'cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: '确定',
-          handler: data => {
-            console.log(data.comments)
-            this.comments = data.comments
-            this.allcomments.push({name:"张三",comments:data.comments})
-
-          }
-        }
-      ]
-    });
-    alert.present();
+  presentPrompt() {
+    this.showComments = true
+    
+  }
+  //点赞
+  praise(){
+    this.color = '#5ce5c7';
+  }
+  //分享
+  shareeEvent(){
+    this.socialSharing.share('分享、分享问答!', '我的问答', "../assets/imgs/logo.png", '');
   }
 }

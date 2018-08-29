@@ -24,6 +24,7 @@ page-questiondetails {
             color:$fontdark;
             margin-top: 0;
             letter-spacing: 1px;
+            font-weight: bold;
             span{
                 color:#039bff;
             }
@@ -32,11 +33,15 @@ page-questiondetails {
             margin-bottom: 10px;
             li{
                 float: left;
-                padding: 3px 10px;
-                border-radius: 12px;
-                border: 1px solid $fontgray;
-                color: $fontgray;
-                margin-right: 10px;
+                color: $fontdark;
+                font-size: 12px;
+                padding: 0px 0.333rem;
+                border:1px solid #ccc;
+                width:5rem;
+                height: 1.875rem;
+                line-height: 1.875rem;
+                margin-right: 0.8333rem;
+                text-align: center;
             }
         }
         .decri{
@@ -47,28 +52,31 @@ page-questiondetails {
             p{
                 width: 80%;
                 line-height: 24px;
-                color:$fontgray;
+                color:$fontdark;
+                text-indent: 2rem;
             }
             .toggle-btn{
                 position: absolute;
                 right:0;
                 top:4px;
+                color:#a5a5a5;
             }
         }
         .base-msg{
-            height: 30px;
+            height: 2.25rem;
             .button-ios{
                 margin: 0;
-                height:30px;
+                height:2.25rem;
+                border-radius: 0;
             }
             .ques-msg{
                 float: right;
-                line-height: 30px;
+                line-height: 2.25rem;
                 color:$fontgray;
                 font-size: 12px;
                 span{
                     display: inline-block;
-                    margin-left: 10px;
+                    margin-left: 0.8333rem;
                 }
             }
         }
@@ -76,8 +84,8 @@ page-questiondetails {
     .questioncon{
         background:#fff;
         .total{
-            line-height:30px;
-            color:$fontdark;
+            line-height:3.167rem;
+            color:$fontprimary;
             font-size: 14px;
             border-bottom:1px solid #ccc;
             padding-left:15px;
@@ -99,22 +107,74 @@ page-questiondetails {
                     width: 50%;
                 }
             }
-            .good-answer{
+            .username{
+                color:$fontdark;
+                font-size: 12px;
+                margin-bottom: 0.408rem;
+            }
+            .time{
+                color:$fontgray;
+                font-size: 12px;
+            }
+            .adopt{
                 position: absolute;
-                right: 0;
-                top: 10px;
+                right: 9px;
+                top: 14px;
                 background: #039bff;
-                padding: 6px;
+                height:2rem;
+                width:4.583rem;
+                line-height: 2rem;
+                text-align: center;
                 color: #fff;
-                border-radius: 7px;
+            }
+            .good-answer{
+                background:url('../assets/imgs/good-answer.png') no-repeat;
+                position: absolute;
+                right: 9px;
+                top: 14px;
+                width:6.667rem;
+                height:1.958rem;
+                background-size: 100%;
+                text-align: center;
+                color:#fff;
+                line-height: 1.958rem;
             }
             .comments-list{
-                li{
-                    color: #373737;
+                padding-left:15px;
+                .title{
+                    line-height:2.4rem;
+                    color:$fontdark;
                     font-size: 14px;
-                    line-height: 30px;
-                    border-bottom: 1px dashed #ccc;
+                    border-bottom: 1px solid #ccc;
                 }
+                .comments-item{
+                    border-bottom: 1px solid #ccc;
+                    .card-ios{
+                        border-bottom: none;
+                        -webkit-box-shadow: none;
+                        box-shadow: none;
+                        padding:0;
+                    }
+                }
+                .comment-msg{
+                    margin:10px 0;
+                    ion-input{
+                        width: 80%;
+                        float: left;
+                        border: 1px solid #dcdcdc;
+                        padding-left:15px;
+                        .text-input-ios{
+                            margin: 9px 8px 9px 0;
+                        }
+                    }
+                    button{
+                        float: right;
+                        vertical-align: top;
+                        border-radius: 0;
+                        margin:0;
+                    }
+                }
+              
             }
         }
         
