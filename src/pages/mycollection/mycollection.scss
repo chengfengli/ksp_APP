@@ -1,7 +1,10 @@
 page-mycollection {
+    .scroll-content{
+        margin-top: 77px!important;
+    }
     .nav{
-        height:40px;
-        line-height:38px;
+        height:32px;
+        line-height:30px;
         background: $fontprimary;
         padding-bottom: 2px;
         .col{
@@ -69,7 +72,7 @@ page-mycollection {
                        position: absolute;
                        left: 0;
                        bottom: 0;
-                       color:#555a5b;
+                       color:$fontgray;
                        span{
                            display: inline-block;
                            margin-right: 10px;
@@ -148,7 +151,7 @@ page-mycollection {
                             float: left;
                             border-bottom: none;
                             padding: 0;
-                            margin-left: 10px;
+                            margin-right: 10px;
                             line-height: 24px;
                             color:$fontgray;
                             font-size: 12px;
