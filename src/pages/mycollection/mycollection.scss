@@ -1,15 +1,28 @@
 page-mycollection {
     .nav{
         height:40px;
-        line-height:40px;
-        background: #00a7ff;
+        line-height:38px;
+        background: $fontprimary;
+        padding-bottom: 2px;
         .col{
             text-align: center;
             color:#fff;
             padding:0;
+            position: relative;
         }
         .active{
-            border-bottom: 3px solid #fff;
+            position: relative;
+        }
+        .active::after{
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 30%;
+            background: #fff;
+            width: 50px;
+            height: 2px;
+            border-radius: 2px;
         }
     }
     .collection-con{
@@ -60,6 +73,7 @@ page-mycollection {
                        span{
                            display: inline-block;
                            margin-right: 10px;
+                           font-size: 12px;
                        }
                    }
                 }
@@ -116,9 +130,10 @@ page-mycollection {
                         color:$fontsecondary;
                         font-size: 12px;
                         width:70px;
-                        height: 24px;
+                        // height: 1.2rem;
                         text-align: center;
-                        line-height: 24px;
+                        // line-height: 2.1rem;
+                        padding:4px;
                         color:#fff;
                         background: #039bff;
                         vertical-align: bottom;
@@ -136,6 +151,7 @@ page-mycollection {
                             margin-left: 10px;
                             line-height: 24px;
                             color:$fontgray;
+                            font-size: 12px;
                         }
                     }
                 }
