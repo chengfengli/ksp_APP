@@ -25,12 +25,12 @@ page-integral {
             color: #099AFA;
         }
         .mode{
-            line-height: 38px;
             text-align: right;
             flex: 1;
             span{
                 display: inline-block;
                 margin-right: 15px;
+                padding: 10px 0;
             }
             .active{
                 color: #099AFA;
