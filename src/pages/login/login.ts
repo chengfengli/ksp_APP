@@ -24,12 +24,20 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    
+    this.httpServe.storageGet('account').subscribe(res => {
+      this.user.account = res;
+    });
+    this.httpServe.storageGet('pwd').subscribe(res => {
+      this.user.password = res;
+    });
+    this.httpServe.storageGet('remeberPwd').subscribe(res => {
+      this.remeberPwd = res;
+    });
   }
 
   // 非空验证
   check(){
-    if(this.httpServe.isEmpty(this.user.name)){
+    if(this.httpServe.isEmpty(this.user.account)){
       this.httpServe.errorToast('请输入登录账号');
       return false;
     }else if(this.httpServe.isEmpty(this.user.password)){
@@ -44,10 +52,14 @@ export class LoginPage {
   login(){
     if(this.check()){
       this.remeberP();
-      // this.httpServe.post({url:'app/login',params:this.user},(res)=>{
-      //   console.log(res);
+      // this.httpServe.post({url:'/user/login.json',params:this.user},(res)=>{
+      //   if(res.code===200){
+      //     this.httpServe.storageSet("user",res.data);
+      //     this.navCtrl.setRoot(TabsPage);
+      //   }else{
+      //     this.httpServe.errorToast(res.msg);
+      //   }
       // });
-      this.navCtrl.setRoot(TabsPage);
     }
   }
 
@@ -68,11 +80,13 @@ export class LoginPage {
 
   // 记住密码
   remeberP(){
+    this.httpServe.storageSet('remeberPwd',this.remeberPwd);
     if(this.remeberPwd){
       this.httpServe.storageSet('account',this.user.password);
       this.httpServe.storageSet('pwd',this.user.password);
     }else{
       this.httpServe.storageRemove('account');
+      this.httpServe.storageRemove('pwd');
     }
   }
 
