@@ -6,12 +6,14 @@
 
 <ion-content>
   <div class="file-box">
-    <input type="file" name="file" id="file"/>
-    <!-- <div class="add-file-btn" (click)="chooserFile()">
-      <ion-icon name="plus" class="add-file-ico"></ion-icon>
-      <p>添加文档</p>
-    </div> -->
-    <p class="tips">50M以内</p>
+    <div style="display: flex;">
+      <div class="add-file-btn" (click)="chooserFile()">
+        <ion-icon name="plus" class="add-file-ico"></ion-icon>
+        <p>添加文档</p>
+      </div>
+      <div class="file-name">{{fileName}}</div>
+    </div>
+    <p class="tips">50M以内，只支持XLS、DOC、PPT、PDF</p>
   </div>
   <div style="border-top: .5px solid #ccc;margin-top: 20px;background-color: #fff;padding: 0 10px;">
       <ion-input type="text" [(ngModel)]="title" maxLength="50" placeholder="请输入文档标题"></ion-input>

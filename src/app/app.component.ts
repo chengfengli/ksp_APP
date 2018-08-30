@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HttpProvider } from '../providers/http/http';
 import { LoginPage } from '../pages/login/login';
+import { FileAddPage } from '../pages/file-add/file-add';
 
 @Component({
   templateUrl: 'app.html'

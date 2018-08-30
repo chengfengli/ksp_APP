@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { FileChooser } from '@ionic-native/file-chooser';
+import { FilePath } from '@ionic-native/file-path';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -116,7 +117,7 @@ import { CommentPage } from '../pages/comment/comment';
   ],
   providers: [
     StatusBar,
-    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,
+    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

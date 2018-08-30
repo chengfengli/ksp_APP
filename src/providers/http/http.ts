@@ -57,7 +57,6 @@ export class HttpProvider {
     }
     this.headers = new Headers({'Content-Type':'application/json'});
     this.storageGet('token').subscribe((res)=>{
-      debugger
       if(!this.isEmpty(res)){
         this.headers.append('Authorization',res);
       }
@@ -94,6 +93,39 @@ export class HttpProvider {
         this.headers.append('Authorization',res);
       }
       this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
+        .subscribe(res=>{
+          loading.dismiss();
+          if(res.code=='200'){
+            success(res);
+          }else if(res.code=='500'){
+            this.alert('登录已过期，请重新登录！',()=>{
+              //option.navCtrl.setRoot(LoginPage);
+            });
+          }else{
+            this.errorToast(res.msg);
+          }
+        },err=>{
+          loading.dismiss();
+          this.handleError(err);
+        }
+      )
+    })
+  }
+
+  // post方法
+  upload (option,success) {
+    let old_option = {url:'',params:null,loader:false};
+    old_option = this.jsonMerge(old_option,option);
+    let loading = this.showLoading();
+    if (old_option.loader) {
+      loading.present();
+    }
+    this.headers = new Headers({'Content-Type':'multipart/form-data'});
+    this.storageGet('token').subscribe((res)=>{
+      if(!this.isEmpty(res)){
+        this.headers.append('Authorization',res);
+      }
+      this.http.post(this.apiURL+option.url,JSON.stringify(option.params)).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
           loading.dismiss();
           if(res.code=='200'){
