@@ -55,7 +55,7 @@ export class LoginPage {
       this.httpServe.post({url:'/user/login.json',params:this.user},(res)=>{
         if(res.code==='200'){
           this.httpServe.storageSet("token",res.data);
-          // this.navCtrl.setRoot(TabsPage);
+          this.navCtrl.setRoot(TabsPage);
         }else{
           this.httpServe.errorToast(res.msg);
         }

@@ -13,12 +13,11 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class HttpProvider {
-  private apiURL = 'http://192.168.0.126:8080/app';
+  private apiURL = 'http://192.168.1.125:7004/app';
 
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
-  // 请求头接口,'Authorization':'948C4FDC53DD938918F9F4C33BE5D4C6','Cookie':'JSESSIONID=1k2naixut68f81q5rpr0c3n4vc'
-  
+  // 请求头接口
   private headers = null;
  
   // 对参数进行编码
@@ -56,13 +55,11 @@ export class HttpProvider {
     if(url.indexOf('http://')==-1){
       url = this.apiURL+option.url;
     }
-    this.headers = new Headers({'Content-Type':'application/json','Authorization':'123456789'});
+    this.headers = new Headers({'Content-Type':'application/json'});
     this.storageGet('token').subscribe((res)=>{
-      // debugger
-      // if(!this.isEmpty(res)){
-      //   this.headers.append('Authorization','123456789');
-      // }
-      // this.headers.append('Authorization','123456789');
+      if(!this.isEmpty(res)){
+        this.headers.append('Authorization',res);
+      }
       this.http.get(url+this.encode(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
           if (old_option.loader) {
@@ -90,8 +87,11 @@ export class HttpProvider {
     if (old_option.loader) {
       loading.present();
     }
-    this.headers = new Headers({'Content-Type':'application/json','Authorization':'123456789'});
+    this.headers = new Headers({'Content-Type':'application/json'});
     this.storageGet('token').subscribe((res)=>{
+      if(!this.isEmpty(res)){
+        this.headers.append('Authorization',res);
+      }
       this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
           loading.dismiss();
