@@ -4,6 +4,7 @@ import { MePage } from '../me/me';
 import { BasePage } from '../base/base';
 import { HttpProvider } from '../../providers/http/http';
 import { DetailsPage } from '../details/details';
+import { News } from '../../entity/news/news';
 
 /**
  * 咨讯页面
@@ -14,6 +15,8 @@ import { DetailsPage } from '../details/details';
   templateUrl: 'information.html',
 })
 export class InformationPage extends BasePage {
+  news:News = new News();
+  array=[];
   list=[
     {
       title:'星期一',

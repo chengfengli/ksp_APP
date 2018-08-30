@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, ActionSheet, ActionSheetController, Platform } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
+import { News } from '../../entity/news/news';
 
 /**
  * 发布资讯
@@ -12,11 +13,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   templateUrl: 'releaseinfo.html',
 })
 export class ReleaseinfoPage {
-  colum= '';
-  tags= '';
-  resource ='';
-  title = '';
-  con = '';
+  news: News = new News();
   showColumn = false;
   showTag = false;
 
@@ -28,15 +25,10 @@ export class ReleaseinfoPage {
   }
 
   releaseEvent(){
-    if(this.colum ===''){
-      let toast = this.toastCtrl.create({
-        message: '请选择栏目',
-        duration: 1000,
-        position: 'middle'
-      });
-      toast.present();
+    if(this.news.column ===''){
+      this.httpServe.errorToast('请选择栏目');
       return;
-    }else if(this.tags.length<=0){
+    }else if(this.news.tags.length<=0){
       let toast = this.toastCtrl.create({
         message: '请选择标签',
         duration: 1000,
@@ -44,7 +36,7 @@ export class ReleaseinfoPage {
       });
       toast.present();
       return;
-    }else if(this.title===''){
+    }else if(this.news.name===''){
       let toast = this.toastCtrl.create({
         message: '请输入资讯标题',
         duration: 1000,
@@ -52,7 +44,7 @@ export class ReleaseinfoPage {
       });
       toast.present();
       return;
-    }else if(this.resource===''){
+    }else if(this.news.sourceSite===''){
       let toast = this.toastCtrl.create({
         message: '请输入资讯来源',
         duration: 1000,
@@ -60,7 +52,7 @@ export class ReleaseinfoPage {
       });
       toast.present();
       return;
-    }else if(this.con===''){
+    }else if(this.news.content===''){
       let toast = this.toastCtrl.create({
         message: '请输入资讯内容',
         duration: 1000,
@@ -69,14 +61,7 @@ export class ReleaseinfoPage {
       toast.present();
       return;
     }else{
-      var res ={
-        colum : this.colum,
-        tags: this.tags,
-        resource: this.resource,
-        title: this.title,
-        con: this.con
-      }
-      console.log(res)
+      
     }
   }
   //接收colum值
@@ -84,9 +69,9 @@ export class ReleaseinfoPage {
     console.log(res)
     this.showColumn = false;
     if(res.length==0){
-      this.colum = '';
+      this.news.column = '';
     }else{
-      this.colum ='栏目'+ res;
+      this.news.column ='栏目'+ res;
     }
   }
   // 关闭栏目弹框
@@ -104,9 +89,9 @@ export class ReleaseinfoPage {
     //   this.tags ='标签'+ res;
     // }
     if(res.length==0){
-      this.tags = '';
+      this.news.tags = '';
     }else{
-      this.tags = res;
+      this.news.tags = res;
       // for(let i=0;i<res.length;i++){
       //   this.tags+=res[i].name+'，';
       // }

@@ -42,44 +42,64 @@ page-mycollection {
                 flex-wrap: nowrap;
                 // align-items: center;
                 justify-content: space-between;
-                .item-right{
-                    width:35%;
-                    height:80px;
-                    text-align: right;
-                    margin-left: 5%;
-                    img{
-                        display: inline-block;
-                        max-width: 100%;
-                        height: 100%;
+                .title{
+                    word-break: break-all;
+                    margin-bottom: 22px;
+                    font-weight: bold;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+                .base-msg{
+                    span{
+                        margin-right: 40px;
                     }
                 }
-                .item-left{
-                   width:60%;
-                   overflow: hidden;
-                   position: relative;
-                   .title-con{
-                       font-size: 14px;
-                       color:#333;
-                       display: inline-block;
-                       width:100%;
-                       white-space:pre-wrap;
-                       display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 2;
-                        overflow: hidden;
-                   }
-                   .base-msg{
-                       position: absolute;
-                       left: 0;
-                       bottom: 0;
-                       color:$fontgray;
-                       span{
-                           display: inline-block;
-                           margin-right: 10px;
-                           font-size: 12px;
-                       }
-                   }
+                .img-ico{
+                    width: 80px;
+                    height: 80px;
+                    margin-left: 20px;
                 }
+                // .item-right{
+                //     width:35%;
+                //     height:80px;
+                //     text-align: right;
+                //     margin-left: 5%;
+                //     img{
+                //         display: inline-block;
+                //         max-width: 100%;
+                //         height: 100%;
+                //     }
+                // }
+                // .item-left{
+                //    width:60%;
+                //    overflow: hidden;
+                //    position: relative;
+                //    .title-con{
+                //        font-size: 14px;
+                //        color:#333;
+                //        display: inline-block;
+                //        width:100%;
+                //        white-space:pre-wrap;
+                //        display: -webkit-box;
+                //         -webkit-box-orient: vertical;
+                //         -webkit-line-clamp: 2;
+                //         overflow: hidden;
+                //    }
+                //    .base-msg{
+                //        position: absolute;
+                //        left: 0;
+                //        bottom: 0;
+                //        color:$fontgray;
+                //        span{
+                //            display: inline-block;
+                //            margin-right: 10px;
+                //            font-size: 12px;
+                //        }
+                //    }
+                //}
             }
         }
         .questiondata{
