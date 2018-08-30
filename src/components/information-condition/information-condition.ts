@@ -36,7 +36,7 @@ export class InformationConditionComponent {
   }
  
   defaultEvent(){
-    this.httpServe.post({url:'/common/searchTag.json',params:this.tagName},(res)=>{
+    this.httpServe.get({url:'/common/searchTag.json',params:{tagName:this.tagName}},(res)=>{
         console.log("==============")
         console.log(res)
     })

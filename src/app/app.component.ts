@@ -15,7 +15,7 @@ export class MyApp {
     platform.ready().then(() => {
       // statusBar.styleDefault();
       splashScreen.hide();
-      httpServe.storageGet('user').subscribe(res => {
+      httpServe.storageGet('token').subscribe(res => {
         if(httpServe.isEmpty(res)){
           this.rootPage = LoginPage;
         }else{

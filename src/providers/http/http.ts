@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class HttpProvider {
-  private apiURL = 'http://192.168.0.126:8080/app';
+  private apiURL = 'http://192.168.1.125:7004/app';
 
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
@@ -56,20 +56,30 @@ export class HttpProvider {
     if(url.indexOf('http://')==-1){
       url = this.apiURL+option.url;
     }
-    this.http.get(url+this.encode(option.params)).map(res=>res.json()) //返回数据转换成json
-    .subscribe(res=>{
-      if (old_option.loader) {
-        loading.dismiss();
-      }
-      success(res);
-    },err=>{
-      if (old_option.loader) {
-        loading.dismiss();
-      }
-      if(error){
-        error(err);
-      }
+    this.headers = new Headers({'Content-Type':'application/json','Authorization':'123456789'});
+    this.storageGet('token').subscribe((res)=>{
+      // debugger
+      // if(!this.isEmpty(res)){
+      //   this.headers.append('Authorization','123456789');
+      // }
+      // this.headers.append('Authorization','123456789');
+      this.http.get(url+this.encode(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
+        .subscribe(res=>{
+          if (old_option.loader) {
+            loading.dismiss();
+          }
+          success(res);
+        },err=>{
+          if (old_option.loader) {
+            loading.dismiss();
+          }
+          if(error){
+            error(err);
+          }
+        }
+      )
     })
+    
   }
  
   // post方法
