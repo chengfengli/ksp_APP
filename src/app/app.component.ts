@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HttpProvider } from '../providers/http/http';
 import { LoginPage } from '../pages/login/login';
+import { FileAddPage } from '../pages/file-add/file-add';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +18,7 @@ export class MyApp {
       splashScreen.hide();
       httpServe.storageGet('token').subscribe(res => {
         if(httpServe.isEmpty(res)){
-          this.rootPage = LoginPage;
+          this.rootPage = FileAddPage;
         }else{
           this.rootPage = TabsPage;
         }
