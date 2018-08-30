@@ -3,6 +3,7 @@ import { NavController, NavParams, ToastController, ActionSheet, ActionSheetCont
 import { HttpProvider } from '../../providers/http/http';
 import { Camera } from '@ionic-native/camera';
 import { News } from '../../entity/news/news';
+import { User } from '../../entity/user/user';
 
 /**
  * 发布资讯
@@ -16,12 +17,16 @@ export class ReleaseinfoPage {
   news: News = new News();
   showColumn = false;
   showTag = false;
-
+  user:User = new User();
   constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public httpServe: HttpProvider,public actionCtrl:ActionSheetController,
     public platform:Platform,public camera: Camera) {
-    this.httpServe.post({url:'my/test.json'},(res)=>{
+    // this.httpServe.post({url:'my/test.json'},(res)=>{
+    //   console.log(res)
+    // },)
+    this.httpServe.storageGet('user').subscribe(res => {
+      this.user.creator = res;
       console.log(res)
-    },)
+    });
   }
 
   releaseEvent(){

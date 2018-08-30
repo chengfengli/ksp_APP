@@ -1,4 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { HttpProvider } from '../../providers/http/http';
+import { User } from '../../entity/user/user';
 
 /**
  * 资讯条件筛选
@@ -8,6 +10,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   templateUrl: 'information-condition.html'
 })
 export class InformationConditionComponent {
+  user:User = new User();
   height = 'auto';
   currentChoice = '';
   // 所有的栏目
@@ -22,14 +25,22 @@ export class InformationConditionComponent {
   date = '';
   // 其他
   other = '';
+  tagName = ''
   @Output()confirmCall = new EventEmitter();
-  constructor() {
+  constructor(public httpServe:HttpProvider) {
     for(let i=1;i<=10;i++){
       this.columns.push({name:'栏目'+i,val:i});
       this.tags.push({name:'标签'+i,val:i});
     }
+    this.defaultEvent()
   }
-
+ 
+  defaultEvent(){
+    this.httpServe.post({url:'/common/searchTag.json',params:this.tagName},(res)=>{
+        console.log("==============")
+        console.log(res)
+    })
+  }
   /**
    * 切换条件时
    * @param type 栏目、标签、日期、更多

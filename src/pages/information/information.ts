@@ -94,7 +94,7 @@ export class InformationPage extends BasePage {
    * @param res 
    */
   getDate(res){
-
+    console.log(res)
   }
 
   /**

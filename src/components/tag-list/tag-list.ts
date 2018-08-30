@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { HttpProvider } from '../../providers/http/http';
 
 /**
  * Generated class for the TagListComponent component.
@@ -22,10 +23,16 @@ export class TagListComponent {
   newTag:string = ''
   @Output()confirm = new EventEmitter();
   @Output()cancel = new EventEmitter();
-  constructor() {
+  constructor(public httpServe: HttpProvider) {
     for(let i=1;i<=10;i++){
       this.tags.push({name:'标签'+i,val:i,color:'#000'});
     }
+    this.defaultEvent()
+  }
+  defaultEvent(){
+      this.httpServe.post({url:'/common/searchTag.json'},(res)=>{
+          console.log(res)
+      })
   }
    /**
    * 取消
