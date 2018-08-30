@@ -21,19 +21,16 @@
     <ion-list class="data">
       <ion-item-sliding *ngFor="let item of list;let key =index" >
         <ion-item  (click)="todetailsPage()">
-          <div class='item'>
-            <div class="item-left">
-              <span class='title-con'>今天天气热吗今天天气热吗今天天气热吗今天天气天气热吗今天天气热吗</span>
-              <div class='base-msg'>
-                <span>1小时前</span>
-                <span>999阅读</span>
+          <div style="display:flex;">
+            <div style="flex: 1;">
+              <div class="title font16">{{item.title}}标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+              <div class="base-msg font12 font-gray">
+                <span>星期一</span>
+                <span>99阅读</span>
               </div>
             </div>
-            <div class='item-right'>
-              <img src='/assets/imgs/slide03.jpg'/>
-            </div>  
+            <img class="img-ico" src="assets/imgs/05.jpg">
           </div>
-          
         </ion-item>
         <ion-item-options side="right">
           <button ion-button color="danger" (click)='deleteEvent(key)'>取消收藏</button>
