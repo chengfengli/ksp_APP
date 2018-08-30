@@ -15,7 +15,7 @@ import { News } from '../../entity/news/news';
   templateUrl: 'information.html',
 })
 export class InformationPage extends BasePage {
-  news:News = new News();
+  // news:News = new News();
   array=[];
   list=[
     {
