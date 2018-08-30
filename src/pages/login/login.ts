@@ -63,12 +63,6 @@ export class LoginPage {
     }
   }
 
-  getUser(){
-    this.httpServe.post({url:'app/getUser'},(res)=>{
-
-    });
-  }
-
   // 隐藏显示密码
   showPasword(){
     if(this.showPwd){
