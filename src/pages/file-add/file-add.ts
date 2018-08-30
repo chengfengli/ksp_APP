@@ -6,6 +6,7 @@ import { File } from '@ionic-native/file';
 import { NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { Docu } from '../../entity/docu/Docu';
+import { FilePath } from '@ionic-native/file-path';
 
 /**
  * 上传文档
@@ -20,6 +21,7 @@ export class FileAddPage {
   showDep = false;
   showColumn = false;
   showTag = false;
+  fileName = '';
   title = '';
   // 显示的栏目
   columStr = '';
@@ -29,28 +31,30 @@ export class FileAddPage {
   tagStr = '';
   fileURL = '';
   formData = null;;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private transfer: FileTransfer, private file: File,private fileChooser: FileChooser,public httpServe: HttpProvider) {
-    let $this = this;
-    document.getElementById('file').onchange=function(){
-      $this.formData = new FormData();
-      let files = this.files;
-      $this.formData.append('file',files[0]);
-    }
+  constructor(public navCtrl: NavController, public navParams: NavParams,private transfer: FileTransfer, private file: File,private fileChooser: FileChooser,public httpServe: HttpProvider,
+    public filePath: FilePath) {
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FileAddPage');
   }
 
   /**
    * 选择本地文件
    */
   chooserFile(){
-    this.fileChooser.open().then(uri => {
-      this.fileURL = uri;
-    }).catch(e => {
-      alert(e)
-    })
+    let dir = 'F:/demoProject/yntree';
+    this.fileName = dir.substring(dir.lastIndexOf('/')+1);
+    debugger
+    // this.fileChooser.open().then(uri => {
+    //   this.filePath.resolveNativePath(uri).then(filePath => {
+    //     this.fileURL = filePath;
+    //   }).catch(e => {
+    //     alert(e)
+    //   })
+    // }).catch(e => {
+    //   alert(e)
+    // })
   }
 
 
@@ -61,15 +65,16 @@ export class FileAddPage {
     const fileTransfer: FileTransferObject = this.transfer.create();
     let options: FileUploadOptions  = {
       fileKey: 'file',
-      fileName: 'name.jpg',  // 文件类型
+      // fileName: 'name.jpg',  // 文件名称
       headers: {},
       params: this.docu
     }
-    fileTransfer.upload(this.fileURL,'/doc/create.json', options)
+    fileTransfer.upload(this.fileURL,encodeURI(this.httpServe.apiURL+'/doc/create.json'), options)
     .then((data) => {
       this.httpServe.successToast('成功');
     }, (err) => {
-      this.httpServe.errorToast('异常'+JSON.stringify(err));
+      console.log(JSON.stringify(err));
+      alert('异常'+JSON.stringify(err));
     })
     
   }
@@ -127,7 +132,7 @@ export class FileAddPage {
    */
   saveFile(){
     this.upload();
-    // this.httpServe.get({url:'/doc/create.json',params:this.docu},(res) => {
+    // this.httpServe.upload({url:'/doc/create.json',params:this.formData},(res) => {
 
     // })
   }
