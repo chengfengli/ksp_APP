@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class HttpProvider {
-  private apiURL = 'http://192.168.1.125:7004/app';
+  private apiURL = 'http://192.168.0.126:8080/app';
 
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
@@ -90,11 +90,8 @@ export class HttpProvider {
     if (old_option.loader) {
       loading.present();
     }
-    this.headers = new Headers({'Content-Type':'application/json'});
+    this.headers = new Headers({'Content-Type':'application/json','Authorization':'123456789'});
     this.storageGet('token').subscribe((res)=>{
-      if(!this.isEmpty(res)){
-        this.headers.append('Authorization',res);
-      }
       this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
           loading.dismiss();
