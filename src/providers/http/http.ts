@@ -58,7 +58,8 @@ export class HttpProvider {
     this.headers = new Headers({'Content-Type':'application/json'});
     this.storageGet('token').subscribe((res)=>{
       if(!this.isEmpty(res)){
-        this.headers.append('Authorization',res);
+        this.headers.append('Authorization','sfasdf');
+        option.params.token = res;
       }
       this.http.get(url+this.encode(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
@@ -91,6 +92,7 @@ export class HttpProvider {
     this.storageGet('token').subscribe((res)=>{
       if(!this.isEmpty(res)){
         this.headers.append('Authorization',res);
+        option.url+='?token='+res;
       }
       this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
