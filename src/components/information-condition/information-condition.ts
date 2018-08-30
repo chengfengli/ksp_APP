@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { HttpProvider } from '../../providers/http/http';
 import { User } from '../../entity/user/user';
+import { Screening } from '../../entity/news/screening';
 
 /**
  * 资讯条件筛选
@@ -11,6 +12,7 @@ import { User } from '../../entity/user/user';
 })
 export class InformationConditionComponent {
   user:User = new User();
+  screening:Screening = new Screening();
   height = 'auto';
   currentChoice = '';
   // 所有的栏目
@@ -29,16 +31,21 @@ export class InformationConditionComponent {
   @Output()confirmCall = new EventEmitter();
   constructor(public httpServe:HttpProvider) {
     for(let i=1;i<=10;i++){
-      this.columns.push({name:'栏目'+i,val:i});
+      // this.columns.push({name:'栏目'+i,val:i});
       this.tags.push({name:'标签'+i,val:i});
     }
     this.defaultEvent()
   }
  
   defaultEvent(){
+    //查询标签
     this.httpServe.get({url:'/common/searchTag.json',params:{tagName:this.tagName}},(res)=>{
-        console.log("==============")
+        console.log("标签==============")
         console.log(res)
+    })
+    //查询栏目
+    this.httpServe.post({url:'/common/searchColumn.json'},(res)=>{
+      this.columns = res.data;
     })
   }
   /**
@@ -56,13 +63,13 @@ export class InformationConditionComponent {
   confim(){
     this.height = 'auto';
     this.currentChoice = '';
-    var res = {
-      column: this.selectColumns,
-      tag: this.selectTags,
-      date: this.date,
-      other: this.other
-    }
-    this.confirmCall.emit(res);
+    // var res = {
+    //   column: this.selectColumns,
+    //   tag: this.selectTags,
+    //   date: this.date,
+    //   other: this.other
+    // }
+    this.confirmCall.emit(this.screening);
   }
 
   /**
@@ -85,7 +92,7 @@ export class InformationConditionComponent {
       array.push(val);
     }
     if(this.currentChoice === 'column'){
-      this.selectColumns = array;
+      this.screening.column = array;
     }else if(this.currentChoice === 'tag'){
       this.selectTags = array;
     }
@@ -105,5 +112,9 @@ export class InformationConditionComponent {
    */
   selectOther(val){
     this.other = val;
+    console.log(val)
+    if(val === 'd'){
+      
+    }
   }
 }

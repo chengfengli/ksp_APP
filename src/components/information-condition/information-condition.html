@@ -16,9 +16,9 @@
         <ion-label>全部</ion-label>
         <ion-checkbox item-end></ion-checkbox>
       </ion-item>
-      <ion-item *ngFor="let item of columns">
-        <ion-label>{{item.name}}</ion-label>
-        <ion-checkbox [checked]="selectColumns.indexOf(item.val)!=-1" (ionChange)="select(selectColumns,item.val)" item-end></ion-checkbox>
+      <ion-item *ngFor="let item of columns ">
+        <ion-label>{{item.itemText}}</ion-label>
+        <ion-checkbox [checked]="screening.column.indexOf(item.itemText)!=-1" (ionChange)="select(screening.column,item.itemText)" item-end></ion-checkbox>
       </ion-item>
     </ion-list>
     <ion-grid class="btn-box">

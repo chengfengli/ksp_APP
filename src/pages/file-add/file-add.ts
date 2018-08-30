@@ -33,7 +33,7 @@ export class FileAddPage {
     let $this = this;
     document.getElementById('file').onchange=function(){
       $this.formData = new FormData();
-      let files = this.files;
+      let files = this.file;
       $this.formData.append('file',files[0]);
     }
   }

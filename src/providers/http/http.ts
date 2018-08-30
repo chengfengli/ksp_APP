@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class HttpProvider {
-  private apiURL = 'http://192.168.1.125:7004/app';
+  private apiURL = 'http://192.168.1.85:7004/app';
 
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
@@ -57,6 +57,7 @@ export class HttpProvider {
     }
     this.headers = new Headers({'Content-Type':'application/json'});
     this.storageGet('token').subscribe((res)=>{
+      debugger
       if(!this.isEmpty(res)){
         this.headers.append('Authorization',res);
       }
