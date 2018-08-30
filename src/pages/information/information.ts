@@ -93,7 +93,7 @@ export class InformationPage extends BasePage {
    * 获取数据
    * @param res 
    */
-  getDate(res){
+  getData(res){
     console.log(res)
   }
 

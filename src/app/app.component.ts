@@ -18,7 +18,7 @@ export class MyApp {
       splashScreen.hide();
       httpServe.storageGet('token').subscribe(res => {
         if(httpServe.isEmpty(res)){
-          this.rootPage = FileAddPage;
+          this.rootPage = LoginPage;
         }else{
           this.rootPage = TabsPage;
         }
