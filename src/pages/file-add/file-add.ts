@@ -43,18 +43,20 @@ export class FileAddPage {
    * 选择本地文件
    */
   chooserFile(){
-    let dir = 'F:/demoProject/yntree';
-    this.fileName = dir.substring(dir.lastIndexOf('/')+1);
-    debugger
-    // this.fileChooser.open().then(uri => {
-    //   this.filePath.resolveNativePath(uri).then(filePath => {
-    //     this.fileURL = filePath;
-    //   }).catch(e => {
-    //     alert(e)
-    //   })
-    // }).catch(e => {
-    //   alert(e)
-    // })
+    this.fileChooser.open().then(uri => {
+      this.filePath.resolveNativePath(uri).then(filePath => {
+        if(this.httpServe.checkSuffix(filePath)){
+          this.fileURL = filePath;
+          this.fileName = filePath.substring(filePath.lastIndexOf('/')+1);
+        }else{
+          this.httpServe.errorToast('文件格式不正确');
+        }
+      }).catch(e => {
+        alert(e)
+      })
+    }).catch(e => {
+      alert(e)
+    })
   }
 
 

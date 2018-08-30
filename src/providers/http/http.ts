@@ -340,5 +340,21 @@ export class HttpProvider {
     }
   }
 
+  /**
+   * 验证office文件的格式
+   * @param fileName 
+   */
+  checkSuffix(fileName:String){
+    let suffx = fileName.substring(fileName.lastIndexOf('.')+1).toUpperCase();
+    let suffxs = ['PDF','PPT','XLS','XLSX','DOC','DOCX'];
+    let flag = false;
+    for(let i in suffxs){
+      if(suffxs[i]===suffx){
+        flag = true;
+      }
+    }
+    return flag;
+  }
+
 
 }
