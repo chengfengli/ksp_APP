@@ -52,21 +52,15 @@ export class LoginPage {
   login(){
     if(this.check()){
       this.remeberP();
-      // this.httpServe.post({url:'/user/login.json',params:this.user},(res)=>{
-      //   if(res.code===200){
-      //     this.httpServe.storageSet("user",res.data);
-      //     this.navCtrl.setRoot(TabsPage);
-      //   }else{
-      //     this.httpServe.errorToast(res.msg);
-      //   }
-      // });
+      this.httpServe.post({url:'/user/login.json',params:this.user},(res)=>{
+        if(res.code==='200'){
+          this.httpServe.storageSet("user",res.data);
+          this.navCtrl.setRoot(TabsPage);
+        }else{
+          this.httpServe.errorToast(res.msg);
+        }
+      });
     }
-  }
-
-  getUser(){
-    this.httpServe.post({url:'app/getUser'},(res)=>{
-
-    });
   }
 
   // 隐藏显示密码
@@ -82,7 +76,7 @@ export class LoginPage {
   remeberP(){
     this.httpServe.storageSet('remeberPwd',this.remeberPwd);
     if(this.remeberPwd){
-      this.httpServe.storageSet('account',this.user.password);
+      this.httpServe.storageSet('account',this.user.account);
       this.httpServe.storageSet('pwd',this.user.password);
     }else{
       this.httpServe.storageRemove('account');

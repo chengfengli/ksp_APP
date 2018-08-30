@@ -22,6 +22,6 @@ export class User{
     // 修改时间
     modifyTime: Date = null;
     // 设备标签
-    appTag: String = '';
+    appTag: String = '123456';
 
 }

@@ -17,8 +17,8 @@ export class HttpProvider {
 
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
-  // 请求头接口
-  private headers = new Headers({'Content-Type':'application/json','Authorization':'948C4FDC53DD938918F9F4C33BE5D4C6','Cookie':'JSESSIONID=1k2naixut68f81q5rpr0c3n4vc'});
+  // 请求头接口,'Authorization':'948C4FDC53DD938918F9F4C33BE5D4C6','Cookie':'JSESSIONID=1k2naixut68f81q5rpr0c3n4vc'
+  private headers = new Headers({'Content-Type':'application/json'});
  
   // 对参数进行编码
   private encode (params) {
