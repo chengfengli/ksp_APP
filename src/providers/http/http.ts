@@ -13,12 +13,13 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class HttpProvider {
-  private apiURL = 'http://localhost:7004/app';
+  private apiURL = 'http://192.168.0.126:8080/app';
 
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
   // 请求头接口,'Authorization':'948C4FDC53DD938918F9F4C33BE5D4C6','Cookie':'JSESSIONID=1k2naixut68f81q5rpr0c3n4vc'
-  private headers = new Headers({'Content-Type':'application/json'});
+  
+  private headers = null;
  
   // 对参数进行编码
   private encode (params) {
@@ -79,31 +80,31 @@ export class HttpProvider {
     if (old_option.loader) {
       loading.present();
     }
-    this.storageGet('user').subscribe(data=>{
-      if(!this.isEmpty(data)){
-        option.url+='?userId='+data.userId+'&token='+data.token;
-        option.params.userId=data.userId;
-        option.params.token=data.token;
+    this.headers = new Headers({'Content-Type':'application/json'});
+    this.storageGet('token').subscribe((res)=>{
+      if(!this.isEmpty(res)){
+        this.headers.append('Authorization',res);
       }
       this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
-      .subscribe(res=>{
-        loading.dismiss();
-        if(res.code=='200'){
-          success(res);
-        }else if(res.code=='500'){
-          this.alert('登录已过期，请重新登录！',()=>{
-            //option.navCtrl.setRoot(LoginPage);
-          });
-        }else{
-          this.errorToast(res.msg);
+        .subscribe(res=>{
+          loading.dismiss();
+          if(res.code=='200'){
+            success(res);
+          }else if(res.code=='500'){
+            this.alert('登录已过期，请重新登录！',()=>{
+              //option.navCtrl.setRoot(LoginPage);
+            });
+          }else{
+            this.errorToast(res.msg);
+          }
+        },err=>{
+          loading.dismiss();
+          this.handleError(err);
         }
-      },err=>{
-        loading.dismiss();
-        this.handleError(err);
-      })
-    });
+      )
+    })
   }
- 
+
   /**
    * 
    * @param error 请求异常提示
