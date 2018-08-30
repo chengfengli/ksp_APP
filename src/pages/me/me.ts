@@ -10,42 +10,32 @@ import { MyquestionPage } from '../myquestion/myquestion';
 import { MycollectionPage } from '../mycollection/mycollection';
 import { SetPage } from '../set/set';
 import { IntegralPage } from '../integral/integral';
+import { User } from '../../entity/user/user';
+import { HttpProvider } from '../../providers/http/http';
 
 @Component({
   selector: 'page-me',
   templateUrl: 'me.html',
 })
 export class MePage {
+  user: User = new User();
   messagelistPage = MessagelistPage;
   myFile = FileMePage;
   setPage = SetPage;
   integralPage = IntegralPage;
   myCollection = MycollectionPage
+  aboutMe = AboutPage;
+  advicePage = AdvicePage;
+  infomationlistPage = InfomationlistPage;
+  myquestionPage = MyquestionPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public httpServe: HttpProvider) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MePage');
-  }
-  //跳转到关于我们
-  toAbout(){
-    this.navCtrl.push(AboutPage);
-  }
-  //跳转到我的资讯
-  toInfoListPage(){
-    this.navCtrl.push(InfomationlistPage);
-  }
-  //跳转到反馈建议
-  toAdvice() {
-    this.navCtrl.push(AdvicePage);
-  }
-  //跳转到我的问答
-  toMyQuestion() {
-    this.navCtrl.push(MyquestionPage);
-  }
-  //跳转到我的收藏
-  toMyCollection() {
-    this.navCtrl.push(MycollectionPage);
+    this.httpServe.storageGet('user').subscribe(res => {
+      this.user = res;
+    })
   }
 }
