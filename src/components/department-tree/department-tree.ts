@@ -22,10 +22,10 @@ export class DepartmentTreeComponent {
 
   constructor(public httpServe:HttpProvider) {
     setTimeout(()=>{
-      // this.httpServe.post({url:'/common/org.json'},(res)=>{
-      //   this.potions.data = res.data;
-      //   this.tree = new YnTree(document.getElementById("tree"), this.potions);
-      // })
+      this.httpServe.request({url:'/common/org.json'},(res)=>{
+        this.potions.data = res.data;
+        this.tree = new YnTree(document.getElementById("tree"), this.potions);
+      })
     },100);
   }
 
