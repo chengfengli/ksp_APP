@@ -16,22 +16,22 @@
     <p class="tips">50M以内，只支持XLS、DOC、PPT、PDF</p>
   </div>
   <div style="border-top: .5px solid #ccc;margin-top: 20px;background-color: #fff;padding: 0 10px;">
-      <ion-input type="text" [(ngModel)]="title" maxLength="50" placeholder="请输入文档标题"></ion-input>
-      <div style="text-align:right;" class="font-gray">{{title.length}}/50</div>
+      <ion-input type="text" [(ngModel)]="docu.name" maxLength="50" placeholder="请输入文档标题"></ion-input>
+      <div style="text-align:right;" class="font-gray">{{docu.name.length}}/50</div>
   </div>
 
   <ion-list>
     <button ion-item (click)="showColumn=true" class="font14">
-      <span *ngIf="columStr.length==0" class="placeholder">请选择栏目</span>
-      <span *ngIf="columStr.length!=0">{{columStr}}</span>
+      <span *ngIf="docu.column.length===0" class="placeholder">请选择栏目</span>
+      <span *ngIf="docu.column.length!==0">{{docu.column}}</span>
     </button>
     <button ion-item (click)="showTag=true" class="font14">
-      <span *ngIf="tagStr.length==0" class="placeholder">请选择标签</span>
-      <span *ngIf="tagStr.length!=0">{{tagStr}}</span>
+      <span *ngIf="docu.tagStr.length===0" class="placeholder">请选择标签</span>
+      <span *ngIf="docu.tagStr.length!==0">{{docu.tagStr}}</span>
     </button>
     <button ion-item (click)="showDep=true" class="font14">
-      <span *ngIf="depStr.length==0" class="placeholder">选择可见部门</span>
-      <span *ngIf="depStr.length!=0">{{depStr}}</span>
+      <span *ngIf="depStr.length===0" class="placeholder">选择可见部门</span>
+      <span *ngIf="depStr.length!==0">{{depStr}}</span>
     </button>
   </ion-list>
   <button id="add-btn" ion-button color="primary"  type="button" class="font18" (click)="upload()">上传文档</button>
