@@ -17,6 +17,8 @@ export class ReleaseinfoPage {
   news: News = new News();
   showColumn = false;
   showTag = false;
+  selectcolumn = '';
+  selectTags = '';
   user:User = new User();
   constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public httpServe: HttpProvider,public actionCtrl:ActionSheetController,
     public platform:Platform,public camera: Camera) {
@@ -25,54 +27,36 @@ export class ReleaseinfoPage {
     // },)
   }
 
-  releaseEvent(){
-    if(this.news.column ===''){
+  toMyAsk(){
+    if(this.httpServe.isEmpty(this.selectcolumn)){
       this.httpServe.errorToast('请选择栏目');
-      return;
-    }else if(this.news.tags.length<=0){
-      let toast = this.toastCtrl.create({
-        message: '请选择标签',
-        duration: 1000,
-        position: 'middle'
-      });
-      toast.present();
-      return;
-    }else if(this.news.name===''){
-      let toast = this.toastCtrl.create({
-        message: '请输入资讯标题',
-        duration: 1000,
-        position: 'middle'
-      });
-      toast.present();
-      return;
-    }else if(this.news.sourceSite===''){
-      let toast = this.toastCtrl.create({
-        message: '请输入资讯来源',
-        duration: 1000,
-        position: 'middle'
-      });
-      toast.present();
-      return;
-    }else if(this.news.content===''){
-      let toast = this.toastCtrl.create({
-        message: '请输入资讯内容',
-        duration: 1000,
-        position: 'middle'
-      });
-      toast.present();
-      return;
+      return false;
+    }else if(this.httpServe.isEmpty(this.selectTags)){
+      this.httpServe.errorToast('请选择标签');
+      return false;
+    }else if(this.httpServe.isEmpty(this.news.name)){
+      this.httpServe.errorToast('请输入资讯标题');
+      return false;
+    }else if(this.httpServe.isEmpty(this.news.sourceSite)){
+      this.httpServe.errorToast('请输入资讯来源');
+      return false;
+    }else if(this.httpServe.isEmpty(this.news.content)){
+      this.httpServe.errorToast('请输入资讯内容');
+      return false;
     }else{
-      
+      return true;
     }
+
   }
   //接收colum值
   getColumn(res){
-    console.log(res)
     this.showColumn = false;
     if(res===null){
       this.news.column = '';
+      this.selectcolumn =''
     }else{
-      this.news.column = res.itemText;
+      this.news.column = res.id;
+      this.selectcolumn = res.itemText
     }
   }
   // 关闭栏目弹框
@@ -81,11 +65,11 @@ export class ReleaseinfoPage {
   }
   // 接收tags值
   getTag(res){
-    console.log(res)
     this.showTag = false;
     if(res.length > 0){
       res.forEach(item => {
-        this.news.tags +=item.tagName+ ','
+        this.news.tags.push(item.id);
+        this.selectTags +=item.tagName+ ','
       },this);
     }
   }

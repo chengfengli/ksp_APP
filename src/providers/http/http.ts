@@ -13,13 +13,8 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class HttpProvider {
-<<<<<<< HEAD
    public apiURL = 'http://192.168.1.125:7004/app';
  // public apiURL = 'http://192.168.1.85:7004/app';
-=======
-  public apiURL = 'http://192.168.0.126:7004/app';
-
->>>>>>> c744a978e5aac1b590dddf060bfa8580fcce6a86
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
   // 请求头接口

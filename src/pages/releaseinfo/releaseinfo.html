@@ -6,12 +6,12 @@
 <ion-content>
   <ion-list>
     <button ion-item (click)="showColumn=true" class="font14">
-      <span class="placeholder" *ngIf='news.column === null'>请选择栏目</span>
-      <span>{{news.column}}</span>
+      <span class="placeholder" *ngIf ="selectcolumn===''">请选择栏目</span>
+      <span *ngIf ="selectcolumn!==''">{{selectcolumn}}</span>
     </button>
     <button ion-item (click)="showTag=true" class="font14">
-      <span class="placeholder" *ngIf ='news.tags.length===0'>请选择标签</span>
-      <span *ngIf ='news.tags.length !== 0'>{{news.tags}}</span>
+      <span class="placeholder" *ngIf ="selectTags==''">请选择标签</span>
+      <span *ngIf ="selectTags !== ''">{{selectTags}}</span>
     </button>
     <ion-item>
       <ion-input placeholder="请输入来源" name="sourceSite" [(ngModel)]="news.sourceSite"></ion-input>
@@ -22,7 +22,7 @@
     </ion-item>
     <ion-item> 
       <div  contenteditable="true" class="con">{{news.content}}
-        <span *ngIf='news.content.length == 0'>请输入资讯内容</span>
+        <span *ngIf="news.content ==''">请输入资讯内容</span>
       </div>
       <ul class='choose-pic'>
         <li (click)="setPhoto()">
