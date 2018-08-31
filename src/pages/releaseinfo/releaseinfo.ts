@@ -19,6 +19,7 @@ export class ReleaseinfoPage {
   showTag = false;
   selectcolumn = '';
   selectTags = '';
+  txt = ''
   user:User = new User();
   constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public httpServe: HttpProvider,public actionCtrl:ActionSheetController,
     public platform:Platform,public camera: Camera) {
@@ -44,10 +45,24 @@ export class ReleaseinfoPage {
       this.httpServe.errorToast('请输入资讯内容');
       return false;
     }else{
-      return true;
+      this.httpServe.request({url:'/news/create.json',params:this.news},(res)=>{
+        if(res.code==='200'){
+          this.httpServe.successToast('提交成功')
+        }else{
+          this.httpServe.errorToast(res.msg);
+        }
+      })
     }
 
   }
+  //获取文本内容
+  getCon(){
+    this.txt =document.getElementById('content').innerHTML
+   // console.log(this.txt)
+    this.news.content = this.txt
+
+  }
+ 
   //接收colum值
   getColumn(res){
     this.showColumn = false;
@@ -86,11 +101,11 @@ export class ReleaseinfoPage {
   choosePhoto(sourceType) {
     const options = {
       quality: 100,//定义保存图片的质量，取值范围为[0,100]，100表示质量最高
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       // 选择返回数据的格式，取值为三个常量之一
-      // Camera.DestinationType.DATA_URL//表示返回图片作为base64编码 "data:image/jpeg;base64,"+
-      // Camera.DestinationType.FILE_URI//表示返回图片作为文件URI
-      // Camera.DestinationType.NATIVE_URI//表示返回图片作为文件URI
+      // Camera.DestinationType.DATA_URL,//表示返回图片作为base64编码 "data:image/jpeg;base64,"+
+      // Camera.DestinationType.FILE_URI,//表示返回图片作为文件URI
+      // Camera.DestinationType.NATIVE_URI,//表示返回图片作为文件URI
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       saveToPhotoAlbum: true,
@@ -101,7 +116,9 @@ export class ReleaseinfoPage {
       targetHeight: 100,
     }
     this.camera.getPicture(options).then((imageData) => {
-      alert(imageData)
+       let _img= "<img src ="+imageData +"/>"
+       this.txt += _img;
+       this.news.content = this.txt
     }, (err) => {
       alert('err'+err)
     });

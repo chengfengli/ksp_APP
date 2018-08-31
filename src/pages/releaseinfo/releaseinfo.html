@@ -20,18 +20,21 @@
       <textarea placeholder="请输入资讯标题" [(ngModel)]="news.name" name="name" maxLength="100" class='title'></textarea>
       <div style="text-align:right;" class="font-gray">{{news.name.length}}/100</div>
     </ion-item>
-    <ion-item> 
-      <div  contenteditable="true" class="con">{{news.content}}
-        <span *ngIf="news.content ==''">请输入资讯内容</span>
-      </div>
-      <ul class='choose-pic'>
-        <li (click)="setPhoto()">
-          <ion-icon name="camera-retro"></ion-icon>
-          <p>上传图片</p>
-        </li>
-      </ul>
-      <!-- <textarea placeholder="请输入资讯内容" class="con" [(ngModel)]="con"></textarea> -->
-      <p class='pic-num'><span>{{news.content.length}}</span>/20000</p>
+    <ion-item>
+      <div class="con">
+          <span *ngIf="news.content ==''">请输入资讯内容</span>
+          <div contenteditable="true" class="content" style="height:200px" (keyup)="getCon()" id="content">
+            <!-- <div *ngIf="news.content !== ''">{{news.content}}</div> -->
+          </div>
+          <ul class='choose-pic'>
+            <li (click)="setPhoto()">
+              <ion-icon name="camera-retro"></ion-icon>
+              <p>上传图片</p>
+            </li>
+          </ul>
+          <!-- <textarea placeholder="请输入资讯内容" class="con" [(ngModel)]="con"></textarea> -->
+          <p class='pic-num'><span>{{news.content.length}}</span>/20000</p>
+      </div> 
     </ion-item>
   </ion-list>
   <!-- <ul class='choose-pic'>
