@@ -30,9 +30,12 @@ export class MePage {
   myquestionPage = MyquestionPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public httpServe: HttpProvider) {
+    let array = new Array();
+    array.push(12);
+    this.httpServe.postAndGet({url:'/login',params:{name:'12321'},params2:{arrays:[12]}},(res)=>{
 
+    })
   }
-
   ionViewDidLoad() {
     this.httpServe.storageGet('user').subscribe(res => {
       this.user = res;

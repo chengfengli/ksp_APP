@@ -13,12 +13,12 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class HttpProvider {
-  public apiURL = 'http://192.168.0.126:7004/app';
+  public apiURL = 'http://192.168.0.126:8080/app';
 
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
   // 请求头接口
-  private headers = null;
+  private headers = new Headers({'Content-Type':'application/json'});
  
   // 对参数进行编码
   private encode (params) {
@@ -43,6 +43,31 @@ export class HttpProvider {
     return json1;
   }
 
+  request(option,success,error?){
+    let old_option = {url:'',params:null,loader:false,type:'post'};
+    old_option = this.jsonMerge(old_option,option);
+    let url = option.url;
+    if(url.indexOf('http://')==-1){
+      url = this.apiURL+option.url;
+    }
+    this.storageGet('token').subscribe((res)=>{
+      if(!this.isEmpty(res)){
+        option.params2.token = res;
+      }
+      let loading = this.showLoading();
+      if (old_option.loader) {
+        loading.present();
+      }
+      if(option.type==='post'){
+        this.post(option,success,loading);
+      }else if(option.type==='get'){
+
+      }else{
+
+      }
+    });
+  }
+
   // get方法
   get (option,success,error?) {
     let old_option = {url:'',params:null,loader:false};
@@ -55,7 +80,6 @@ export class HttpProvider {
     if(url.indexOf('http://')==-1){
       url = this.apiURL+option.url;
     }
-    this.headers = new Headers({'Content-Type':'application/json'});
     this.storageGet('token').subscribe((res)=>{
       if(!this.isEmpty(res)){
         option.params.token = res;
@@ -80,19 +104,43 @@ export class HttpProvider {
   }
  
   // post方法
-  post (option,success) {
-    let old_option = {url:'',params:null,loader:false};
+  post (option,success,loading) {
+    this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
+        .subscribe(res=>{
+          loading.dismiss();
+          if(res.code=='200'){
+            success(res);
+          }else if(res.code=='500'){
+            this.alert('登录已过期，请重新登录！',()=>{
+              //option.navCtrl.setRoot(LoginPage);
+            });
+          }else{
+            this.errorToast(res.msg);
+          }
+        },err=>{
+          loading.dismiss();
+          this.handleError(err);
+        }
+      )
+  }
+
+  postAndGet(option,success,error?){
+    let old_option = {url:'',params:null,params2:null,loader:false};
     old_option = this.jsonMerge(old_option,option);
     let loading = this.showLoading();
     if (old_option.loader) {
       loading.present();
     }
+    let url = option.url;
+    if(url.indexOf('http://')==-1){
+      url = this.apiURL+option.url;
+    }
     this.headers = new Headers({'Content-Type':'application/json'});
     this.storageGet('token').subscribe((res)=>{
       if(!this.isEmpty(res)){
-        option.url+='?token='+res;
+        option.params2.token = res;
       }
-      this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
+      this.http.post(this.apiURL+option.url+this.encode(option.params2),JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
           loading.dismiss();
           if(res.code=='200'){

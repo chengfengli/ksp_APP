@@ -12,7 +12,7 @@ export class ColumListComponent {
   // 所有的栏目
   columns = [];
   // 当前选择的栏目
-  selectColumns = 3;
+  selectColumns = null;
 
   @Output()confirm = new EventEmitter();
   @Output()cancel = new EventEmitter();
