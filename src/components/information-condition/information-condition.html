@@ -37,8 +37,8 @@
         <ion-checkbox item-end></ion-checkbox>
       </ion-item>
       <ion-item *ngFor="let item of tags">
-          <ion-label>{{item.name}}</ion-label>
-          <ion-checkbox [checked]="selectTags.indexOf(item.val)!=-1" (ionChange)="select(selectTags,item.val)" item-end></ion-checkbox>
+          <ion-label>{{item.tagName}}</ion-label>
+          <ion-checkbox [checked]="screening.tagId.indexOf(item.id)!=-1" (ionChange)="select(screening.tagId,item.id)" item-end></ion-checkbox>
         </ion-item>
     </ion-list>
     <ion-grid class="btn-box">

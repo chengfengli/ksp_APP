@@ -17,22 +17,27 @@ export class TagListComponent {
   // 所有的标签
   tags = [];
   // 当前选择的标签
-  selectTags = '';
+  selectTags = [];
   color = '#000';
   showAddTag = false
   newTag:string = ''
+  tagName= ''
   @Output()confirm = new EventEmitter();
   @Output()cancel = new EventEmitter();
   constructor(public httpServe: HttpProvider) {
-    for(let i=1;i<=10;i++){
-      this.tags.push({name:'标签'+i,val:i,color:'#000'});
-    }
+    // for(let i=1;i<=10;i++){
+    //   this.tags.push({name:'标签'+i,val:i,color:'#000'});
+    // }
     this.defaultEvent()
   }
   defaultEvent(){
-      this.httpServe.post({url:'/common/searchTag.json'},(res)=>{
-          console.log(res)
-      })
+    
+    this.httpServe.get({url:'/common/searchTag.json',params:{tagName:this.tagName}},(res)=>{
+      this.tags = res.data;
+      for(let i=0;i<this.tags.length;i++){
+        this.tags[i].color = '#000'
+      }
+    })
   }
    /**
    * 取消
@@ -51,7 +56,7 @@ export class TagListComponent {
   confirmFun(){
     for(let i =0;i<this.tags.length;i++){
       if(this.tags[i].color === '#ff6600'){
-        this.selectTags += this.tags[i].name+','
+        this.selectTags.push(this.tags[i]) 
         
       }
     }

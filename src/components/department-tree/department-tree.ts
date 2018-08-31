@@ -1,5 +1,6 @@
 ///<reference path="../../yntree/yntree.d.ts"/>
 import { Component, Output, EventEmitter } from '@angular/core';
+import { HttpProvider } from '../../providers/http/http';
 
 @Component({
   selector: 'department-tree',
@@ -14,35 +15,21 @@ export class DepartmentTreeComponent {
     onchange: (input, yntree) => {
       console.log(this.tree.getCheckedInputs());
     },
-    checkStrictly: true,
-    data:[
-      {
-        name: "我的公司",
-        inputName: "我的公司",
-        value: "1",
-        children: [
-          {
-            name: "公司管理",
-            inputName: "公司管理",
-            value: "1-1"
-          },
-          {
-            name: "部门管理",
-            inputName: "部门管理",
-            value: "1-2"
-          }
-        ]
-      }
-    ]
+    // checkStrictly: true,
+    data:[]
   };
   selectDeps = [];
 
-  constructor() {
+  constructor(public httpServe:HttpProvider) {
     setTimeout(()=>{
-      this.tree = new YnTree(document.getElementById("tree"), this.potions);
-      for(let i =0;i<this.selectDeps.length;i++){
-        this.tree.select(this.selectDeps[i],true);
-      }
+      this.httpServe.post({url:'/common/org.json'},(res)=>{
+        this.potions.data = res.data;
+        this.tree = new YnTree(document.getElementById("tree"), this.potions);
+      })
+      
+      // for(let i =0;i<this.selectDeps.length;i++){
+      //   this.tree.select(this.selectDeps[i],true);
+      // }
     },100);
   }
 

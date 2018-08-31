@@ -31,23 +31,19 @@ export class InformationConditionComponent {
   isCheckedAll= false
   @Output()confirmCall = new EventEmitter();
   constructor(public httpServe:HttpProvider) {
-    for(let i=1;i<=10;i++){
-      // this.columns.push({name:'栏目'+i,val:i});
-      this.tags.push({name:'标签'+i,val:i});
-    }
     this.defaultEvent()
   }
  
   defaultEvent(){
     //查询标签
     this.httpServe.get({url:'/common/searchTag.json',params:{tagName:this.tagName}},(res)=>{
-        console.log("标签==============")
-        console.log(res)
+        this.tags = res.data;
     })
     //查询栏目
     this.httpServe.post({url:'/common/searchColumn.json'},(res)=>{
       this.columns = res.data;
     })
+    
   }
   /**
    * 切换条件时
@@ -95,13 +91,12 @@ export class InformationConditionComponent {
     if(this.currentChoice === 'column'){
       this.screening.column = array;
     }else if(this.currentChoice === 'tag'){
-      this.selectTags = array;
+      this.screening.tagId = array;
     }
   }
 
  // 全选
   checkedAll(){
-    console.log(32)
     this.isCheckedAll = !this.isCheckedAll
     if (this.isCheckedAll) {
       // 全选时

@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { HttpProvider } from '../../providers/http/http';
 
 /**
  * 
@@ -12,16 +13,18 @@ export class ColumListComponent {
   // 所有的栏目
   columns = [];
   // 当前选择的栏目
-  selectColumns = 3;
+  selectColumns = '';
 
   @Output()confirm = new EventEmitter();
   @Output()cancel = new EventEmitter();
 
-  constructor() {
-    for(let i=1;i<=10;i++){
-      this.columns.push({name:'栏目'+i,val:i});
-    }
+  constructor(public httpServe:HttpProvider) {
+     //查询栏目
+     this.httpServe.post({url:'/common/searchColumn.json'},(res)=>{
+      this.columns = res.data;
+    })
   }
+
 
   /**
    * 取消
@@ -29,14 +32,14 @@ export class ColumListComponent {
   cancelFun(){
     this.cancel.emit();
   }
-
+ 
   /**
    * 确定
    */
   confirmFun(){
     let res = null;
     for(let i=0;i<this.columns.length;i++){
-      if(this.columns[i].val === this.selectColumns){
+      if(this.columns[i].id === this.selectColumns){
         res = this.columns[i];
       }
     }
