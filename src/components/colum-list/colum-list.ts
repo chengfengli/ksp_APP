@@ -20,7 +20,7 @@ export class ColumListComponent {
 
   constructor(public httpServe:HttpProvider) {
      //查询栏目
-     this.httpServe.post({url:'/common/searchColumn.json'},(res)=>{
+     this.httpServe.request({url:'/common/searchColumn.json'},(res)=>{
       this.columns = res.data;
     })
   }

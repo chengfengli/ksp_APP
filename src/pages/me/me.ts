@@ -30,9 +30,8 @@ export class MePage {
   myquestionPage = MyquestionPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public httpServe: HttpProvider) {
-
+    let array = new Array();
   }
-
   ionViewDidLoad() {
     this.httpServe.storageGet('user').subscribe(res => {
       this.user = res;

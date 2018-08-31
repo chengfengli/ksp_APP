@@ -36,11 +36,11 @@ export class InformationConditionComponent {
  
   defaultEvent(){
     //查询标签
-    this.httpServe.get({url:'/common/searchTag.json',params:{tagName:this.tagName}},(res)=>{
+    this.httpServe.request({url:'/common/searchTag.json',type:'get',params:{tagName:this.tagName}},(res)=>{
         this.tags = res.data;
     })
     //查询栏目
-    this.httpServe.post({url:'/common/searchColumn.json'},(res)=>{
+    this.httpServe.request({url:'/common/searchColumn.json'},(res)=>{
       this.columns = res.data;
     })
     

@@ -18,7 +18,7 @@ export class HttpProvider {
   constructor(private http: Http,public toastCtrl:ToastController,private alertCtrl: AlertController, private loadingCtrl: LoadingController,public storage: Storage,private network: Network) {}
 
   // 请求头接口
-  private headers = null;
+  private headers = new Headers({'Content-Type':'application/json'});
  
   // 对参数进行编码
   private encode (params) {
@@ -43,64 +43,52 @@ export class HttpProvider {
     return json1;
   }
 
-  // get方法
-  get (option,success,error?) {
-    let old_option = {url:'',params:null,loader:false};
+  request(option,success,error?){
+    let old_option = {url:'',params:null,params2:{},loader:false,type:'post'};
     old_option = this.jsonMerge(old_option,option);
-    let loading = this.showLoading();
-    if (old_option.loader) {
-      loading.present();
-    }
-    let url = option.url;
+    let url = old_option.url;
     if(url.indexOf('http://')==-1){
-      url = this.apiURL+option.url;
+      old_option.url = this.apiURL+old_option.url;
     }
-    this.headers = new Headers({'Content-Type':'application/json'});
     this.storageGet('token').subscribe((res)=>{
       if(!this.isEmpty(res)){
-        option.params.token = res;
+        old_option.params2['token'] = res;
       }
-      this.http.get(url+this.encode(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
-        .subscribe(res=>{
-          if (old_option.loader) {
-            loading.dismiss();
-          }
-          success(res);
-        },err=>{
-          if (old_option.loader) {
-            loading.dismiss();
-          }
-          if(error){
-            error(err);
-          }
-        }
-      )
-    })
-    
+      let loading = this.showLoading();
+      if (old_option.loader) {
+        loading.present();
+      }
+      if(old_option.type==='post'){
+        this.post(old_option,success,loading);
+      }else if(old_option.type==='get'){
+        old_option.params['token'] = res;
+        this.get(old_option,success,loading);
+      }else{
+        this.postAndGet(old_option,success,loading);
+      }
+    });
+  }
+
+  // get方法
+  get (option,success,loading) {
+    this.http.get(option.url+this.encode(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
+      .subscribe(res=>{
+        loading.dismiss();
+        success(res);
+      },err=>{
+        loading.dismiss();
+        this.handleError(err);
+      }
+    )
   }
  
   // post方法
-  post (option,success) {
-    let old_option = {url:'',params:null,loader:false};
-    old_option = this.jsonMerge(old_option,option);
-    let loading = this.showLoading();
-    if (old_option.loader) {
-      loading.present();
-    }
-    this.headers = new Headers({'Content-Type':'application/json'});
-    this.storageGet('token').subscribe((res)=>{
-      if(!this.isEmpty(res)){
-        option.url+='?token='+res;
-      }
-      this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
+  post (option,success,loading) {
+    this.http.post(option.url+this.encode(option.params2),JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
           loading.dismiss();
           if(res.code=='200'){
             success(res);
-          }else if(res.code=='500'){
-            this.alert('登录已过期，请重新登录！',()=>{
-              //option.navCtrl.setRoot(LoginPage);
-            });
           }else{
             this.errorToast(res.msg);
           }
@@ -109,7 +97,22 @@ export class HttpProvider {
           this.handleError(err);
         }
       )
-    })
+  }
+
+  postAndGet(option,success,loading){
+    this.http.post(option.url+this.encode(option.params2),JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json())
+      .subscribe(res=>{
+        loading.dismiss();
+        if(res.code=='200'){
+          success(res);
+        }else{
+          this.errorToast(res.msg);
+        }
+      },err=>{
+        loading.dismiss();
+        this.handleError(err);
+      }
+    )
   }
 
   // post方法

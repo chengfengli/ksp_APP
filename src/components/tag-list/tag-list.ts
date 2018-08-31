@@ -32,7 +32,7 @@ export class TagListComponent {
   }
   defaultEvent(){
     
-    this.httpServe.get({url:'/common/searchTag.json',params:{tagName:this.tagName}},(res)=>{
+    this.httpServe.request({url:'/common/searchTag.json',type:'get',params:{tagName:this.tagName}},(res)=>{
       this.tags = res.data;
       for(let i=0;i<this.tags.length;i++){
         this.tags[i].color = '#000'
