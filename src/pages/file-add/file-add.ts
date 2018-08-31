@@ -23,18 +23,15 @@ export class FileAddPage {
   showColumn = false;
   showTag = false;
   fileName = '';
-  title = '';
-  // 显示的栏目
-  columStr = '';
   // 显示的部门
   depStr = '';
-  // 显示的标签
-  tagStr = '';
   fileURL = '';
-  formData = null;;
+  token = '';
   constructor(public navCtrl: NavController, public navParams: NavParams,private transfer: FileTransfer,private fileChooser: FileChooser,public httpServe: HttpProvider,
     public filePath: FilePath) {
-    
+      this.httpServe.storageGet('token').subscribe((res)=>{
+        this.token = res;
+      })
   }
 
   ionViewDidLoad() {
@@ -65,13 +62,14 @@ export class FileAddPage {
    * 上传文件
    */
   upload(){
+    console.log(this.docu)
     const fileTransfer: FileTransferObject = this.transfer.create();
     let options: FileUploadOptions  = {
       fileKey: 'file',
-      fileName: this.fileName,  // 文件名称
+      fileName: this.fileName,
       params: this.docu
     }
-    fileTransfer.upload(this.fileURL,encodeURI(this.httpServe.apiURL+'/doc/create.json'), options)
+    fileTransfer.upload(this.fileURL,encodeURI(this.httpServe.apiURL+'/doc/create.json?token='+this.token), options)
     .then((data) => {
       if(data.responseCode===200){
         this.httpServe.successToast('上传成功',()=>{
@@ -97,7 +95,8 @@ export class FileAddPage {
     }else{
       this.depStr = '';
       for(let i=0;i<res.length;i++){
-        this.depStr+=res[i].name+'，';
+        this.depStr+=res[i].name+',';
+        this.docu.orgResource+=res[i].value+',';
       }
     }
   }
@@ -115,7 +114,7 @@ export class FileAddPage {
    */
   getColumn(res){
     this.showColumn = false;
-    this.columStr = res.name;
+    this.docu.column = res.typeName;
   }
 
   /**
@@ -125,11 +124,12 @@ export class FileAddPage {
   getTag(res){
     this.showTag = false;
     if(res.length==0){
-      this.tagStr = '';
+      this.docu.tagStr = '';
     }else{
-      this.tagStr = '';
+      this.docu.tagStr = '';
       for(let i=0;i<res.length;i++){
-        this.tagStr+=res[i].name+'，';
+        this.docu.tagStr+=res[i].tagName+',';
+        this.docu.tagId+=res[i].id+',';
       }
     }
   }
