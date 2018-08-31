@@ -44,15 +44,15 @@ export class HttpProvider {
   }
 
   request(option,success,error?){
-    let old_option = {url:'',params:null,loader:false,type:'post'};
+    let old_option = {url:'',params:null,params2:{},loader:false,type:'post'};
     old_option = this.jsonMerge(old_option,option);
     let url = option.url;
     if(url.indexOf('http://')==-1){
-      url = this.apiURL+option.url;
+      option.url = this.apiURL+old_option.url;
     }
     this.storageGet('token').subscribe((res)=>{
       if(!this.isEmpty(res)){
-        option.params2.token = res;
+        old_option.params2['token'] = res;
       }
       let loading = this.showLoading();
       if (old_option.loader) {
@@ -61,59 +61,33 @@ export class HttpProvider {
       if(option.type==='post'){
         this.post(option,success,loading);
       }else if(option.type==='get'){
-
+        this.get(option,success,loading);
       }else{
-
+        this.postAndGet(option,success,loading);
       }
     });
   }
 
   // get方法
-  get (option,success,error?) {
-    let old_option = {url:'',params:null,loader:false};
-    old_option = this.jsonMerge(old_option,option);
-    let loading = this.showLoading();
-    if (old_option.loader) {
-      loading.present();
-    }
-    let url = option.url;
-    if(url.indexOf('http://')==-1){
-      url = this.apiURL+option.url;
-    }
-    this.storageGet('token').subscribe((res)=>{
-      if(!this.isEmpty(res)){
-        option.params.token = res;
+  get (option,success,loading) {
+    this.http.get(option.url+this.encode(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
+      .subscribe(res=>{
+        loading.dismiss();
+        success(res);
+      },err=>{
+        loading.dismiss();
+        this.handleError(err);
       }
-      this.http.get(url+this.encode(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
-        .subscribe(res=>{
-          if (old_option.loader) {
-            loading.dismiss();
-          }
-          success(res);
-        },err=>{
-          if (old_option.loader) {
-            loading.dismiss();
-          }
-          if(error){
-            error(err);
-          }
-        }
-      )
-    })
-    
+    )
   }
  
   // post方法
   post (option,success,loading) {
-    this.http.post(this.apiURL+option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
+    this.http.post(option.url,JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
           loading.dismiss();
           if(res.code=='200'){
             success(res);
-          }else if(res.code=='500'){
-            this.alert('登录已过期，请重新登录！',()=>{
-              //option.navCtrl.setRoot(LoginPage);
-            });
           }else{
             this.errorToast(res.msg);
           }
@@ -124,40 +98,20 @@ export class HttpProvider {
       )
   }
 
-  postAndGet(option,success,error?){
-    let old_option = {url:'',params:null,params2:null,loader:false};
-    old_option = this.jsonMerge(old_option,option);
-    let loading = this.showLoading();
-    if (old_option.loader) {
-      loading.present();
-    }
-    let url = option.url;
-    if(url.indexOf('http://')==-1){
-      url = this.apiURL+option.url;
-    }
-    this.headers = new Headers({'Content-Type':'application/json'});
-    this.storageGet('token').subscribe((res)=>{
-      if(!this.isEmpty(res)){
-        option.params2.token = res;
-      }
-      this.http.post(this.apiURL+option.url+this.encode(option.params2),JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
-        .subscribe(res=>{
-          loading.dismiss();
-          if(res.code=='200'){
-            success(res);
-          }else if(res.code=='500'){
-            this.alert('登录已过期，请重新登录！',()=>{
-              //option.navCtrl.setRoot(LoginPage);
-            });
-          }else{
-            this.errorToast(res.msg);
-          }
-        },err=>{
-          loading.dismiss();
-          this.handleError(err);
+  postAndGet(option,success,loading){
+    this.http.post(option.url+this.encode(option.params2),JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json())
+      .subscribe(res=>{
+        loading.dismiss();
+        if(res.code=='200'){
+          success(res);
+        }else{
+          this.errorToast(res.msg);
         }
-      )
-    })
+      },err=>{
+        loading.dismiss();
+        this.handleError(err);
+      }
+    )
   }
 
   // post方法

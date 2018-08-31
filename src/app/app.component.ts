@@ -20,7 +20,7 @@ export class MyApp {
         if(httpServe.isEmpty(res)){
           this.rootPage = LoginPage;
         }else{
-          this.rootPage = TabsPage;
+          this.rootPage = LoginPage;
         }
       });
     });

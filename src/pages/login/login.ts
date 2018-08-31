@@ -52,7 +52,7 @@ export class LoginPage {
   login(){
     if(this.check()){
       this.remeberP();
-      this.httpServe.request({url:'/user/login.json',params:this.user},(res)=>{
+      this.httpServe.request({url:'/user/login.json',type:'postAndGet',params:this.user,params2:this.user},(res)=>{
         if(res.code==='200'){
           this.httpServe.storageSet("token",res.data);
           this.navCtrl.setRoot(TabsPage);

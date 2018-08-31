@@ -23,10 +23,6 @@ export class ReleaseinfoPage {
     // this.httpServe.post({url:'my/test.json'},(res)=>{
     //   console.log(res)
     // },)
-    this.httpServe.storageGet('user').subscribe(res => {
-      this.user.creator = res;
-      console.log(res)
-    });
   }
 
   releaseEvent(){
@@ -73,10 +69,10 @@ export class ReleaseinfoPage {
   getColumn(res){
     console.log(res)
     this.showColumn = false;
-    if(res.length==0){
+    if(res===null){
       this.news.column = '';
     }else{
-      this.news.column ='栏目'+ res;
+      this.news.column = res.itemText;
     }
   }
   // 关闭栏目弹框
@@ -87,19 +83,10 @@ export class ReleaseinfoPage {
   getTag(res){
     console.log(res)
     this.showTag = false;
-    // if(res.length==0){
-    //   this.tags = '';
-    // }else{
-    //   console.log(res)
-    //   this.tags ='标签'+ res;
-    // }
-    if(res.length==0){
-      this.news.tags = '';
-    }else{
-      this.news.tags = res;
-      // for(let i=0;i<res.length;i++){
-      //   this.tags+=res[i].name+'，';
-      // }
+    if(res.length > 0){
+      res.forEach(item => {
+        this.news.tags +=item.tagName+ ','
+      },this);
     }
   }
   // 关闭tag弹框

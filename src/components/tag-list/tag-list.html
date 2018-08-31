@@ -10,7 +10,7 @@
   </ion-navbar>
   <ion-row>
     <ion-col col-4 *ngFor="let item of tags" (click)='selectTagEvent(item)'> 
-      <span [ngStyle]="{'color':item.color}" >{{item.name}}</span>
+      <span [ngStyle]="{'color':item.color}" >{{item.tagName}}</span>
     </ion-col>
     <ion-col col-4 (click)='addTag()' class='add-tag'> 
       <ion-icon ios="ios-add" md="md-add"></ion-icon>
