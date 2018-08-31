@@ -13,13 +13,9 @@
   <!-- 栏目条件 -->
   <div class="plan" *ngIf="currentChoice=='column'">
     <ion-list no-lines>
-      <ion-item>
-        <ion-label>全部</ion-label>
-        <ion-checkbox item-end></ion-checkbox>
-      </ion-item>
       <ion-item *ngFor="let item of columns">
-        <ion-label>{{item.name}}</ion-label>
-        <ion-checkbox [checked]="selectColumns.indexOf(item.val)!=-1" (ionChange)="select(selectColumns,item.val)" item-end></ion-checkbox>
+        <ion-label>{{item.itemText}}</ion-label>
+        <ion-checkbox [checked]="selectColumns.indexOf(item.itemText)!=-1" (ionChange)="select(selectColumns,item.itemText)" item-end></ion-checkbox>
       </ion-item>
     </ion-list>
     <ion-grid class="btn-box">
@@ -33,13 +29,9 @@
   <!-- 标签 -->
   <div class="plan" *ngIf="currentChoice=='tag'">
     <ion-list no-lines>
-      <ion-item>
-        <ion-label>全部</ion-label>
-        <ion-checkbox item-end></ion-checkbox>
-      </ion-item>
       <ion-item *ngFor="let item of tags">
-          <ion-label>{{item.name}}</ion-label>
-          <ion-checkbox [checked]="selectTags.indexOf(item.val)!=-1" (ionChange)="select(selectTags,item.val)" item-end></ion-checkbox>
+          <ion-label>{{item.tagName}}</ion-label>
+          <ion-checkbox [checked]="selectTags.indexOf(item.id)!=-1" (ionChange)="select(selectTags,item.id)" item-end></ion-checkbox>
         </ion-item>
     </ion-list>
     <ion-grid class="btn-box">
@@ -53,14 +45,14 @@
   <!-- 日期 -->
   <div class="plan" *ngIf="currentChoice=='date'">
     <ion-list no-lines>
-      <ion-item (click)="slelctDate('')">
-        <ion-label [ngClass]="date===''? 'active':''">全部</ion-label>
+      <ion-item (click)="slelctDate('all')">
+        <ion-label [ngClass]="date==='all'? 'active':''">全部</ion-label>
       </ion-item>
-      <ion-item (click)="slelctDate('d')">
-        <ion-label [ngClass]="date==='d'? 'active':''">今天</ion-label>
+      <ion-item (click)="slelctDate('oneDay')">
+        <ion-label [ngClass]="date==='oneDay'? 'active':''">今天</ion-label>
       </ion-item>
-      <ion-item (click)="slelctDate('c')">
-        <ion-label [ngClass]="date==='c'? 'active':''">近三天</ion-label>
+      <ion-item (click)="slelctDate('threeDay')">
+        <ion-label [ngClass]="date==='threeDay'? 'active':''">近三天</ion-label>
       </ion-item>
       <ion-item (click)="slelctDate('week')">
         <ion-label [ngClass]="date==='week'? 'active':''">近七天</ion-label>

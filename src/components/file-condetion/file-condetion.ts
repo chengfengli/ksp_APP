@@ -1,4 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { HttpProvider } from '../../providers/http/http';
+import { Search } from '../../entity/search/search';
 
 /**
  * 文档条件
@@ -23,11 +25,20 @@ export class FileCondetionComponent {
   // 格式
   format = '';
   @Output()confirmCall = new EventEmitter();
-  constructor() {
-    for(let i=1;i<=10;i++){
-      this.columns.push({name:'栏目'+i,val:i});
-      this.tags.push({name:'标签'+i,val:i});
-    }
+  constructor(public httpServe: HttpProvider) {
+    this.defaultEvent();
+  }
+
+  defaultEvent(){
+    //查询标签
+    this.httpServe.request({url:'/common/searchTag.json',type:'get',params:{tagName:''}},(res)=>{
+        this.tags = res.data;
+    })
+    //查询栏目
+    this.httpServe.request({url:'/common/searchColumn.json'},(res)=>{
+      this.columns = res.data;
+    })
+    
   }
 
   /**
@@ -45,13 +56,16 @@ export class FileCondetionComponent {
   confim(){
     this.height = 'auto';
     this.currentChoice = '';
+    let search:Search = new Search();
+    search.column = this.selectColumns;
+    search.tagId = this.selectTags;
     var res = {
       column: this.selectColumns,
       tag: this.selectTags,
       date: this.date,
       format: this.format
     }
-    this.confirmCall.emit(res);
+    this.confirmCall.emit(search);
   }
 
   /**
