@@ -19,7 +19,8 @@ export class ReleaseinfoPage {
   showTag = false;
   selectcolumn = '';
   selectTags = '';
-  txt = ''
+  txt = '';
+  tagsId= '';
   user:User = new User();
   constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public httpServe: HttpProvider,public actionCtrl:ActionSheetController,
     public platform:Platform,public camera: Camera) {
@@ -45,7 +46,7 @@ export class ReleaseinfoPage {
       this.httpServe.errorToast('请输入资讯内容');
       return false;
     }else{
-      this.httpServe.request({url:'/news/create.json',params:this.news},(res)=>{
+      this.httpServe.request({url:'/news/create.json',params:this.news,params2:{tags:this.tagsId}},(res)=>{
         if(res.code==='200'){
           this.httpServe.successToast('提交成功')
         }else{
@@ -84,6 +85,7 @@ export class ReleaseinfoPage {
     if(res.length > 0){
       res.forEach(item => {
         this.news.tags.push(item.id);
+        this.tagsId += item.id+ ','
         this.selectTags +=item.tagName+ ','
       },this);
     }

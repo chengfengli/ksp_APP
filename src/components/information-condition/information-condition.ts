@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { HttpProvider } from '../../providers/http/http';
 import { User } from '../../entity/user/user';
-import { Screening } from '../../entity/news/screening';
+import { Search } from '../../entity/search/search';
 
 /**
  * 资讯条件筛选
@@ -11,8 +11,7 @@ import { Screening } from '../../entity/news/screening';
   templateUrl: 'information-condition.html'
 })
 export class InformationConditionComponent {
-  user:User = new User();
-  screening:Screening = new Screening();
+  search:Search = new Search();
   height = 'auto';
   currentChoice = '';
   // 所有的栏目
@@ -27,7 +26,8 @@ export class InformationConditionComponent {
   date = '';
   // 其他
   other = '';
-  tagName = ''
+  tagName = '';
+  time = 'all'
   isCheckedAll= false
   @Output()confirmCall = new EventEmitter();
   constructor(public httpServe:HttpProvider) {
@@ -60,13 +60,12 @@ export class InformationConditionComponent {
   confim(){
     this.height = 'auto';
     this.currentChoice = '';
-    // var res = {
-    //   column: this.selectColumns,
-    //   tag: this.selectTags,
-    //   date: this.date,
-    //   other: this.other
-    // }
-    this.confirmCall.emit(this.screening);
+    var res = {
+      search: this.search,
+      time: this.time
+    }
+    this.confirmCall.emit(res);
+ 
   }
 
   /**
@@ -89,25 +88,24 @@ export class InformationConditionComponent {
       array.push(val);
     }
     if(this.currentChoice === 'column'){
-      this.isCheckedAll = this.screening.column.length===this.columns.length;
-      this.screening.column = array;
+      this.isCheckedAll = this.search.column.length===this.columns.length;
+      this.search.column = array;
     }else if(this.currentChoice === 'tag'){
-      this.screening.tagId = array;
+      this.search.tagId = array;
     }
   }
 
  // 全选
   checkedAll(){
-    alert(this.isCheckedAll)
     if(this.isCheckedAll){
-      this.screening.column = [];
+      this.search.column = [];
       for(let i=0;i<this.columns.length;i++){
-        this.screening.column.push(this.columns[i].id)
+        this.search.column.push(this.columns[i].id)
       }
     }else{
-      this.screening.column = [];
+      this.search.column = [];
     }
-    console.log(this.screening.column);
+    console.log(this.search.column);
   }
 
   /**
@@ -116,6 +114,17 @@ export class InformationConditionComponent {
    */
   slelctDate(val){
     this.date = val;
+    if(val === ''){
+      this.time = 'all'
+    }else if(val === 'd'){
+      this.time = 'oneDay'
+    }else if(val === 'c'){
+      this.time = 'threeDay'
+    }else if(val === 'week'){
+      this.time = 'week'
+    }else{
+      this.time = 'month'
+    }
   }
 
   /**
@@ -124,9 +133,9 @@ export class InformationConditionComponent {
    */
   selectOther(val){
     this.other = val;
-    console.log(val)
-    if(val === 'd'){
-      
+    if(val === 'q'){
+      this.search.sort = 'currentTime'
+      this.search.order = null
     }
   }
 }

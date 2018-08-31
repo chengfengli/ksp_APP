@@ -18,7 +18,7 @@
       </ion-item> -->
       <ion-item *ngFor="let item of columns ">
         <ion-label>{{item.itemText}}</ion-label>
-        <ion-checkbox (ionChange)="select(screening.column,item.itemText)" item-end></ion-checkbox>
+        <ion-checkbox [checked]="search.column.indexOf(item.id)!=-1" (ionChange)="select(search.column,item.id)" item-end></ion-checkbox>
       </ion-item>
     </ion-list>
     <ion-grid class="btn-box">
@@ -38,7 +38,7 @@
       </ion-item>
       <ion-item *ngFor="let item of tags">
           <ion-label>{{item.tagName}}</ion-label>
-          <ion-checkbox [checked]="screening.tagId.indexOf(item.id)!=-1" (ionChange)="select(screening.tagId,item.id)" item-end></ion-checkbox>
+          <ion-checkbox [checked]="search.tagId.indexOf(item.id)!=-1" (ionChange)="select(search.tagId,item.id)" item-end></ion-checkbox>
         </ion-item>
     </ion-list>
     <ion-grid class="btn-box">
@@ -82,9 +82,9 @@
       <ion-item (click)="selectOther('q')">
         <ion-label [ngClass]="other==='q'? 'active':''">按发布时间由近到远</ion-label>
       </ion-item>
-      <ion-item (click)="selectOther('d')" style="border-bottom: 0;">
+      <!-- <ion-item (click)="selectOther('d')" style="border-bottom: 0;">
         <ion-label [ngClass]="other==='d'? 'active':''">按浏览量由大到小</ion-label>
-      </ion-item>
+      </ion-item> -->
     </ion-list>
     <ion-grid class="btn-box">
       <ion-row class="font-dark" style="text-align:center;">
