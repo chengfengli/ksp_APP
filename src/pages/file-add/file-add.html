@@ -34,7 +34,7 @@
       <span *ngIf="depStr.length!=0">{{depStr}}</span>
     </button>
   </ion-list>
-  <button id="add-btn" ion-button color="primary"  type="button" class="font18" (click)="saveFile()">上传文档</button>
+  <button id="add-btn" ion-button color="primary"  type="button" class="font18" (click)="upload()">上传文档</button>
 </ion-content>
 <div class="bg" *ngIf="showDep">
     <department-tree (confirm)="getDeps($event)" (cancel)="closeDep()"></department-tree>

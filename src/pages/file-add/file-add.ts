@@ -7,6 +7,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { Docu } from '../../entity/docu/Docu';
 import { FilePath } from '@ionic-native/file-path';
+import { FileMePage } from '../file-me/file-me';
 
 /**
  * 上传文档
@@ -31,7 +32,7 @@ export class FileAddPage {
   tagStr = '';
   fileURL = '';
   formData = null;;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private transfer: FileTransfer, private file: File,private fileChooser: FileChooser,public httpServe: HttpProvider,
+  constructor(public navCtrl: NavController, public navParams: NavParams,private transfer: FileTransfer,private fileChooser: FileChooser,public httpServe: HttpProvider,
     public filePath: FilePath) {
     
   }
@@ -67,18 +68,22 @@ export class FileAddPage {
     const fileTransfer: FileTransferObject = this.transfer.create();
     let options: FileUploadOptions  = {
       fileKey: 'file',
-      // fileName: 'name.jpg',  // 文件名称
-      headers: {},
+      fileName: this.fileName,  // 文件名称
       params: this.docu
     }
     fileTransfer.upload(this.fileURL,encodeURI(this.httpServe.apiURL+'/doc/create.json'), options)
     .then((data) => {
-      this.httpServe.successToast('成功');
+      if(data.responseCode===200){
+        this.httpServe.successToast('上传成功',()=>{
+          this.navCtrl.popTo(FileMePage);
+        });
+      }else{
+        this.httpServe.errorToast('上传失败');
+      }
     }, (err) => {
       console.log(JSON.stringify(err));
       alert('异常'+JSON.stringify(err));
     })
-    
   }
 
   /**
@@ -128,15 +133,4 @@ export class FileAddPage {
       }
     }
   }
-
-  /**
-   * 保存
-   */
-  saveFile(){
-    this.upload();
-    // this.httpServe.upload({url:'/doc/create.json',params:this.formData},(res) => {
-
-    // })
-  }
-
 }

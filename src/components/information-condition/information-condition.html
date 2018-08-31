@@ -12,13 +12,13 @@
   <!-- 栏目条件 -->
   <div class="plan" *ngIf="currentChoice=='column'">
     <ion-list no-lines>
-      <ion-item>
+      <!-- <ion-item>
         <ion-label>全部</ion-label>
-        <ion-checkbox item-end [checked]="screening.column.length === columns.length" (click)='checkedAll()'></ion-checkbox>
-      </ion-item>
+        <ion-checkbox item-end [(ngModel)]="isCheckedAll" (click)='checkedAll()'></ion-checkbox>
+      </ion-item> -->
       <ion-item *ngFor="let item of columns ">
         <ion-label>{{item.itemText}}</ion-label>
-        <ion-checkbox [checked]="screening.column.indexOf(item.itemText)!=-1" (ionChange)="select(screening.column,item.itemText)" item-end></ion-checkbox>
+        <ion-checkbox (ionChange)="select(screening.column,item.itemText)" item-end></ion-checkbox>
       </ion-item>
     </ion-list>
     <ion-grid class="btn-box">

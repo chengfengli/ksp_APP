@@ -18,7 +18,7 @@ export class InformationConditionComponent {
   // 所有的栏目
   columns = [];
   // 当前选择的栏目
-  selectColumns = [];
+  selectColumns = [1];
   // 所有的标签
   tags = [];
   // 当前选择的标签
@@ -89,6 +89,7 @@ export class InformationConditionComponent {
       array.push(val);
     }
     if(this.currentChoice === 'column'){
+      this.isCheckedAll = this.screening.column.length===this.columns.length;
       this.screening.column = array;
     }else if(this.currentChoice === 'tag'){
       this.screening.tagId = array;
@@ -97,17 +98,16 @@ export class InformationConditionComponent {
 
  // 全选
   checkedAll(){
-    this.isCheckedAll = !this.isCheckedAll
-    if (this.isCheckedAll) {
-      // 全选时
-      this.screening.column = []
+    alert(this.isCheckedAll)
+    if(this.isCheckedAll){
+      this.screening.column = [];
       for(let i=0;i<this.columns.length;i++){
-        this.screening.column.push(this.columns[i].itemText)
+        this.screening.column.push(this.columns[i].id)
       }
-      console.log(this.screening.column)
-    } else {
-      this.screening.column = []
+    }else{
+      this.screening.column = [];
     }
+    console.log(this.screening.column);
   }
 
   /**
