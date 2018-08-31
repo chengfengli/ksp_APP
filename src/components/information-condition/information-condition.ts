@@ -64,7 +64,7 @@ export class InformationConditionComponent {
       search: this.search,
       time: this.time
     }
-    this.confirmCall.emit(res);
+    this.confirmCall.emit(this.search);
  
   }
 

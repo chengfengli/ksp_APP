@@ -7,15 +7,15 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-  <!-- 下拉刷新 -->
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content
-    pullingIcon="arrow-dropdown"
-    pullingText="放开刷新数据"
-    refreshingSpinner="circles"
-    refreshingText="更新中...">
-    </ion-refresher-content>
-  </ion-refresher>
+   <!-- 下拉刷新 -->
+   <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="放开刷新数据"
+      refreshingSpinner="circles"
+      refreshingText="更新中...">
+      </ion-refresher-content>
+    </ion-refresher>
   <ion-searchbar placeholder="请输入搜索的内容" class="searchInput"></ion-searchbar> 
   <information-condition (confirmCall)="getData($event)"></information-condition>
   <div class="message-list">
@@ -32,17 +32,17 @@
           </div> -->
           <div style="display:flex;">
               <div style="flex: 1;">
-                <div class="title font16">{{item.title}}标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                <div class="title font16">{{item.name}}</div>
                 <div class="base-msg font12 font-gray">
-                  <span>{{item.title}}</span>
-                  <span>{{item.num}}阅读</span>
+                  <span>{{item.createTime | dataFormat}}</span>
+                  <span>{{item.modifier}}阅读</span>
                 </div>
               </div>
               <img class="img-ico" src="assets/imgs/05.jpg">
             </div>
         </ion-item>
         <ion-item-options side="right">
-          <button ion-button color="danger" (click)="delete(key)">
+          <button ion-button color="danger" (click)="delete(item.id,key)">
             删除
           </button>
         </ion-item-options>

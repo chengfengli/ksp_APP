@@ -4,6 +4,7 @@ import { BasePage } from '../base/base';
 import { DetailsPage } from '../details/details';
 import { HttpProvider } from '../../providers/http/http';
 import { ReleaseinfoPage } from '../releaseinfo/releaseinfo';
+import { Search } from '../../entity/search/search';
 
 /**
  * 我的咨询
@@ -15,79 +16,77 @@ import { ReleaseinfoPage } from '../releaseinfo/releaseinfo';
 })
 export class InfomationlistPage  extends BasePage{
   releaseinfoPage = ReleaseinfoPage;
-  list=[
-    {
-      title:'星期一',
-      time:'2018-8-20',
-      num:100,
-      id:1
-    },
-    {
-      title:'星期二',
-      time:'2018-8-20',
-      num:100,
-      id:2
-    },
-    {
-      title:'星期三',
-      time:'2018-8-20',
-      id:3
-    },
-    {
-      title:'星期一',
-      time:'2018-8-20',
-      num:100,
-      id:1
-    },
-    {
-      title:'星期二',
-      time:'2018-8-20',
-      num:100,
-      id:2
-    },
-    {
-      title:'星期三',
-      time:'2018-8-20',
-      id:3
-    },
-    {
-      title:'星期一',
-      time:'2018-8-20',
-      num:100,
-      id:1
-    },
-    {
-      title:'星期二',
-      time:'2018-8-20',
-      num:100,
-      id:2
-    },
-    {
-      title:'星期三',
-      time:'2018-8-20',
-      id:3
-    }
-  ]
-  constructor(public navCtrl: NavController, public navParams: NavParams,public httpServer:HttpProvider) {
-    super(httpServer);
-    // for(let i=0;i<20;i++){
-    //   this.list.push(i);
-    // }
+  search:Search = new Search();
+  list=[];
+  time= 'all';
+  currentSearch = {};
+  constructor(public navCtrl: NavController, public navParams: NavParams,public httpServe:HttpProvider) {
+    super(httpServe);
+    
   }
-  //下拉刷新
+  getData(res){
+    this.search = res;
+    // this.time = res.time;
+    console.log(this.search);
+    this.httpServe.request({url:'/news/search.json',type:'post',params:this.search,params2:{time:'all'}},(res)=>{
+     // this.list = res.data.list;
+      this.closeRefreshAndInfinite();
+      if(res.data.size!=0){
+        for(let i in res.data.list){
+          this.list.push(res.data.list[i]);
+        }
+        console.log(this.list)
+        this.notMoreScroll();
+      }
+      this.search.isNextPage = res.data.size>=this.search.limit;
+    })
+  }
+    /**
+   * 下拉刷新
+   * @param refresher 
+   */
   doRefresh(refresher){
     this.refresher = refresher;
     if(!this.httpServer.isEmpty(this.infiniteScroll)){
       this.infiniteScroll.enable(true);
     }
+    this.search.isNextPage = true;
+    this.search.pageNumber = 1;
+    if(this.search.isNextPage){
+      this.list = [];
+      this.getData(this.search);
+    }
   }
-  delete(id){
-    this.list.splice(id, 1)
+
+  //加载更多
+  doInfinite(infiniteScroll){
+    this.infiniteScroll = infiniteScroll;
+    if(this.search.isNextPage){
+      this.search.pageNumber+=1;
+      this.getData(this.search);
+    }else{
+      this.notMoreScroll();
+    }
+  }
+
+  delete(itemId,key){
+    console.log(itemId,key)
+    this.httpServe.request({url:'/news/remove.json',type:'get',params:{id:itemId}},(res)=>{
+      if(res.code === '200'){
+        this.list.splice(key, 1)
+        this.httpServe.successToast(res.msg);
+      }else{
+        this.httpServe.errorToast(res.msg);
+      }
+     })
+    
   }
   todetailsPage(){
     this.navCtrl.push(DetailsPage)
   }
-  getData(res){
-    console.log(res);
+  ionViewDidLoad() {
+    this.getData(this.search);
   }
+
+ 
 }
