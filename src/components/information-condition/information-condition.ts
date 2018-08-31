@@ -28,6 +28,7 @@ export class InformationConditionComponent {
   // 其他
   other = '';
   tagName = ''
+  isCheckedAll= false
   @Output()confirmCall = new EventEmitter();
   constructor(public httpServe:HttpProvider) {
     for(let i=1;i<=10;i++){
@@ -95,6 +96,22 @@ export class InformationConditionComponent {
       this.screening.column = array;
     }else if(this.currentChoice === 'tag'){
       this.selectTags = array;
+    }
+  }
+
+ // 全选
+  checkedAll(){
+    console.log(32)
+    this.isCheckedAll = !this.isCheckedAll
+    if (this.isCheckedAll) {
+      // 全选时
+      this.screening.column = []
+      for(let i=0;i<this.columns.length;i++){
+        this.screening.column.push(this.columns[i].itemText)
+      }
+      console.log(this.screening.column)
+    } else {
+      this.screening.column = []
     }
   }
 
