@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FileDetailPage } from '../file-detail/file-detail';
+import { HttpProvider } from '../../providers/http/http';
 
 /**
  * 文档页面
@@ -12,7 +13,7 @@ import { FileDetailPage } from '../file-detail/file-detail';
 })
 export class FilePage {
   list = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public httpServee: HttpProvider) {
     for(let i=0;i<10;i++){
       this.list.push(i);
     }
@@ -27,7 +28,7 @@ export class FilePage {
    * @param res 条件
    */
   getData(res){
-    console.log(res);
+    // this.httpServee.request({url:'/'})
   }
 
 

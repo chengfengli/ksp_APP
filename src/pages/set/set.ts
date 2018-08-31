@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController,App, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { LoginPage } from '../login/login';
 
@@ -13,7 +13,7 @@ import { LoginPage } from '../login/login';
 })
 export class SetPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public httpServe: HttpProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public httpServe: HttpProvider,public app: App) {
   }
 
   ionViewDidLoad() {
@@ -25,7 +25,7 @@ export class SetPage {
    */
   logout(){
     this.httpServe.confim('确定退出当前账号？',(res)=>{
-      this.navCtrl.setRoot(LoginPage);
+      this.app.getActiveNav().push(LoginPage)
     });
   }
 }

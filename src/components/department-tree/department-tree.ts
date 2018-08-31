@@ -26,10 +26,6 @@ export class DepartmentTreeComponent {
         this.potions.data = res.data;
         this.tree = new YnTree(document.getElementById("tree"), this.potions);
       })
-      
-      // for(let i =0;i<this.selectDeps.length;i++){
-      //   this.tree.select(this.selectDeps[i],true);
-      // }
     },100);
   }
 
