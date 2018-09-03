@@ -79,4 +79,21 @@ export class FileMePage extends BasePage {
   fileDetail(){
     this.navCtrl.push(FileDetailPage);
   }
+
+  /**
+   * 删除文档
+   */
+  delete(id){
+    this.httpServe.request({url:'/doc/remove.json',type:'get',params:{id:id}},(res)=>{
+      this.httpServe.successToast(res.msg,()=>{
+        let i=0
+        for(;i<this.list.length;i++){
+          if(this.list[i].id===id){
+            break;
+          }
+        }
+        this.list.splice(i,1);
+      });
+    })
+  }
 }
