@@ -19,84 +19,8 @@
     </ion-refresher-content>
   </ion-refresher>
   <ion-searchbar placeholder="请输入搜索的内容" class="searchInput"></ion-searchbar> 
-  <file-condetion (confirmCall)="getData($event)"></file-condetion>
+  <file-condetion (confirmCall)="getDataByCondetion($event)"></file-condetion>
   <ion-list class="data">
-    <!-- <ion-item-sliding>
-      <ion-item (click)="fileDetail()">
-        <div class="file-titel">
-          <img class="icon-pic" src="../../assets/imgs/word.png">
-          <div class="txt font16 font-dark">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
-        </div>
-        <div class="explain font14 font-gray">
-          <span class="user">张三</span>
-          <span class="download">79下载</span>
-          <span class="time">8小时前</span>
-        </div>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="danger" (click)="delete(key)">
-          <ion-icon name="trash"></ion-icon>
-          删除
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding>
-      <ion-item>
-        <div class="file-titel">
-          <img class="icon-pic" src="../../assets/imgs/Excel.png">
-          <div class="txt font16 font-dark">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
-        </div>
-        <div class="explain font14 font-gray">
-          <span class="user">张三</span>
-          <span class="download">79下载</span>
-          <span class="time">8小时前</span>
-        </div>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="danger" (click)="delete(key)">
-          <ion-icon name="trash"></ion-icon>
-          删除
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding>
-      <ion-item>
-        <div class="file-titel">
-          <img class="icon-pic" src="../../assets/imgs/PDF.png">
-          <div class="txt font16 font-dark">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
-        </div>
-        <div class="explain font14 font-gray">
-          <span class="user">张三</span>
-          <span class="download">79下载</span>
-          <span class="time">8小时前</span>
-        </div>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="danger" (click)="delete(key)">
-          <ion-icon name="trash"></ion-icon>
-          删除
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding>
-      <ion-item>
-        <div class="file-titel">
-          <img class="icon-pic" src="../../assets/imgs/PPT.png">
-          <div class="txt font16 font-dark">都是发达是的发送到sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
-        </div>
-        <div class="explain font14 font-gray">
-          <span class="user">张三</span>
-          <span class="download">79下载</span>
-          <span class="time">8小时前</span>
-        </div>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="danger" (click)="delete(key)">
-          <ion-icon name="trash"></ion-icon>
-          删除
-        </button>
-      </ion-item-options>
-    </ion-item-sliding> -->
     <ion-item-sliding  *ngFor="let item of list;let key = index">
       <ion-item (click)="fileDetail(item.id)">
         <div class="file-titel">
