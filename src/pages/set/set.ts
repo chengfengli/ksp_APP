@@ -25,6 +25,7 @@ export class SetPage {
    */
   logout(){
     this.httpServe.confim('确定退出当前账号？',(res)=>{
+      this.httpServe.storageRemove('token');
       this.app.getActiveNav().push(LoginPage)
     });
   }
