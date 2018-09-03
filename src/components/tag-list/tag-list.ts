@@ -65,7 +65,6 @@ export class TagListComponent {
   }
   // 点击标签
   selectTagEvent(item) {
-    console.log(item)
     if(item.color==='#000'){
       item.color = '#ff6600'
     }else{
