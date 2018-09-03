@@ -8,6 +8,13 @@ tag-list {
     }
     .col{
         text-align: center;
+        border:1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    .active{
+        background: $fontprimary;
+        color:#fff;
+        border:1px solid $fontprimary;
     }
     .add-tag{
         border:1px solid #eee;

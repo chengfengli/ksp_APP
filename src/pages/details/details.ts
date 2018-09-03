@@ -18,7 +18,7 @@ export class DetailsPage {
   tags = [];
   id = '';
   detailsCon = {}
-  flag = {collectIs: true}
+  flag = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController,public alertCtrl: AlertController,public httpServe:HttpProvider,
   public socialSharing: SocialSharing) {
@@ -30,7 +30,7 @@ export class DetailsPage {
   defaultEvent(){
     this.httpServe.request({url:'/news/oneNews.json',type:'get',params:{id:this.id}},(res)=>{
       this.detailsCon = res.data.news;
-      this.flag = res.data;
+      this.flag =res.data.collectIs;
      })
   }
   //接收tags值
@@ -47,6 +47,7 @@ export class DetailsPage {
       this.httpServe.request({url:'/news/collect.json',type:'get',params:{newsId:this.id, tagIds:this.tags}},(res)=>{
         if(res.code==='200'){
           this.httpServe.successToast(res.msg);
+          this.flag = true;
         }else{
           this.httpServe.errorToast(res.msg);
         }
@@ -55,12 +56,13 @@ export class DetailsPage {
   }
   //判断是否显示tags弹框
   showTagEvent(){
-    if(this.flag.collectIs == true){
+    if(this.flag == true){
       this.tags = [];
       // 取消收藏
       this.httpServe.request({url:'/news/collect.json',type:'get',params:{newsId:this.id, tagIds:this.tags}},(res)=>{
         if(res.code==='200'){
           this.httpServe.successToast(res.msg);
+          this.flag = false;
         }else{
           this.httpServe.errorToast(res.msg);
         }
