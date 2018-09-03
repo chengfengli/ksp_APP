@@ -18,7 +18,7 @@
       </ion-item> -->
       <ion-item *ngFor="let item of columns ">
         <ion-label>{{item.itemText}}</ion-label>
-        <ion-checkbox [checked]="search.column.indexOf(item.id)!=-1" (ionChange)="select(search.column,item.id)" item-end></ion-checkbox>
+        <ion-checkbox [checked]="search.column.indexOf(item.itemText)!=-1" (ionChange)="select(search.column,item.itemText)" item-end></ion-checkbox>
       </ion-item>
     </ion-list>
     <ion-grid class="btn-box">

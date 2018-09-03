@@ -18,5 +18,5 @@ export class News extends Page{
     replaceStr: String = null;
     creatorName: String = null;
     modifierName: String = null;
-    tags: Array<String> = [''];
+    tags: String = null;
 }

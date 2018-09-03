@@ -4,6 +4,7 @@ import { HttpProvider } from '../../providers/http/http';
 import { Camera } from '@ionic-native/camera';
 import { News } from '../../entity/news/news';
 import { User } from '../../entity/user/user';
+import { InfomationlistPage } from '../infomationlist/infomationlist';
 
 /**
  * 发布资讯
@@ -46,9 +47,10 @@ export class ReleaseinfoPage {
       this.httpServe.errorToast('请输入资讯内容');
       return false;
     }else{
-      this.httpServe.request({url:'/news/create.json',params:this.news,params2:{tags:this.tagsId}},(res)=>{
+      this.httpServe.request({url:'/news/create.json',type:'post',params:this.news},(res)=>{
         if(res.code==='200'){
           this.httpServe.successToast('提交成功')
+          this.navCtrl.push(InfomationlistPage)
         }else{
           this.httpServe.errorToast(res.msg);
         }
@@ -71,7 +73,7 @@ export class ReleaseinfoPage {
       this.news.column = '';
       this.selectcolumn =''
     }else{
-      this.news.column = res.id;
+      this.news.column = res.itemText;
       this.selectcolumn = res.itemText
     }
   }
@@ -82,10 +84,13 @@ export class ReleaseinfoPage {
   // 接收tags值
   getTag(res){
     this.showTag = false;
+   // 清空
+    this.news.tags = '';
+    this.selectTags = '';
     if(res.length > 0){
       res.forEach(item => {
-        this.news.tags.push(item.id);
-        this.tagsId += item.id+ ','
+        this.news.tags += item.tagName+ ','
+        // this.tagsId += item.id+ ','
         this.selectTags +=item.tagName+ ','
       },this);
     }

@@ -90,6 +90,7 @@ export class InformationConditionComponent {
     if(this.currentChoice === 'column'){
       this.isCheckedAll = this.search.column.length===this.columns.length;
       this.search.column = array;
+      console.log(this.search.column)
     }else if(this.currentChoice === 'tag'){
       this.search.tagId = array;
     }

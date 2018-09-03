@@ -21,7 +21,7 @@
   <div class="message-list">
     <ion-list>
       <ion-item-sliding  *ngFor="let item of list;let key = index">
-        <ion-item class='item-msg' (click)="todetailsPage()">
+        <ion-item class='item-msg' (click)="todetailsPage(item.id)">
           <!-- <div item-end class="msg-pic">
             <img src="assets/imgs/05.jpg">
           </div>
