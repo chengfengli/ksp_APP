@@ -31,7 +31,12 @@ export class MyApp {
             }
           }
         }).catch(err=>{
-          alert('异常：'+JSON.stringify(err))
+          alert('异常：'+JSON.stringify(err));
+          if(httpServe.isEmpty(token)){
+            this.rootPage = LoginPage;
+          }else{
+            this.rootPage = TabsPage;
+          }
         })
       });
     });

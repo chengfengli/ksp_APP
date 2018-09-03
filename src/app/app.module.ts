@@ -45,6 +45,7 @@ import { FileDetailPage } from '../pages/file-detail/file-detail';
 import { CommentPage } from '../pages/comment/comment';
 import { InformationAddPage } from '../pages/information-add/information-add';
 
+import { SocialSharing } from '@ionic-native/social-sharing';
 @NgModule({
   declarations: [
     MyApp,
@@ -121,8 +122,8 @@ import { InformationAddPage } from '../pages/information-add/information-add';
   ],
   providers: [
     StatusBar,
-    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,FilePath,WebIntent,
+    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,FilePath,WebIntent,SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-  ]
+  ],
 })
 export class AppModule {}

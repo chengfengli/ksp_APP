@@ -36,7 +36,6 @@ export class InfomationlistPage  extends BasePage{
         for(let i in res.data.list){
           this.list.push(res.data.list[i]);
         }
-        console.log(this.list)
         this.notMoreScroll();
       }
       this.search.isNextPage = res.data.size>=this.search.limit;
