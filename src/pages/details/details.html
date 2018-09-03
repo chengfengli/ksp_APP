@@ -10,16 +10,14 @@
 
 
 <ion-content padding>
-  <h2 class='title font16'>12个房价上涨的趋势成都高新区区天府软件园B区</h2>
+  <h2 class='title font16'>{{detailsCon.name}}</h2>
   <ul class='lable-list clearfix'>
-    <li>房产信息</li>
-    <li>大数据</li>
-    <li>物联网</li>
+    <li>{{detailsCon.column}}</li>
   </ul>
   <div class="resource">
-    <span>大数据</span>
-    <span>新华网</span>
-    <span>2018-8-23</span>
+    <span>{{detailsCon.creatorName}}</span>
+    <span>{{detailsCon.sourceSite}}</span>
+    <span>{{detailsCon.createTime | dataFormat}}</span>
   </div>
   <div class="details-con font14">
     我们今天的主要内容是。。。。。

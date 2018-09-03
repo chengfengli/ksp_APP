@@ -27,6 +27,7 @@ export class InfomationlistPage  extends BasePage{
   getData(res){
     this.search = res;
     // this.time = res.time;
+    this.list = [];
     console.log(this.search);
     this.httpServe.request({url:'/news/search.json',type:'post',params:this.search,params2:{time:'all'}},(res)=>{
      // this.list = res.data.list;
@@ -81,8 +82,9 @@ export class InfomationlistPage  extends BasePage{
      })
     
   }
-  todetailsPage(){
-    this.navCtrl.push(DetailsPage)
+  //点击进入详情页
+  todetailsPage(itemId){
+    this.navCtrl.push(DetailsPage,{id:itemId})
   }
   ionViewDidLoad() {
     this.getData(this.search);
