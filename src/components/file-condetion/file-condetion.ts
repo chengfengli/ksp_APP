@@ -38,7 +38,6 @@ export class FileCondetionComponent {
     this.httpServe.request({url:'/common/searchColumn.json'},(res)=>{
       this.columns = res.data;
     })
-    
   }
 
   /**
@@ -51,6 +50,22 @@ export class FileCondetionComponent {
   }
 
   /**
+   * 重置
+   */
+  reset(){
+    switch(this.currentChoice){
+      case 'column':
+        this.selectColumns = [];
+      case 'tag':
+        this.selectTags = [];
+      case 'date':
+        this.date = 'all';
+      case 'format':
+        this.format = '';
+    }
+  }
+
+  /**
    * 确定
    */
   confim(){
@@ -59,12 +74,6 @@ export class FileCondetionComponent {
     let search:Search = new Search();
     search.column = this.selectColumns;
     search.tagId = this.selectTags;
-    var res = {
-      column: this.selectColumns,
-      tag: this.selectTags,
-      date: this.date,
-      format: this.format
-    }
     this.confirmCall.emit(search);
   }
 

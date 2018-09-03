@@ -14,13 +14,13 @@
   <div class="plan" *ngIf="currentChoice=='column'">
     <ion-list no-lines>
       <ion-item *ngFor="let item of columns">
-        <ion-label>{{item.itemText}}</ion-label>
-        <ion-checkbox [checked]="selectColumns.indexOf(item.itemText)!=-1" (ionChange)="select(selectColumns,item.itemText)" item-end></ion-checkbox>
+        <ion-label (click)="select(selectColumns,item.itemText)">{{item.itemText}}</ion-label>
+        <img *ngIf="selectColumns.indexOf(item.itemText)!=-1" class="checked-img" src="../../assets/imgs/checked.png" item-end>
       </ion-item>
     </ion-list>
     <ion-grid class="btn-box">
       <ion-row class="font-dark" style="text-align:center;">
-        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col (click)="reset()" class="reset"><div>重置</div></ion-col>
         <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
       </ion-row>
     </ion-grid>
@@ -30,13 +30,13 @@
   <div class="plan" *ngIf="currentChoice=='tag'">
     <ion-list no-lines>
       <ion-item *ngFor="let item of tags">
-          <ion-label>{{item.tagName}}</ion-label>
-          <ion-checkbox [checked]="selectTags.indexOf(item.id)!=-1" (ionChange)="select(selectTags,item.id)" item-end></ion-checkbox>
+          <ion-label (click)="select(selectTags,item.id)">{{item.tagName}}</ion-label>
+          <img *ngIf="selectTags.indexOf(item.id)!=-1" class="checked-img" src="../../assets/imgs/checked.png" item-end>
         </ion-item>
     </ion-list>
     <ion-grid class="btn-box">
       <ion-row class="font-dark" style="text-align:center;">
-        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col (click)="reset()" class="reset"><div>重置</div></ion-col>
         <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
       </ion-row>
     </ion-grid>
@@ -63,7 +63,7 @@
     </ion-list>
     <ion-grid class="btn-box">
       <ion-row class="font-dark" style="text-align:center;">
-        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col (click)="reset()" class="reset"><div>重置</div></ion-col>
         <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
       </ion-row>
     </ion-grid>
@@ -87,7 +87,7 @@
     </ion-list>
     <ion-grid class="btn-box">
       <ion-row class="font-dark" style="text-align:center;">
-        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col (click)="reset()" class="reset"><div>重置</div></ion-col>
         <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
       </ion-row>
     </ion-grid>

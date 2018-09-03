@@ -22,6 +22,10 @@ export class FileMePage extends BasePage {
     this.getData(this.search);
   }
 
+  getDataByCondetion(res){
+    this.list = [];
+    this.getData(res);
+  }
   
   /**
    * 查询数据
