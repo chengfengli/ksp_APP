@@ -27,6 +27,9 @@ page-details {
             margin-left: 0.8333rem;
             color:#fff;
         }
+        .active{
+            color:#5ce5c7 !important;
+        }
     }
     .title{
         line-height: 2rem;
@@ -63,6 +66,7 @@ page-details {
         margin-bottom: 20px;
         font-size: 14px;
         text-indent: 2rem;
+        overflow: hidden;
     }
     .img-list{
         height:200px;

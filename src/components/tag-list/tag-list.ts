@@ -60,7 +60,6 @@ export class TagListComponent {
         
       }
     }
-    console.log(this.selectTags);
     this.confirm.emit(this.selectTags);
   }
   // 点击标签

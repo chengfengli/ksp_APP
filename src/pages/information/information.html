@@ -19,7 +19,7 @@
 
   
   <ion-list>
-    <ion-item *ngFor="let item of list;let key = index" (click)="todetailsPage()">
+    <ion-item *ngFor="let item of list;let key = index" (click)="todetailsPage(item.id)">
       <div style="display:flex;">
         <div style="flex: 1;">
           <div class="title font16">{{item.name}}</div>
