@@ -32,8 +32,14 @@ information-condition {
             .active{
                 color: $fontprimary;
             }
-            ion-label{
-                font-size: 14px;
+            .item-block{
+                min-height: auto;
+                ion-label{
+                    font-size: 14px;
+                }
+                .checked-img{
+                    width: 1.2rem;
+                }
             }
         }
         .btn-box{

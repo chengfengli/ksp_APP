@@ -53,6 +53,22 @@ export class InformationConditionComponent {
     this.height = '100%';
     this.currentChoice = type;
   }
+ /**
+   * 重置
+   */
+  reset(){
+    switch(this.currentChoice){
+      case 'column':
+      this.search.column = [];
+      case 'tag':
+      this.search.tagId = [];
+      case 'date':
+        this.time = 'all';
+      case 'more':
+        this.search.sort = 'currentTime'
+        this.search.order = null
+    }
+  }
 
   /**
    * 确定
@@ -88,7 +104,7 @@ export class InformationConditionComponent {
       array.push(val);
     }
     if(this.currentChoice === 'column'){
-      this.isCheckedAll = this.search.column.length===this.columns.length;
+     // this.isCheckedAll = this.search.column.length===this.columns.length;
       this.search.column = array;
       console.log(this.search.column)
     }else if(this.currentChoice === 'tag'){

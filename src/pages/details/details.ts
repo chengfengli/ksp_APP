@@ -29,6 +29,7 @@ export class DetailsPage {
   defaultEvent(){
     this.httpServe.request({url:'/news/oneNews.json',type:'get',params:{id:this.id}},(res)=>{
       console.log(res)
+      debugger;
       this.detailsCon = res.data.news;
      })
   }

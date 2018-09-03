@@ -74,7 +74,11 @@ export class HttpProvider {
     this.http.get(option.url+this.encode(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
       .subscribe(res=>{
         loading.dismiss();
-        success(res);
+        if(res.code=='200'){
+          success(res);
+        }else{
+          this.errorToast(res.msg);
+        }
       },err=>{
         loading.dismiss();
         this.handleError(err);

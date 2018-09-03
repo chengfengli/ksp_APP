@@ -17,13 +17,13 @@
         <ion-checkbox item-end [(ngModel)]="isCheckedAll" (click)='checkedAll()'></ion-checkbox>
       </ion-item> -->
       <ion-item *ngFor="let item of columns ">
-        <ion-label>{{item.itemText}}</ion-label>
-        <ion-checkbox [checked]="search.column.indexOf(item.itemText)!=-1" (ionChange)="select(search.column,item.itemText)" item-end></ion-checkbox>
+        <ion-label (click)="select(search.column,item.itemText)">{{item.itemText}}</ion-label>
+        <img *ngIf="search.column.indexOf(item.itemText)!=-1" class="checked-img" src="../../assets/imgs/checked.png" item-end>
       </ion-item>
     </ion-list>
     <ion-grid class="btn-box">
       <ion-row class="font-dark" style="text-align:center;">
-        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col class="reset" (click)="reset()" ><div>重置</div></ion-col>
         <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
       </ion-row>
     </ion-grid>
@@ -32,18 +32,18 @@
   <!-- 标签 -->
   <div class="plan" *ngIf="currentChoice=='tag'">
     <ion-list no-lines>
-      <ion-item>
+      <!-- <ion-item>
         <ion-label>全部</ion-label>
         <ion-checkbox item-end></ion-checkbox>
-      </ion-item>
+      </ion-item> -->
       <ion-item *ngFor="let item of tags">
-          <ion-label>{{item.tagName}}</ion-label>
-          <ion-checkbox [checked]="search.tagId.indexOf(item.id)!=-1" (ionChange)="select(search.tagId,item.id)" item-end></ion-checkbox>
-        </ion-item>
+        <ion-label (click)="select(search.tagId,item.id)">{{item.tagName}}</ion-label>
+        <img *ngIf="search.tagId.indexOf(item.id)!=-1" class="checked-img" src="../../assets/imgs/checked.png" item-end>
+      </ion-item>
     </ion-list>
     <ion-grid class="btn-box">
       <ion-row class="font-dark" style="text-align:center;">
-        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col class="reset" (click)="reset()" ><div>重置</div></ion-col>
         <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
       </ion-row>
     </ion-grid>
@@ -70,7 +70,7 @@
     </ion-list>
     <ion-grid class="btn-box">
       <ion-row class="font-dark" style="text-align:center;">
-        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col class="reset" (click)="reset()" ><div>重置</div></ion-col>
         <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
       </ion-row>
     </ion-grid>
@@ -88,7 +88,7 @@
     </ion-list>
     <ion-grid class="btn-box">
       <ion-row class="font-dark" style="text-align:center;">
-        <ion-col class="reset"><div>重置</div></ion-col>
+        <ion-col class="reset" (click)="reset()" ><div>重置</div></ion-col>
         <ion-col (click)="confim()" class="confim"><div>确定</div></ion-col>
       </ion-row>
     </ion-grid>
