@@ -21,7 +21,6 @@ export class MyApp {
         webIntent.getIntent().then((res)=>{
           let clipItems = res.clipItems;
           if(clipItems){
-            alert(JSON.stringify(res))
             this.rootPage = InformationAddPage;
           }else{
             if(httpServe.isEmpty(token)){
@@ -31,11 +30,10 @@ export class MyApp {
             }
           }
         }).catch(err=>{
-          alert('异常：'+JSON.stringify(err));
           if(httpServe.isEmpty(token)){
             this.rootPage = LoginPage;
           }else{
-            this.rootPage = InformationAddPage;
+            this.rootPage = TabsPage;
           }
         })
       });

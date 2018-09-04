@@ -39,6 +39,7 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+  <not-data *ngIf="list.length===0"></not-data>
 
   <!-- 加载更多 -->
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="100px">

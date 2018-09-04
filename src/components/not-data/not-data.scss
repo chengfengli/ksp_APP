@@ -1,0 +1,17 @@
+not-data {
+    .not-data{
+        height: 100%;
+        .not-data-box{
+            position: relative;
+            top: 45%;
+            text-align: center;
+            width: 100%;
+            .not-data-ico{
+                width: 4rem;
+            }
+            p{
+                color: $fontprimary;
+            }
+        }
+    }
+}
