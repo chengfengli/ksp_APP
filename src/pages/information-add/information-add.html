@@ -1,22 +1,22 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>资讯详情</ion-title>
+    <ion-title>资讯分享</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h2 class='title font16'>标题</h2>
-  <ul class='lable-list clearfix'>
-    <li>栏目</li>
+  <h2 class='title font16'  *ngIf="shareMsg!=null">{{shareMsg.name}}</h2>
+  <ul class='lable-list clearfix'  *ngIf="shareMsg!=null">
+    <li>{{shareMsg.column}}</li>
   </ul>
-  <div class="resource">
-    <span>作者</span>
-    <span>来源</span>
-    <span>时间</span>
+  <div class="resource"  *ngIf="shareMsg!=null">
+    <span>{{shareMsg.creatorName}}</span>
+    <span>{{shareMsg.sourceSite}}</span>
+    <span>{{shareMsg.modifyTime | dataFormat}}</span>
   </div>
-  <div class="details-con font14" >
+  <div class="details-con font14" [innerHTML]="shareMsg.content"  *ngIf="shareMsg!=null">
     我们今天的主要内容是。。。。。
   </div>
   <!-- <div class="img-list">

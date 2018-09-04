@@ -11,7 +11,8 @@ import { HttpProvider } from '../../providers/http/http';
   templateUrl: 'information-add.html',
 })
 export class InformationAddPage {
-  url = 'https://mp.weixin.qq.com/s/TeKk6y6Ra86uPn62XUhRkw';
+  url = 'https://mp.weixin.qq.com/s/Q7Hm1gzr54KGko9FEwLb0A';
+  shareMsg: {}
   constructor(public navCtrl: NavController, public navParams: NavParams,public webIntent:WebIntent,public httpServe:HttpProvider) {
     // webIntent.getIntent().then((res)=>{
     //   let clipItems = res.clipItems;
@@ -28,7 +29,9 @@ export class InformationAddPage {
   }
   defaultEvent(){
     this.httpServe.request({url:'/common/wechatShare.json',type:'get',params:{url:this.url}},(res)=>{
-     console.log(res)
+    
+        this.shareMsg = res.data
+      console.log(this.shareMsg)
      })
   }
 }
