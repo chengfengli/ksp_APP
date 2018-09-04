@@ -35,7 +35,7 @@ export class MyApp {
           if(httpServe.isEmpty(token)){
             this.rootPage = LoginPage;
           }else{
-            this.rootPage = TabsPage;
+            this.rootPage = InformationAddPage;
           }
         })
       });
