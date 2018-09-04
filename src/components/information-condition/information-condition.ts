@@ -113,15 +113,26 @@ export class InformationConditionComponent {
 
  // 全选
   checkedAll(){
-    if(this.isCheckedAll){
-      this.search.column = [];
-      for(let i=0;i<this.columns.length;i++){
-        this.search.column.push(this.columns[i].id)
+    this.isCheckedAll = !this.isCheckedAll
+    if(this.currentChoice === 'column'){
+      if(this.isCheckedAll){
+        this.search.column = [];
+        for(let i=0;i<this.columns.length;i++){
+          this.search.column.push(this.columns[i].itemText)
+        }
+      }else{
+        this.search.column = [];
       }
-    }else{
-      this.search.column = [];
+    }else if(this.currentChoice === 'tag'){
+      if(this.isCheckedAll){
+        this.search.tagId = [];
+        for(let i=0;i<this.tags.length;i++){
+          this.search.tagId.push(this.tags[i].id)
+        }
+      }else{
+        this.search.tagId = [];
+      }
     }
-    console.log(this.search.column);
   }
 
   /**
