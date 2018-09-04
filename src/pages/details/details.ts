@@ -31,6 +31,7 @@ export class DetailsPage {
     this.httpServe.request({url:'/news/oneNews.json',type:'get',params:{id:this.id}},(res)=>{
       this.detailsCon = res.data.news;
       this.flag =res.data.collectIs;
+      console.log(43)
      })
   }
   //接收tags值

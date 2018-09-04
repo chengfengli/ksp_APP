@@ -74,7 +74,7 @@ export class HttpProvider {
     this.http.get(option.url+this.encode(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
       .subscribe(res=>{
         loading.dismiss();
-        if(res.code===200){
+        if(parseInt(res.code)===200){
           success(res);
         }else{
           this.errorToast(res.msg);
@@ -91,7 +91,7 @@ export class HttpProvider {
     this.http.post(option.url+this.encode(option.params2),JSON.stringify(option.params),{headers :this.headers}).map(res=>res.json()) //返回数据转换成json
         .subscribe(res=>{
           loading.dismiss();
-          if(res.code==='200'){
+          if(parseInt(res.code)===200){
             success(res);
           }else{
             this.errorToast(res.msg);
