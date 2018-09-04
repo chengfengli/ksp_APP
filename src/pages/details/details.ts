@@ -23,18 +23,14 @@ export class DetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController,public alertCtrl: AlertController,public httpServe:HttpProvider,
   public socialSharing: SocialSharing) {
     this.id = this.navParams.get('id')
-   
   }
   ionViewDidLoad() {
     this.defaultEvent();
-    console.log(this.id)
   }
   defaultEvent(){
-    console.log('32')
     this.httpServe.request({url:'/news/oneNews.json',type:'get',params:{id:this.id}},(res)=>{
       this.detailsCon = res.data.news;
       this.flag =res.data.collectIs;
-      console.log(res)
      })
   }
   //接收tags值
