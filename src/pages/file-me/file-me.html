@@ -28,12 +28,12 @@
           <div class="txt font16 font-dark">{{item.documentName}}</div>
         </div>
         <div class="explain font14 font-gray">
-          <span class="download">79下载</span>
+          <span class="download">（{{item.collectionNumber}}）收藏</span>
           <span class="time">{{item.createTime | dataFormat}}</span>
         </div>
       </ion-item>
       <ion-item-options side="right">
-        <button ion-button color="danger" (click)="delete(item.id)">
+        <button ion-button color="danger" (click)="delete(item.id,item.shareId)">
           <ion-icon name="trash-o"></ion-icon>删除
         </button>
       </ion-item-options>

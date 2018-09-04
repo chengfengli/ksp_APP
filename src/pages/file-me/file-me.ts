@@ -83,8 +83,8 @@ export class FileMePage extends BasePage {
   /**
    * 删除文档
    */
-  delete(id){
-    this.httpServe.request({url:'/doc/remove.json',type:'get',params:{id:id}},(res)=>{
+  delete(id,shareId){
+    this.httpServe.request({url:'/doc/remove.json',type:'get',params:{id:id,shareId:shareId}},(res)=>{
       this.httpServe.successToast(res.msg,()=>{
         let i=0
         for(;i<this.list.length;i++){
