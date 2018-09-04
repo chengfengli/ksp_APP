@@ -12,10 +12,10 @@
   <!-- 栏目条件 -->
   <div class="plan" *ngIf="currentChoice=='column'">
     <ion-list no-lines>
-      <!-- <ion-item>
-        <ion-label>全部</ion-label>
-        <ion-checkbox item-end [(ngModel)]="isCheckedAll" (click)='checkedAll()'></ion-checkbox>
-      </ion-item> -->
+      <ion-item>
+        <ion-label (click)="checkedAll()">全部</ion-label>
+        <img class="checked-img" src="../../assets/imgs/checked.png" item-end  *ngIf="search.column.length === columns.length" >
+      </ion-item>
       <ion-item *ngFor="let item of columns ">
         <ion-label (click)="select(search.column,item.itemText)">{{item.itemText}}</ion-label>
         <img *ngIf="search.column.indexOf(item.itemText)!=-1" class="checked-img" src="../../assets/imgs/checked.png" item-end>
@@ -32,10 +32,10 @@
   <!-- 标签 -->
   <div class="plan" *ngIf="currentChoice=='tag'">
     <ion-list no-lines>
-      <!-- <ion-item>
-        <ion-label>全部</ion-label>
-        <ion-checkbox item-end></ion-checkbox>
-      </ion-item> -->
+      <ion-item>
+        <ion-label (click)="checkedAll()">全部</ion-label>
+        <img class="checked-img" src="../../assets/imgs/checked.png" item-end  *ngIf="search.tagId.length === tags.length" >
+      </ion-item>
       <ion-item *ngFor="let item of tags">
         <ion-label (click)="select(search.tagId,item.id)">{{item.tagName}}</ion-label>
         <img *ngIf="search.tagId.indexOf(item.id)!=-1" class="checked-img" src="../../assets/imgs/checked.png" item-end>
