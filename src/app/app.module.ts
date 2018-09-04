@@ -7,6 +7,7 @@ import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath } from '@ionic-native/file-path';
+import { WebIntent } from '@ionic-native/web-intent';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -42,6 +43,8 @@ import { SetPage } from '../pages/set/set';
 import { Camera } from '@ionic-native/camera';
 import { FileDetailPage } from '../pages/file-detail/file-detail';
 import { CommentPage } from '../pages/comment/comment';
+import { InformationAddPage } from '../pages/information-add/information-add';
+
 import { SocialSharing } from '@ionic-native/social-sharing';
 @NgModule({
   declarations: [
@@ -70,7 +73,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     InstructionsPage,
     MycollectionPage,
     FileDetailPage,
-    CommentPage
+    CommentPage,
+    InformationAddPage
   ],
   imports: [
     BrowserModule,
@@ -113,11 +117,12 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     InstructionsPage,
     MycollectionPage,
     FileDetailPage,
-    CommentPage
+    CommentPage,
+    InformationAddPage
   ],
   providers: [
     StatusBar,
-    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,FilePath,SocialSharing,
+    SplashScreen,HttpProvider,Network,FileTransfer, FileTransferObject,File,FileChooser,Camera,FilePath,WebIntent,SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ],
 })
